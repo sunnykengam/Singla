@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Bharath\\FinelCode\\AppCode\\Singla Projects\\PickandCheck\\Checking\\Checking\\Checking.Android\\Checking.Android.csproj": {}
+    "C:\\GitNew\\Singla\\Singla\\PickandCheck\\Checking\\Checking\\Checking.Android\\Checking.Android.csproj": {}
   },
   "projects": {
-    "D:\\Bharath\\FinelCode\\AppCode\\Singla Projects\\PickandCheck\\Checking\\Checking\\Checking.Android\\Checking.Android.csproj": {
+    "C:\\GitNew\\Singla\\Singla\\PickandCheck\\Checking\\Checking\\Checking.Android\\Checking.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Bharath\\FinelCode\\AppCode\\Singla Projects\\PickandCheck\\Checking\\Checking\\Checking.Android\\Checking.Android.csproj",
+        "projectUniqueName": "C:\\GitNew\\Singla\\Singla\\PickandCheck\\Checking\\Checking\\Checking.Android\\Checking.Android.csproj",
         "projectName": "Checking.Android",
-        "projectPath": "D:\\Bharath\\FinelCode\\AppCode\\Singla Projects\\PickandCheck\\Checking\\Checking\\Checking.Android\\Checking.Android.csproj",
+        "projectPath": "C:\\GitNew\\Singla\\Singla\\PickandCheck\\Checking\\Checking\\Checking.Android\\Checking.Android.csproj",
         "packagesPath": "C:\\Users\\BHARATH BADISA\\.nuget\\packages\\",
-        "outputPath": "D:\\Bharath\\FinelCode\\AppCode\\Singla Projects\\PickandCheck\\Checking\\Checking\\Checking.Android\\obj\\",
+        "outputPath": "C:\\GitNew\\Singla\\Singla\\PickandCheck\\Checking\\Checking\\Checking.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -34,8 +34,8 @@
         "frameworks": {
           "monoandroid10.0": {
             "projectReferences": {
-              "D:\\Bharath\\FinelCode\\AppCode\\Singla Projects\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj": {
-                "projectPath": "D:\\Bharath\\FinelCode\\AppCode\\Singla Projects\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj"
+              "C:\\GitNew\\Singla\\Singla\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj": {
+                "projectPath": "C:\\GitNew\\Singla\\Singla\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj"
               }
             }
           }
@@ -72,14 +72,14 @@
         }
       }
     },
-    "D:\\Bharath\\FinelCode\\AppCode\\Singla Projects\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj": {
+    "C:\\GitNew\\Singla\\Singla\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Bharath\\FinelCode\\AppCode\\Singla Projects\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj",
+        "projectUniqueName": "C:\\GitNew\\Singla\\Singla\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj",
         "projectName": "Checking",
-        "projectPath": "D:\\Bharath\\FinelCode\\AppCode\\Singla Projects\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj",
+        "projectPath": "C:\\GitNew\\Singla\\Singla\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj",
         "packagesPath": "C:\\Users\\BHARATH BADISA\\.nuget\\packages\\",
-        "outputPath": "D:\\Bharath\\FinelCode\\AppCode\\Singla Projects\\PickandCheck\\Checking\\Checking\\Checking\\obj\\",
+        "outputPath": "C:\\GitNew\\Singla\\Singla\\PickandCheck\\Checking\\Checking\\Checking\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

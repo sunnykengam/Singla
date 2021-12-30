@@ -3053,11 +3053,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Bharath\\FinelCode\\AppCode\\Singla Projects\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj",
+      "projectUniqueName": "C:\\GitNew\\Singla\\Singla\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj",
       "projectName": "Checking",
-      "projectPath": "D:\\Bharath\\FinelCode\\AppCode\\Singla Projects\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj",
+      "projectPath": "C:\\GitNew\\Singla\\Singla\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj",
       "packagesPath": "C:\\Users\\BHARATH BADISA\\.nuget\\packages\\",
-      "outputPath": "D:\\Bharath\\FinelCode\\AppCode\\Singla Projects\\PickandCheck\\Checking\\Checking\\Checking\\obj\\",
+      "outputPath": "C:\\GitNew\\Singla\\Singla\\PickandCheck\\Checking\\Checking\\Checking\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

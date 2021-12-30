@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w/8u4ljNRYgwlSDXJKWlOr74E8Ui583/stJ/QjVEyFdi+zFVAYWvvTyocg9/PRJ3+ZsCQ5U2wphnIwI5OgkSwg==",
+  "dgSpecHash": "eSbZcmPyQZWKZ1R6qgcHD26G8V0o5/aJvPym1CX0Oxwh92L8l1c2cIQtWdmjvZWdgOQoUfUpwrcPbV0amS+/FQ==",
   "success": true,
-  "projectFilePath": "D:\\Bharath\\FinelCode\\AppCode\\Singla Projects\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj",
+  "projectFilePath": "C:\\GitNew\\Singla\\Singla\\PickandCheck\\Checking\\Checking\\Checking\\Checking.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BHARATH BADISA\\.nuget\\packages\\acr.userdialogs\\7.1.0.481\\acr.userdialogs.7.1.0.481.nupkg.sha512",
     "C:\\Users\\BHARATH BADISA\\.nuget\\packages\\exiflib.pcl\\1.0.2-pre01\\exiflib.pcl.1.0.2-pre01.nupkg.sha512",
