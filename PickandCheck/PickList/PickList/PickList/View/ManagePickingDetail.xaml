@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PickList.View.ManagePickingDetail"
+              xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             xmlns:conv1="clr-namespace:PickList.View.Converters"
+             xmlns:Lart="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:controls="clr-namespace:PickList.Renders"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Margin="10,10,10,10" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Horizontal" >
+                    <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Vertical">
+                        <Label Text="Welcome To Singla Medicos " TextColor="Black" HorizontalOptions="Center" FontSize="Large"  />
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Hi.." TextColor="Black" HorizontalOptions="Center" FontSize="Large"  />
+                            <Label x:Name="custname" Text="{Binding LoginName}" TextColor="Blue" HorizontalOptions="Center" FontSize="Large"  />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Spacing="10" >
+                        <controls:FontAwesome x:Name="Refresh"  FontSize="40"  TextColor="Blue" VerticalOptions="CenterAndExpand"  HorizontalOptions="EndAndExpand" Text="{x:Static controls:Icon.FARefresh}" >
+                            <controls:FontAwesome.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CustomerDetailRefreshCommand}"   NumberOfTapsRequired="1"/>
+                            </controls:FontAwesome.GestureRecognizers>
+                        </controls:FontAwesome>
+                        <ContentView VerticalOptions="CenterAndExpand" Margin="0,0,5,0">
+                            <RelativeLayout x:Name="relabox">
+                                <controls:FontAwesome x:Name="yellowBoxView"  FontSize="40"  TextColor="Blue" VerticalOptions="CenterAndExpand"  HorizontalOptions="EndAndExpand" Text="{x:Static controls:Icon.FABell}" >
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer  Command="{Binding UnPickedclickCommand}" NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Frame x:Name="unpickCount" BackgroundColor="White"  BorderColor="WhiteSmoke"   WidthRequest="29"  HeightRequest="22" CornerRadius="6" Padding="0" 
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,Property=Y,
+                                   ElementName=yellowBoxView,Factor=2,Constant=1}"
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,Property=X,
+                                   ElementName=yellowBoxView,Factor=9,Constant=20}">
+                                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"  FontSize="Medium"
+                               TextColor="Red" Text="{Binding UnPickedCount}"  x:Name="labelunpickcount" >
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding UnPickedclickCommand}" NumberOfTapsRequired="1"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </Frame>
+                                <RelativeLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding UnPickedclickCommand}" NumberOfTapsRequired="1"/>
+                                </RelativeLayout.GestureRecognizers>
+                            </RelativeLayout>
+                        </ContentView>
+                        <controls:FontAwesome x:Name="Logout"  FontSize="40"  TextColor="Blue" VerticalOptions="CenterAndExpand"  HorizontalOptions="EndAndExpand" Text="{x:Static controls:Icon.FASignOut}" >
+                            <controls:FontAwesome.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding LogoutClickedCommand}" NumberOfTapsRequired="1"/>
+                            </controls:FontAwesome.GestureRecognizers>
+                        </controls:FontAwesome>
+                    </StackLayout>
+                </StackLayout>
+                <dg:DataGrid x:Name="datagrid" ItemsSource="{Binding CustomerList}" IsVisible="{Binding datagridIsVisible}"  SelectionEnabled="True" SelectedItem="{Binding SelectedTeam}"
+						 RowHeight="70"  HeaderHeight="50" BorderColor="#CCCCCC" HeaderBackground="#21CE99" ActiveRowColor="WhiteSmoke" >
+                    <x:Arguments>
+                        <ListViewCachingStrategy>RetainElement</ListViewCachingStrategy>
+                    </x:Arguments>
+                    <dg:DataGrid.HeaderFontSize>
+                        <OnIdiom  x:TypeArguments="x:Double">
+                            <OnIdiom.Tablet>15</OnIdiom.Tablet>
+                            <OnIdiom.Phone>12</OnIdiom.Phone>
+                        </OnIdiom>
+                    </dg:DataGrid.HeaderFontSize>
+                    <dg:DataGrid.Columns>
+                        <dg:DataGridColumn Title="s.no" HorizontalContentAlignment="Center" Width="0.65*" >
+                            <dg:DataGridColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Label BackgroundColor="{Binding rowcolor}" Text="{Binding Sno}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </DataTemplate>
+                            </dg:DataGridColumn.CellTemplate>
+                        </dg:DataGridColumn>
+                        <dg:DataGridColumn Title="Invnum" PropertyName="Invnum" HorizontalContentAlignment="StartAndExpand" Width="1*"/>
+                        <dg:DataGridColumn Title="Custcode" PropertyName="custcode" HorizontalContentAlignment="StartAndExpand" Width="0.9*"/>
+                        <dg:DataGridColumn Title="Custname" PropertyName="custname" Width="1.6*" HorizontalContentAlignment="StartAndExpand" />
+                        <dg:DataGridColumn Title="InvDate" PropertyName="invdt"   Width="1*" HorizontalContentAlignment="StartAndExpand"/>
+                        <dg:DataGridColumn Title="Lines" PropertyName="NoofLines" Width="0.8*" />
+                        <dg:DataGridColumn Title="Tag"  SortingEnabled="False" Width="0.8*">
+                            <dg:DataGridColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Clicked="GetBtn_Clicked" Text="Get" FontSize="Micro" TextColor="White" BackgroundColor="#17a2b8" HorizontalOptions="Center" VerticalOptions="Center"    WidthRequest="45"  HeightRequest="35"/>
+                                </DataTemplate>
+                            </dg:DataGridColumn.CellTemplate>
+                        </dg:DataGridColumn>
+                    </dg:DataGrid.Columns>
+                    <dg:DataGrid.RowsBackgroundColorPalette>
+                        <dg:PaletteCollection>
+                            <Color>#F2F2F2</Color>
+                            <Color>#F2F2F2</Color>
+                        </dg:PaletteCollection>
+                    </dg:DataGrid.RowsBackgroundColorPalette>
+                    <dg:DataGrid.Resources>
+                        <ResourceDictionary>
+                            <conv1:StreakToColorConverter x:Key="StreakToColorConverter"/>
+                        </ResourceDictionary>
+                    </dg:DataGrid.Resources>
+                </dg:DataGrid>
+            </StackLayout>
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="{Binding ProgressBarPopupVisble}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="1" WidthRequest="250" HeightRequest="85" >
+                        <Label x:Name="lblLoadingText" TextColor="Green" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Please Wait..."/>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

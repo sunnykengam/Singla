@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PickList.View.Detailpage"
+              xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             xmlns:Lart="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+              xmlns:conv1="clr-namespace:PickList.View.Converters"
+             xmlns:customContentView="clr-namespace:PickList.View"
+             xmlns:controls="clr-namespace:PickList.Renders"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout  Orientation="Horizontal" Margin="10,3,0,0"  HeightRequest="70">
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="InvDt :"  TextColor="Black" FontSize="Small"/>
+                            <Label Text="" x:Name="invoicedate"   TextColor="Black" FontSize="Small"/>
+                            <Label Text="CustCode :" Margin="20,0,0,0"  TextColor="Black" FontSize="Small"/>
+                            <Label Text="" x:Name="lblCustCode"  TextColor="Black" FontSize="Small"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Checker:"  TextColor="Black" FontSize="Small"/>
+                                <Label x:Name="lblcheckname1" Text=""  TextColor="Black" FontSize="Small"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="CustName:"  TextColor="Black" FontSize="Small"/>
+                            <Label x:Name="lblcustname" Text=""  TextColor="Black" FontSize="Small"/>
+                            <Label Text="Invnum :" TextColor="Black" FontSize="Micro" VerticalTextAlignment="Center"/>
+                            <Label x:Name="lblinvnum" FontAttributes="Bold" VerticalTextAlignment="Center"  Text="" TextColor="Black" FontSize="Small"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="10" Margin="10,0,10,0" >
+                        <controls:FontAwesome x:Name="holdbtn"  FontSize="40"  TextColor="#160993" VerticalOptions="CenterAndExpand"  HorizontalOptions="EndAndExpand" Text="{x:Static controls:Icon.FAPause}" >
+                            <controls:FontAwesome.GestureRecognizers>
+                                <TapGestureRecognizer  Tapped="Hold_Clicked" NumberOfTapsRequired="1"/>
+                            </controls:FontAwesome.GestureRecognizers>
+                        </controls:FontAwesome>
+                        <controls:FontAwesome x:Name="nxtbtn"  FontSize="35"  IsVisible="False"  TextColor="#160993" VerticalOptions="CenterAndExpand"  HorizontalOptions="EndAndExpand" Text="{x:Static controls:Icon.FAArrowRight}" >
+                            <controls:FontAwesome.GestureRecognizers>
+                                <TapGestureRecognizer  Tapped="Continue_Clicked" NumberOfTapsRequired="1"/>
+                            </controls:FontAwesome.GestureRecognizers>
+                        </controls:FontAwesome>
+                        <ContentView VerticalOptions="CenterAndExpand" Margin="0,0,5,0">
+                            <RelativeLayout x:Name="relabox">
+                                <controls:FontAwesome x:Name="yellowBoxView"  FontSize="40"  TextColor="#160993" VerticalOptions="CenterAndExpand"  HorizontalOptions="EndAndExpand" Text="{x:Static controls:Icon.FABell}" >
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer  Tapped="BtnUnpicked_Clicked" NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Frame x:Name="unpickCount" BackgroundColor="White"  BorderColor="WhiteSmoke"   WidthRequest="29"  HeightRequest="22" CornerRadius="6" Padding="0" 
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,Property=Y,
+                                   ElementName=yellowBoxView,Factor=2,Constant=1}"
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,Property=X,
+                                   ElementName=yellowBoxView,Factor=9,Constant=20}">
+                                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"  FontSize="Medium"
+                               TextColor="Red"  x:Name="labelunpickcount" >
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="BtnUnpicked_Clicked" NumberOfTapsRequired="1"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </Frame>
+                                <RelativeLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="BtnUnpicked_Clicked" NumberOfTapsRequired="1"/>
+                                </RelativeLayout.GestureRecognizers>
+                            </RelativeLayout>
+                        </ContentView>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Spacing="8" IsVisible="false" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <StackLayout x:Name="Office" Orientation="Horizontal" >
+                        <Label BackgroundColor="#EE82EE" HeightRequest="15" WidthRequest="15"/>
+                        <Label Text="Office Items" TextColor="Black" FontSize="Small"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Office_Tapped" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <StackLayout x:Name="ColdRoom" Orientation="Horizontal" >
+                        <Label BackgroundColor="#DC143C" HeightRequest="15" WidthRequest="15"/>
+                        <Label Text="Cold Room" TextColor="Black" FontSize="Small"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ColdRoom_Tapped" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <StackLayout x:Name="Injections"  Orientation="Horizontal" >
+                        <Label BackgroundColor="#FFD700" HeightRequest="15" WidthRequest="15"/>
+                        <Label Text="Injections" TextColor="Black" FontSize="Small"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Injections_Tapped" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <StackLayout x:Name="Syrups" Orientation="Horizontal" >
+                        <Label BackgroundColor="#00FA9A" HeightRequest="15" WidthRequest="15"/>
+                        <Label Text="Syrups" TextColor="Black" FontSize="Small"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Syrups_Tapped" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <StackLayout x:Name="Powders" Orientation="Horizontal" >
+                        <Label BackgroundColor="#F4A460" HeightRequest="15" WidthRequest="15"/>
+                        <Label Text="Powders" TextColor="Black" FontSize="Small"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Powders_Tapped" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <StackLayout x:Name="Drops" Orientation="Horizontal" >
+                        <Label BackgroundColor="#00FFFF" HeightRequest="15" WidthRequest="15"/>
+                        <Label Text="Drops" TextColor="Black" FontSize="Small"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Drops_Tapped" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </StackLayout>
+                    <dg:DataGrid x:Name="datagrid"  ItemsSource="{Binding Listitems}" Margin="7,0,7,0" SelectionEnabled="True" SelectedItem="{Binding SelectedTeam}"
+						RowHeight="45"  HeaderHeight="50"  FontSize="16" BorderColor="#CCCCCC" HeaderBackground="#21CE99" 
+						 ActiveRowColor="#F5F5F5">
+                        <x:Arguments>
+                            <ListViewCachingStrategy>RetainElement</ListViewCachingStrategy>
+                        </x:Arguments>
+                    <dg:DataGrid.HeaderFontSize>
+                        <OnIdiom  x:TypeArguments="x:Double">
+                            <OnIdiom.Tablet>15</OnIdiom.Tablet>
+                            <OnIdiom.Phone>12</OnIdiom.Phone>
+                        </OnIdiom>
+                    </dg:DataGrid.HeaderFontSize>
+                    <dg:DataGrid.Columns>
+                            <dg:DataGridColumn Title="S.no"  Width="0.6*" >
+                                <dg:DataGridColumn.CellTemplate >
+                                    <DataTemplate>
+                                        <Label BackgroundColor="{Binding rowcolor}" FontSize="Medium" FontAttributes="Bold" Text="{Binding sno}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                    </DataTemplate>
+                                </dg:DataGridColumn.CellTemplate>
+                            </dg:DataGridColumn>
+                            <dg:DataGridColumn Title="Location"  Width="0.9*" >
+                                <dg:DataGridColumn.CellTemplate >
+                                    <DataTemplate>
+                                        <Label  Text="{Binding Location}"  FontSize="16" FontAttributes="Bold"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                    </DataTemplate>
+                                </dg:DataGridColumn.CellTemplate>
+                            </dg:DataGridColumn>
+                            <dg:DataGridColumn Title="Item Name"  Width="2.1*" >
+                                <dg:DataGridColumn.CellTemplate >
+                                    <DataTemplate>
+                                        <Label  Text="{Binding Itemname}"  FontSize="16" TextColor="Transparent" FontAttributes="Bold" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                    </DataTemplate>
+                                </dg:DataGridColumn.CellTemplate>
+                            </dg:DataGridColumn>
+                            <dg:DataGridColumn Title="Pack" Width="0.6*">
+                                <dg:DataGridColumn.CellTemplate >
+                                    <DataTemplate>
+                                        <Label  Text="{Binding Pack}"  FontSize="16" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                    </DataTemplate>
+                                </dg:DataGridColumn.CellTemplate>
+                            </dg:DataGridColumn>
+                            <dg:DataGridColumn Title="QTY"   Width="0.6*">
+                                <dg:DataGridColumn.CellTemplate >
+                                    <DataTemplate>
+                                        <Label  Text="{Binding Qty}" FontSize="16" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                    </DataTemplate>
+                                </dg:DataGridColumn.CellTemplate>
+                            </dg:DataGridColumn>
+                            <dg:DataGridColumn Title="Tag" HorizontalContentAlignment="CenterAndExpand" Width="0.6*" SortingEnabled="False">
+                                <dg:DataGridColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Lart:CheckBox CheckedChanged="CheckBox_CheckedChanged"   FontSize="40" Checked="{Binding Ischecked}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                                    </DataTemplate>
+                                </dg:DataGridColumn.CellTemplate>
+                            </dg:DataGridColumn>
+
+                        </dg:DataGrid.Columns>
+                        <dg:DataGrid.RowsBackgroundColorPalette>
+                            <dg:PaletteCollection>
+                                <Color>#F2F2F2</Color>
+                                <Color>#F2F2F2</Color>
+                            </dg:PaletteCollection>
+                        </dg:DataGrid.RowsBackgroundColorPalette>
+                        <dg:DataGrid.Resources>
+
+                            <ResourceDictionary>
+
+                                <conv1:StreakToColorConverter x:Key="StreakToColorConverter"/>
+                            </ResourceDictionary>
+                        </dg:DataGrid.Resources>
+                    </dg:DataGrid>
+                <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="10,10,10,10">
+                    <Button x:Name="submit" Text="Next" HeightRequest="40" WidthRequest="150" HorizontalOptions="CenterAndExpand" 
+                                    BackgroundColor="#17a2b8" FontSize="Medium" BorderRadius="5"  TextColor="White"
+                                   Clicked="submit_Clicked"/>
+                </StackLayout>
+                <StackLayout x:Name="stkchecker" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" IsVisible="False">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Checker Name:" FontSize="30" TextColor="Black" FontAttributes="Bold"/>
+                        <Label x:Name="lblcheckername" FontSize="30" TextColor="Black" FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Branch Name:" FontSize="30" TextColor="Black" FontAttributes="Bold"/>
+                        <Label x:Name="lblbranchname" FontSize="30" TextColor="Black" FontAttributes="Bold"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <ContentView x:Name="unpick" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Frame CornerRadius="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="White" HeightRequest="150">
+                    <StackLayout  Spacing="20" Orientation="Vertical"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label Text="Are you sure? Do you want to remove" FontSize="Large" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                        <StackLayout  Spacing="10" Orientation="Horizontal"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <StackLayout Orientation="Horizontal"  BackgroundColor="ForestGreen" HeightRequest="40" WidthRequest="150" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                                <controls:FontAwesome x:Name="CheckYes" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  FontSize="25" FontAttributes="None"  TextColor="White"  Text="{x:Static controls:Icon.FACheck}" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="CheckYes_Tapped"  NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" BackgroundColor="Red" HeightRequest="40" WidthRequest="150" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                <controls:FontAwesome x:Name="CheckNo"  FontSize="25" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  FontAttributes="None"  TextColor="White"  Text="{x:Static controls:Icon.FAUnCkeck}" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="CheckNo_Tapped"  NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </ContentView>
+            <ContentView x:Name="BasketLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="White" WidthRequest="300" HeightRequest="150" Margin="10,10,10,10">
+                    <StackLayout Margin="10,20,0,0" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <StackLayout Margin="0,0,0,0" Orientation="Horizontal" >
+                            <Label Text="Basket No    :  " HorizontalTextAlignment="End"  TextColor="Black" FontSize="Medium"/>
+                            <Entry x:Name="BasketNo" BackgroundColor="Transparent" TextChanged="BasketNo_TextChanged"
+                                   Keyboard="Numeric" Margin="0,0,0,20" HeightRequest="50" WidthRequest="120" TextColor="Blue"/>
+                        </StackLayout>
+                        <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="End" >
+                            <Button  x:Name="finished" Text="Ok" Clicked="Finished_Clicked"   BackgroundColor="#17a2b8" FontSize="Medium" WidthRequest="120" HeightRequest="40" Margin="10,0,0,0"  TextColor="White"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Frame CornerRadius="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="White" WidthRequest="130" HeightRequest="35">
+                    <Label x:Name="lblLoadingText" TextColor="Green" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Small"  VerticalTextAlignment="Center" Text="Please Wait...."/>
+                </Frame>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

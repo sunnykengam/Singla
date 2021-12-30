@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid" xmlns:conv1="clr-namespace:PickList.View.Converters"
+             x:Class="PickList.View.CheckerDetail"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout>
+                    <!--<Label Text="Checker Assign" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" FontAttributes="Bold"  TextColor="Red" FontSize="Medium"/>-->
+                    <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Label Text="Branch Name:" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
+                        <Label x:Name="lblbranchname" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
+                    </StackLayout>
+                </StackLayout>
+                <!--<dg:DataGrid x:Name="lblcheckerdetail" VerticalOptions="StartAndExpand"   Margin="20,0,20,0" SelectionEnabled="True" 
+						RowHeight="45"  HeaderHeight="50" IsSortable="False"  FontSize="16" BorderColor="#CCCCCC" HeaderBackground="#21CE99" 
+						 ActiveRowColor="#F5F5F5">
+                    <x:Arguments>
+                        <ListViewCachingStrategy>RetainElement</ListViewCachingStrategy>
+                    </x:Arguments>
+                    <dg:DataGrid.HeaderFontSize>
+                        <OnIdiom  x:TypeArguments="x:Double">
+                            <OnIdiom.Tablet>15</OnIdiom.Tablet>
+                            <OnIdiom.Phone>12</OnIdiom.Phone>
+                        </OnIdiom>
+                    </dg:DataGrid.HeaderFontSize>
+                    <dg:DataGrid.Columns>
+                        <dg:DataGridColumn Title="CheckerId"  Width="1.5*" >
+                            <dg:DataGridColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Label  FontSize="Medium" FontAttributes="Bold" Text="{Binding CheckerId}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </DataTemplate>
+                            </dg:DataGridColumn.CellTemplate>
+                        </dg:DataGridColumn>
+                        <dg:DataGridColumn Title="CheckerName"  Width="3.2*" >
+                            <dg:DataGridColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Label  Text="{Binding CheckerName}"  Margin="20,0,0,0" FontSize="16" FontAttributes="Bold"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                </DataTemplate>
+                            </dg:DataGridColumn.CellTemplate>
+                        </dg:DataGridColumn>
+                        <dg:DataGridColumn Title="Total"  Width="2*" >
+                            <dg:DataGridColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Label  Text="{Binding TotalBlocks}"  Margin="20,0,0,0" FontSize="16" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </DataTemplate>
+                            </dg:DataGridColumn.CellTemplate>
+                        </dg:DataGridColumn>
+                        <dg:DataGridColumn Title="Compleated"  Width="2*" >
+                            <dg:DataGridColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Label  Text="{Binding CompleatedBlocks}"  Margin="20,0,0,0" FontSize="16" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </DataTemplate>
+                            </dg:DataGridColumn.CellTemplate>
+                        </dg:DataGridColumn>
+                        <dg:DataGridColumn Title="Pending"  Width="2*" >
+                            <dg:DataGridColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Label  Text="{Binding PendingBlocks}"  Margin="20,0,0,0" FontSize="16" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </DataTemplate>
+                            </dg:DataGridColumn.CellTemplate>
+                        </dg:DataGridColumn>
+                        <dg:DataGridColumn Title="Assign" HorizontalContentAlignment="CenterAndExpand" Width="1.5*" SortingEnabled="False">
+                            <dg:DataGridColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Text="Tag"  WidthRequest="60" HeightRequest="30" Margin="0,5,0,5" HorizontalOptions="Center" Clicked="Button_Clicked" FontSize="Micro" BackgroundColor="#17a2b8"  TextColor="White"/>
+                                </DataTemplate>
+                            </dg:DataGridColumn.CellTemplate>
+                        </dg:DataGridColumn>
+                    </dg:DataGrid.Columns>
+                    <dg:DataGrid.RowsBackgroundColorPalette>
+                        <dg:PaletteCollection>
+                            <Color>#F2F2F2</Color>
+                            <Color>#F2F2F2</Color>
+                        </dg:PaletteCollection>
+                    </dg:DataGrid.RowsBackgroundColorPalette>
+                    <dg:DataGrid.Resources>
+                        <ResourceDictionary>
+                            <conv1:StreakToColorConverter x:Key="StreakToColorConverter"/>
+                        </ResourceDictionary>
+                    </dg:DataGrid.Resources>
+                </dg:DataGrid>-->
+                <StackLayout x:Name="stcksubmit" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  Margin="0,10,0,10">
+                    <!--<StackLayout Orientation="Horizontal"  >
+                        <Label Text="CheckerName : " FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                        <Label x:Name="lblcheckername" FontSize="Large" FontAttributes="Bold"  TextColor="Black"/>
+                    </StackLayout>-->
+                    <Button x:Name="submit" Text="Logout" WidthRequest="150" HeightRequest="45" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"  BackgroundColor="#17a2b8"  FontSize="Medium" BorderRadius="5"  TextColor="White"
+                            Clicked="Logout_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <Frame  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="White" CornerRadius="10" WidthRequest="180" HeightRequest="50">
+                        <Label x:Name="lblLoadingText" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Small" VerticalTextAlignment="Center" Text="Please Wait..."/>
+                    </Frame>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

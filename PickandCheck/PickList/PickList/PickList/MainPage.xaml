@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PickList"
+             xmlns:local1="clr-namespace:PickList.Renderer"
+             xmlns:controls="clr-namespace:PickList.Renders"
+             x:Class="PickList.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="Loginbgmi.jpg">
+    <ContentPage.Content>
+            <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout  VerticalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="480" />
+                        <RowDefinition Height="1000" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                        <local1:GradientColorStack Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" StartColor="#337FE3" EndColor="#584DC3"/>
+                    <Frame Grid.ColumnSpan="2"  CornerRadius="180" BackgroundColor="White" VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" HorizontalOptions="CenterAndExpand">
+                        <controls:FontAwesome x:Name="imgProfile" FontSize="150"   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAUser}" TextColor="#4468D6"/>
+                    </Frame>
+                    <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"   BackgroundColor="White">
+                        <Frame BackgroundColor="White" Margin="60,-55,60,0" BorderColor="WhiteSmoke"  CornerRadius="10" HasShadow="True"  HeightRequest="300">
+                            <StackLayout  VerticalOptions="StartAndExpand">
+                                <Label Text="Login" TextColor="Gray" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Large"/>
+                                <StackLayout Margin="10,30,0,0" Spacing="2" Orientation="Vertical"  >
+                                    <Label FontSize="Medium" Margin="0,10,0,0" FontAttributes="Bold" Text="UserName : " TextColor="#4369D6" />
+                                    <Entry x:Name="entryusername" Completed="Entryusername_Completed" Keyboard="Numeric" Margin="0,0,10,0"  HeightRequest="50" BackgroundColor="Transparent" TextColor="Black"/>
+                                </StackLayout>
+                                <StackLayout Margin="10,5,0,0" Spacing="2" Orientation="Vertical" >
+                                    <Label FontSize="Medium"  Margin="0,10,0,0"  FontAttributes="Bold"  Text="Password : " TextColor="#4369D6" />
+                                    <Entry x:Name="entrypassword" Keyboard="Numeric" Completed="Entrypassword_Completed" IsPassword="True" Margin="0,0,10,0" HeightRequest="50" BackgroundColor="Transparent" TextColor="Black"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Button x:Name="submit" CornerRadius="25"  Margin="0,-35,0,0"  Text="Login" HeightRequest="60" BorderColor="WhiteSmoke"  TextColor="White" WidthRequest="280" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" BackgroundColor="#426BD7" FontSize="Medium" Clicked="submit_Clicked"/>
+                        <StackLayout Orientation="Horizontal" Margin="0,60,10,0" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
+                            <Label Text="Version No :" TextColor="Black" HorizontalOptions="EndAndExpand" FontSize="Medium"  />
+                            <Label x:Name="lblversion" TextColor="Black" HorizontalOptions="EndAndExpand" FontSize="Medium"  />
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+                <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <Frame  VerticalOptions="CenterAndExpand" CornerRadius="10" HorizontalOptions="CenterAndExpand" BackgroundColor="White" WidthRequest="200" HeightRequest="60">
+                        <Label x:Name="lblLoadingText" TextColor="Green" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Small" VerticalTextAlignment="Center" Text="Please Wait..."/>
+                    </Frame>
+                </ContentView>
+            </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Esdata_SMPPLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Esdata_SMPPLEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="App_Picking_CheckingAssign">
+      <Parameter Name="Invdt" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="Block" Mode="In" Type="String" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+      <Parameter Name="CheckerId" Mode="In" Type="Int32" />
+      <Parameter Name="CheckerName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Picking_New_CheckerInfo" ReturnType="Collection(Esdata_SMPPLModel.App_Picking_New_CheckerInfo_Result)">
+      <Parameter Name="invdt" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Picking_New_GetPhoneInfo" ReturnType="Collection(Esdata_SMPPLModel.App_Picking_New_GetPhoneInfo_Result)">
+      <Parameter Name="Phoneid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Picking_New_GetPickingDetailList" ReturnType="Collection(Esdata_SMPPLModel.App_Picking_New_GetPickingDetailList_Result)">
+      <Parameter Name="PhoneCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Picking_New_GetPickList" ReturnType="Collection(Esdata_SMPPLModel.App_Picking_New_GetPickList_Result)">
+      <Parameter Name="pickDate" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="PhoneCode" Mode="In" Type="String" />
+      <Parameter Name="Block" Mode="In" Type="String" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Picking_New_GetUnPickingList" ReturnType="Collection(Esdata_SMPPLModel.App_Picking_New_GetUnPickingList_Result)">
+      <Parameter Name="Phoneid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Picking_New_UpdateBasketNo">
+      <Parameter Name="pickDate" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="block" Mode="In" Type="String" />
+      <Parameter Name="basketNo" Mode="In" Type="String" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Picking_New_UpdatePhoneInfo">
+      <Parameter Name="Phoneid" Mode="In" Type="String" />
+      <Parameter Name="LoginStatus" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Picking_New_UpdatePickerEndTime">
+      <Parameter Name="pickDate" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="block" Mode="In" Type="String" />
+      <Parameter Name="EndTime" Mode="In" Type="Time" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Picking_New_UpdatePickerStartTime">
+      <Parameter Name="pickDate" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="block" Mode="In" Type="String" />
+      <Parameter Name="StartTime" Mode="In" Type="Time" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Picking_New_UpdatePickingDetail">
+      <Parameter Name="pickDate" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="block" Mode="In" Type="String" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Picking_New_UpdatePickList">
+      <Parameter Name="Invdt" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="itemId" Mode="In" Type="String" />
+      <Parameter Name="Picked" Mode="In" Type="String" />
+      <Parameter Name="BasketNo" Mode="In" Type="String" />
+      <Parameter Name="PickedTime" Mode="In" Type="Time" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Picking_New_UpdatePickRackStatus">
+      <Parameter Name="pickDate" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="block" Mode="In" Type="String" />
+      <Parameter Name="Racks" Mode="In" Type="String" />
+      <Parameter Name="SlipNum" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="App_Picking_New_UpdateUnPickList">
+      <Parameter Name="Invdt" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="itemId" Mode="In" Type="String" />
+      <Parameter Name="Batchid" Mode="In" Type="String" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="App_Picking_New_CheckerInfo_Result">
+    <Property Type="Int32" Name="CheckerId" Nullable="false" />
+    <Property Type="String" Name="CheckerName" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="TotalBlocks" Nullable="true" />
+    <Property Type="Int32" Name="CompleatedBlocks" Nullable="true" />
+    <Property Type="Int32" Name="PendingBlocks" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="App_Picking_New_GetPhoneInfo_Result">
+    <Property Type="Double" Name="PHONEID" Nullable="true" />
+    <Property Type="String" Name="PHONENAME" Nullable="true" MaxLength="255" />
+    <Property Type="Double" Name="BLOCKID" Nullable="true" />
+    <Property Type="String" Name="BLOCKNAME" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="LoginStatus" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="App_Picking_New_GetPickingDetailList_Result">
+    <Property Type="String" Name="routeid" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Sno" Nullable="false" />
+    <Property Type="String" Name="route" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="custcode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="custname" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="invdt" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="NoofInvoices" Nullable="true" MaxLength="12" />
+    <Property Type="Int32" Name="NoofLines" Nullable="true" />
+    <Property Type="String" Name="pickername" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="checkername" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="phone" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Block" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="custid" Nullable="true" />
+    <Property Type="Int32" Name="ChickerId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="App_Picking_New_GetPickList_Result">
+    <Property Type="Int32" Name="Qty" Nullable="true" />
+    <Property Type="String" Name="Itemname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Pack" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Picked" Nullable="true" MaxLength="4" />
+    <Property Type="Int32" Name="Itemid" Nullable="true" />
+    <Property Type="String" Name="Invnum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="itemcode" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="ITEMCATEGORY" Nullable="true" />
+    <Property Type="String" Name="Invdt" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="CustCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="BasketNo" Nullable="true" MaxLength="55" />
+    <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Block" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="checkername" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ChickerId" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="App_Picking_New_GetUnPickingList_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="custcode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Invdt" Nullable="true" />
+    <Property Type="Decimal" Name="Qty" Nullable="true" Precision="18" Scale="3" />
+    <Property Type="Int32" Name="CustId" Nullable="true" />
+    <Property Type="String" Name="Itemname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Pack" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Invnum" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Itemid" Nullable="true" />
+    <Property Type="Int32" Name="Batchid" Nullable="true" />
+    <Property Type="String" Name="Batch" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="expiry" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="mrp" Nullable="true" Precision="18" Scale="3" />
+    <Property Type="String" Name="itemcode" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="routeid" Nullable="true" />
+    <Property Type="String" Name="route" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Block" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="checkername" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="CheckerId" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Phoneid" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="10" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PickList.View.NotPickedPage"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             xmlns:conv1="clr-namespace:PickList.View.Converters"
+              xmlns:Lart="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:controls="clr-namespace:PickList.Renders"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImage="BackgroundImage.png">
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Horizontal"  HorizontalOptions="CenterAndExpand">
+                    <Label Text="Not PickedList" HorizontalTextAlignment="Center" 
+                                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  
+                                   TextColor="Green" FontAttributes="Bold" FontSize="Medium"/>
+                </StackLayout>
+                <dg:DataGrid x:Name="datagrid"  ItemsSource="{Binding Listitems}" Margin="7,0,7,0" SelectionEnabled="True" SelectedItem="{Binding SelectedTeam}"
+						RowHeight="45"  HeaderHeight="50"  FontSize="16" BorderColor="#CCCCCC" HeaderBackground="#E0E6F8" 
+						 ActiveRowColor="#F5F5F5">
+                    <x:Arguments>
+                        <ListViewCachingStrategy>RetainElement</ListViewCachingStrategy>
+                    </x:Arguments>
+                    <dg:DataGrid.HeaderFontSize>
+                        <OnIdiom  x:TypeArguments="x:Double">
+                            <OnIdiom.Tablet>15</OnIdiom.Tablet>
+                            <OnIdiom.Phone>12</OnIdiom.Phone>
+                        </OnIdiom>
+                    </dg:DataGrid.HeaderFontSize>
+                    <dg:DataGrid.Columns>
+                        <dg:DataGridColumn Title="S.no"  Width="0.6*" >
+                            <dg:DataGridColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Label BackgroundColor="{Binding rowcolor}" FontSize="Medium" FontAttributes="Bold" Text="{Binding sno}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </DataTemplate>
+                            </dg:DataGridColumn.CellTemplate>
+                        </dg:DataGridColumn>
+                        <dg:DataGridColumn Title="Location"  Width="0.9*" >
+                            <dg:DataGridColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Label  Text="{Binding Location}"  FontSize="16" FontAttributes="Bold"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                </DataTemplate>
+                            </dg:DataGridColumn.CellTemplate>
+                        </dg:DataGridColumn>
+                        <dg:DataGridColumn Title="Item Name"  Width="2.1*" >
+                            <dg:DataGridColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Label  Text="{Binding Itemname}"  FontSize="16" TextColor="Transparent" FontAttributes="Bold" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                </DataTemplate>
+                            </dg:DataGridColumn.CellTemplate>
+                        </dg:DataGridColumn>
+                        <dg:DataGridColumn Title="Pack" Width="0.6*">
+                            <dg:DataGridColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Label  Text="{Binding Pack}"  FontSize="16" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </DataTemplate>
+                            </dg:DataGridColumn.CellTemplate>
+                        </dg:DataGridColumn>
+                        <dg:DataGridColumn Title="QTY"   Width="0.6*">
+                            <dg:DataGridColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Label  Text="{Binding Qty}" FontSize="16" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </DataTemplate>
+                            </dg:DataGridColumn.CellTemplate>
+                        </dg:DataGridColumn>
+                        <dg:DataGridColumn Title="Tag" HorizontalContentAlignment="CenterAndExpand" Width="0.6*" SortingEnabled="False">
+                            <dg:DataGridColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Lart:CheckBox CheckedChanged="CheckBox_CheckedChanged"   FontSize="40" Checked="{Binding Ischecked}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                                </DataTemplate>
+                            </dg:DataGridColumn.CellTemplate>
+                        </dg:DataGridColumn>
+
+                    </dg:DataGrid.Columns>
+                    <dg:DataGrid.RowsBackgroundColorPalette>
+                        <dg:PaletteCollection>
+                            <Color>#F2F2F2</Color>
+                            <Color>#F2F2F2</Color>
+                        </dg:PaletteCollection>
+                    </dg:DataGrid.RowsBackgroundColorPalette>
+                    <dg:DataGrid.Resources>
+
+                        <ResourceDictionary>
+
+                            <conv1:StreakToColorConverter x:Key="StreakToColorConverter"/>
+                        </ResourceDictionary>
+                    </dg:DataGrid.Resources>
+                </dg:DataGrid>
+
+                <Button x:Name="submit" WidthRequest="150" HeightRequest="40" Margin="0,10,0,10" Text="Submit"  HorizontalOptions="CenterAndExpand"  BackgroundColor="#17a2b8" 
+                            VerticalOptions="EndAndExpand" FontSize="Medium" TextColor="White" Clicked="Submit_Clicked"/>
+            </StackLayout>
+            <ContentView x:Name="unpick" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Frame CornerRadius="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="White" HeightRequest="150">
+                    <StackLayout  Spacing="20" Orientation="Vertical"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label Text="Are you sure? Do you want to remove" FontSize="Large" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                        <StackLayout  Spacing="10" Orientation="Horizontal"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <StackLayout Orientation="Horizontal"  BackgroundColor="ForestGreen" HeightRequest="40" WidthRequest="150" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                                <controls:FontAwesome x:Name="CheckYes" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  FontSize="25" FontAttributes="None"  TextColor="White"  Text="{x:Static controls:Icon.FACheck}" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="CheckYes_Tapped"  NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" BackgroundColor="Red" HeightRequest="40" WidthRequest="150" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                <controls:FontAwesome x:Name="CheckNo"  FontSize="25" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  FontAttributes="None"  TextColor="White"  Text="{x:Static controls:Icon.FAUnCkeck}" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="CheckNo_Tapped"  NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </ContentView>
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Frame CornerRadius="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="White" WidthRequest="130" HeightRequest="35">
+                    <Label x:Name="lblLoadingText" TextColor="Green" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Small"  VerticalTextAlignment="Center" Text="Please Wait...."/>
+                </Frame>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

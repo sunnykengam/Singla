@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Esdata_SMPPLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SinglaEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="App_Checking_New_GetBatchListByItemId" ReturnType="Collection(Esdata_SMPPLModel.App_Checking_New_GetBatchListByItemId_Result)">
+      <Parameter Name="itemId" Mode="In" Type="Int32" />
+      <Parameter Name="FromDt" Mode="In" Type="DateTime" />
+      <Parameter Name="ToDt" Mode="In" Type="DateTime" />
+      <Parameter Name="Rate" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_GetBatchWiseItem" ReturnType="Collection(Esdata_SMPPLModel.App_Checking_New_GetBatchWiseItem_Result)">
+      <Parameter Name="CustCode" Mode="In" Type="String" />
+      <Parameter Name="InvoiceDate" Mode="In" Type="String" />
+      <Parameter Name="Itemid" Mode="In" Type="Int32" />
+      <Parameter Name="Batch" Mode="In" Type="String" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_GetCheckedDetails" ReturnType="Collection(Esdata_SMPPLModel.App_Checking_New_GetCheckedDetails_Result)">
+      <Parameter Name="CheckerID" Mode="In" Type="Int32" />
+      <Parameter Name="InvDate" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_GetCheckingHoldCount" ReturnType="Collection(Int32)">
+      <Parameter Name="CustCode" Mode="In" Type="String" />
+      <Parameter Name="InvoiceDate" Mode="In" Type="DateTime" />
+      <Parameter Name="block" Mode="In" Type="String" />
+      <Parameter Name="InvNum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_GetCheckList" ReturnType="Collection(Esdata_SMPPLModel.App_Checking_New_GetCheckList_Result)">
+      <Parameter Name="CustCode" Mode="In" Type="String" />
+      <Parameter Name="InvoiceDate" Mode="In" Type="String" />
+      <Parameter Name="block" Mode="In" Type="String" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_GetCustomerInvoiceSummary" ReturnType="Collection(Esdata_SMPPLModel.App_Checking_New_GetCustomerInvoiceSummary_Result)">
+      <Parameter Name="custcode" Mode="In" Type="String" />
+      <Parameter Name="Invdt" Mode="In" Type="String" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_GetEdpStatus">
+      <Parameter Name="custcode" Mode="In" Type="String" />
+      <Parameter Name="Invdt" Mode="In" Type="String" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+      <Parameter Name="EsStatus" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_GetInvoiceNumbers" ReturnType="Collection(String)">
+      <Parameter Name="custcode" Mode="In" Type="String" />
+      <Parameter Name="Invdt" Mode="In" Type="String" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_GetInvoiceNuminAppInvoiceChanges" ReturnType="Collection(Int32)">
+      <Parameter Name="CustCode" Mode="In" Type="String" />
+      <Parameter Name="InvoiceDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_GetInvoiceStatus" ReturnType="Collection(Esdata_SMPPLModel.App_Checking_New_GetInvoiceStatus_Result)">
+      <Parameter Name="custcode" Mode="In" Type="String" />
+      <Parameter Name="Invdt" Mode="In" Type="String" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_GetUserMaster" ReturnType="Collection(Esdata_SMPPLModel.App_Checking_New_GetUserMaster_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_InsertAppInvoiceChanges">
+      <Parameter Name="Invdate" Mode="In" Type="DateTime" />
+      <Parameter Name="Invnum" Mode="In" Type="Int32" />
+      <Parameter Name="custid" Mode="In" Type="Int32" />
+      <Parameter Name="custcode" Mode="In" Type="String" />
+      <Parameter Name="customername" Mode="In" Type="String" />
+      <Parameter Name="itemid" Mode="In" Type="Int32" />
+      <Parameter Name="itemcode" Mode="In" Type="String" />
+      <Parameter Name="itemname" Mode="In" Type="String" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="oldqty" Mode="In" Type="String" />
+      <Parameter Name="newqty" Mode="In" Type="String" />
+      <Parameter Name="oldbatch" Mode="In" Type="String" />
+      <Parameter Name="newbatch" Mode="In" Type="String" />
+      <Parameter Name="Checkername" Mode="In" Type="String" />
+      <Parameter Name="changedatetime" Mode="In" Type="DateTime" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="IsDelete" Mode="In" Type="String" />
+      <Parameter Name="IsStatus" Mode="In" Type="Int32" />
+      <Parameter Name="NewPsrlno" Mode="In" Type="Int32" />
+      <Parameter Name="invType" Mode="In" Type="String" />
+      <Parameter Name="RouteName" Mode="In" Type="String" />
+      <Parameter Name="OldPsrlno" Mode="In" Type="Int32" />
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="FQty" Mode="In" Type="Decimal" />
+      <Parameter Name="NewFQty" Mode="In" Type="Int32" />
+      <Parameter Name="MRP" Mode="In" Type="Decimal" />
+      <Parameter Name="Rate" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_InsertInvoiceChangesToSaleAutomode">
+      <Parameter Name="CustCode" Mode="In" Type="String" />
+      <Parameter Name="InvoiceDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_InsertInvoiceSummary">
+      <Parameter Name="Invdate" Mode="In" Type="DateTime" />
+      <Parameter Name="Checkername" Mode="In" Type="String" />
+      <Parameter Name="routename" Mode="In" Type="String" />
+      <Parameter Name="custcode" Mode="In" Type="String" />
+      <Parameter Name="customername" Mode="In" Type="String" />
+      <Parameter Name="Totalines" Mode="In" Type="Int32" />
+      <Parameter Name="pickedlines" Mode="In" Type="Int32" />
+      <Parameter Name="checkedlines" Mode="In" Type="Int32" />
+      <Parameter Name="pendinglines" Mode="In" Type="Int32" />
+      <Parameter Name="Noofbatchchanges" Mode="In" Type="Int32" />
+      <Parameter Name="Noofqtychangelines" Mode="In" Type="Int32" />
+      <Parameter Name="Noofnillines" Mode="In" Type="Int32" />
+      <Parameter Name="Noofboxes" Mode="In" Type="Int32" />
+      <Parameter Name="Noofpackets" Mode="In" Type="Int32" />
+      <Parameter Name="InvType" Mode="In" Type="String" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_InsertUnPickedItems">
+      <Parameter Name="CustCode" Mode="In" Type="String" />
+      <Parameter Name="CustomerName" Mode="In" Type="String" />
+      <Parameter Name="Invdt" Mode="In" Type="DateTime" />
+      <Parameter Name="Qty" Mode="In" Type="Decimal" />
+      <Parameter Name="CustId" Mode="In" Type="Int32" />
+      <Parameter Name="Itemname" Mode="In" Type="String" />
+      <Parameter Name="Pack" Mode="In" Type="String" />
+      <Parameter Name="Location" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+      <Parameter Name="NewQty" Mode="In" Type="Decimal" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+      <Parameter Name="Itemid" Mode="In" Type="Int32" />
+      <Parameter Name="Batchid" Mode="In" Type="Int32" />
+      <Parameter Name="Batch" Mode="In" Type="String" />
+      <Parameter Name="expiry" Mode="In" Type="String" />
+      <Parameter Name="mrp" Mode="In" Type="Decimal" />
+      <Parameter Name="itemcode" Mode="In" Type="String" />
+      <Parameter Name="routeid" Mode="In" Type="Int32" />
+      <Parameter Name="route" Mode="In" Type="String" />
+      <Parameter Name="Block" Mode="In" Type="String" />
+      <Parameter Name="checkername" Mode="In" Type="String" />
+      <Parameter Name="CheckerId" Mode="In" Type="String" />
+      <Parameter Name="Phoneid" Mode="In" Type="String" />
+      <Parameter Name="PickerName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_UpdateCheckerEndTime">
+      <Parameter Name="pickDate" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="block" Mode="In" Type="String" />
+      <Parameter Name="EndTime" Mode="In" Type="Time" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_UpdateCheckerStartTime">
+      <Parameter Name="pickDate" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="block" Mode="In" Type="String" />
+      <Parameter Name="StartTime" Mode="In" Type="Time" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_UpdateCheckList">
+      <Parameter Name="Invdt" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="itemId" Mode="In" Type="String" />
+      <Parameter Name="Batchid" Mode="In" Type="String" />
+      <Parameter Name="NewQuenty" Mode="In" Type="Decimal" />
+      <Parameter Name="Chicked" Mode="In" Type="String" />
+      <Parameter Name="InvNo" Mode="In" Type="String" />
+      <Parameter Name="Time" Mode="In" Type="Time" />
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="NewFQty" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_UpdateChickingDetail">
+      <Parameter Name="pickDate" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="block" Mode="In" Type="String" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_UpdateItemBatchStatus">
+      <Parameter Name="Invdt" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="itemId" Mode="In" Type="String" />
+      <Parameter Name="Batchid" Mode="In" Type="String" />
+      <Parameter Name="NewQuenty" Mode="In" Type="Decimal" />
+      <Parameter Name="InvNum" Mode="In" Type="String" />
+      <Parameter Name="Time" Mode="In" Type="Time" />
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="NewBatchid" Mode="In" Type="String" />
+      <Parameter Name="NewBatch" Mode="In" Type="String" />
+      <Parameter Name="BatchQty" Mode="In" Type="String" />
+      <Parameter Name="ManualBatch" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_UpdateItemDeleteStatus">
+      <Parameter Name="Invdt" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="itemId" Mode="In" Type="String" />
+      <Parameter Name="Batchid" Mode="In" Type="String" />
+      <Parameter Name="NewQuenty" Mode="In" Type="Decimal" />
+      <Parameter Name="InvNum" Mode="In" Type="String" />
+      <Parameter Name="Time" Mode="In" Type="Time" />
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_UpdateItemQty">
+      <Parameter Name="Invdt" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="itemId" Mode="In" Type="String" />
+      <Parameter Name="Batchid" Mode="In" Type="String" />
+      <Parameter Name="NewQuenty" Mode="In" Type="Decimal" />
+      <Parameter Name="InvNum" Mode="In" Type="String" />
+      <Parameter Name="Time" Mode="In" Type="Time" />
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="NewFQty" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="App_Checking_New_UpdateUnpick">
+      <Parameter Name="Invdt" Mode="In" Type="String" />
+      <Parameter Name="custCode" Mode="In" Type="String" />
+      <Parameter Name="itemId" Mode="In" Type="String" />
+      <Parameter Name="Batchid" Mode="In" Type="String" />
+      <Parameter Name="Invnum" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="App_Checking_New_GetBatchListByItemId_Result">
+    <Property Type="Int32" Name="itemid" Nullable="false" />
+    <Property Type="String" Name="itemcode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="itemname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="pack" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="batch" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="expiry" Nullable="true" MaxLength="5" />
+    <Property Type="Decimal" Name="qty" Nullable="true" Precision="18" Scale="3" />
+    <Property Type="Double" Name="Rate" Nullable="true" />
+    <Property Type="Double" Name="MRP" Nullable="true" />
+    <Property Type="Int32" Name="batchid" Nullable="false" />
+    <Property Type="String" Name="Scheme" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="App_Checking_New_GetBatchWiseItem_Result">
+    <Property Type="String" Name="CustCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Invdt" Nullable="true" Precision="16" />
+    <Property Type="Decimal" Name="Qty" Nullable="true" Precision="18" Scale="3" />
+    <Property Type="Int32" Name="CustId" Nullable="true" />
+    <Property Type="String" Name="Itemname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Pack" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="4" />
+    <Property Type="Decimal" Name="NewQty" Nullable="true" Precision="18" Scale="3" />
+    <Property Type="String" Name="Picked" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="Invnum" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Itemid" Nullable="true" />
+    <Property Type="Int32" Name="Batchid" Nullable="true" />
+    <Property Type="String" Name="Batch" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="expiry" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="mrp" Nullable="true" Precision="18" Scale="3" />
+    <Property Type="String" Name="Chicked" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="itemcode" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="routeid" Nullable="true" />
+    <Property Type="String" Name="route" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Block" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="isqty" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="isbatch" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="isdelete" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="checkername" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ChickerId" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Phoneid" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ItemStatus" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="BasketNo" Nullable="true" MaxLength="55" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="isUnpick" Nullable="true" MaxLength="2" />
+    <Property Type="Int32" Name="ITEMCATEGORY" Nullable="true" />
+    <Property Type="String" Name="ISADMINUNPICK" Nullable="true" MaxLength="5" />
+    <Property Type="DateTime" Name="CREATIONDATE" Nullable="true" Precision="16" />
+    <Property Type="String" Name="InvType" Nullable="true" MaxLength="3" />
+    <Property Type="Decimal" Name="rate" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Time" Name="pickedtime" Nullable="true" />
+    <Property Type="Time" Name="checkedtime" Nullable="true" />
+    <Property Type="String" Name="Finalised" Nullable="true" MaxLength="1" />
+    <Property Type="Int32" Name="AssignById" Nullable="true" />
+    <Property Type="String" Name="AssignBy" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="PicklistType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RackNumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PickListNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SlipNum" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="FQty" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="NewFqty" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="Newbatchid" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="NewBatch" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="chlntype" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="chlnnum" Nullable="true" />
+    <Property Type="DateTime" Name="chlndate" Nullable="true" Precision="16" />
+    <Property Type="String" Name="ManualBatch" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="BatchQty" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="App_Checking_New_GetCheckedDetails_Result">
+    <Property Type="Int32" Name="ChickerId" Nullable="true" />
+    <Property Type="String" Name="checkername" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="custid" Nullable="true" />
+    <Property Type="String" Name="custcode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="custname" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="Invnum" Nullable="true" />
+    <Property Type="String" Name="routeid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="route" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Block" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Picked" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="Checked" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="pickerid" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="pickername" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="basketNo" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="phone" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="App_Checking_New_GetCheckList_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="CustId" Nullable="true" />
+    <Property Type="String" Name="CustCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Invdt" Nullable="true" Precision="16" />
+    <Property Type="String" Name="Itemname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Pack" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="4" />
+    <Property Type="Decimal" Name="Qty" Nullable="true" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="NewQty" Nullable="true" Precision="18" Scale="3" />
+    <Property Type="String" Name="Picked" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="Invnum" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Itemid" Nullable="true" />
+    <Property Type="String" Name="itemcode" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="Batchid" Nullable="true" />
+    <Property Type="String" Name="Batch" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="expiry" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="isbatch" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="isqty" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="isdelete" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="isUnpick" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="route" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="InvType" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="Phoneid" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="FQty" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="mrp" Nullable="true" Precision="18" Scale="3" />
+    <Property Type="String" Name="Chicked" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="BasketNo" Nullable="true" MaxLength="55" />
+    <Property Type="Time" Name="checkedtime" Nullable="true" />
+    <Property Type="String" Name="SlipNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Scheme" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="NewBatch" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Newbatchid" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="NewFqty" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="rate" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="BatchQty" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="ManualBatch" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="App_Checking_New_GetCustomerInvoiceSummary_Result">
+    <Property Type="DateTime" Name="Invdate" Nullable="true" Precision="16" />
+    <Property Type="String" Name="checkername" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="routename" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="custcode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="custname" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Totalines" Nullable="true" />
+    <Property Type="String" Name="Invnum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Invtype" Nullable="true" MaxLength="3" />
+    <Property Type="Int32" Name="pickedlines" Nullable="true" />
+    <Property Type="Int32" Name="checkedlines" Nullable="true" />
+    <Property Type="Int32" Name="pendinglines" Nullable="true" />
+    <Property Type="Int32" Name="batchchanges" Nullable="true" />
+    <Property Type="Int32" Name="qtychangelines" Nullable="true" />
+    <Property Type="Int32" Name="nillines" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="App_Checking_New_GetInvoiceStatus_Result">
+    <Property Type="Int32" Name="TotalBlocks" Nullable="true" />
+    <Property Type="Int32" Name="pickedlines" Nullable="true" />
+    <Property Type="Int32" Name="checkedlines" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="App_Checking_New_GetUserMaster_Result">
+    <Property Type="Int32" Name="checkercode" Nullable="false" />
+    <Property Type="String" Name="checkername" Nullable="true" MaxLength="250" />
+  </ComplexType>
+</Schema>

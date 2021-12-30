@@ -1,0 +1,12 @@
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickingApi\PickingDataAccess\bin\Debug\PickingDataAccess.dll.config
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickingApi\PickingDataAccess\bin\Debug\PickingDataAccess.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickingApi\PickingDataAccess\bin\Debug\PickingDataAccess.pdb
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickingApi\PickingDataAccess\bin\Debug\EntityFramework.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickingApi\PickingDataAccess\bin\Debug\EntityFramework.SqlServer.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickingApi\PickingDataAccess\bin\Debug\EntityFramework.xml
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickingApi\PickingDataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickingApi\PickingDataAccess\obj\Debug\PickingDataAccess.csproj.AssemblyReference.cache
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickingApi\PickingDataAccess\obj\Debug\PickingDataAccess.csproj.CoreCompileInputs.cache
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickingApi\PickingDataAccess\obj\Debug\PickingDataAccess.csproj.CopyComplete
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickingApi\PickingDataAccess\obj\Debug\PickingDataAccess.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickingApi\PickingDataAccess\obj\Debug\PickingDataAccess.pdb

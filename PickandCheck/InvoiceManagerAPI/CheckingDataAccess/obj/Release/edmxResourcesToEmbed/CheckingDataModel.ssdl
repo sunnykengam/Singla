@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Esdata_SMPPLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="App_Checking_New_GetBatchListByItemId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="itemId" Type="int" Mode="In" />
+    <Parameter Name="FromDt" Type="datetime" Mode="In" />
+    <Parameter Name="ToDt" Type="datetime" Mode="In" />
+    <Parameter Name="Rate" Type="float" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_GetBatchWiseItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustCode" Type="varchar" Mode="In" />
+    <Parameter Name="InvoiceDate" Type="varchar" Mode="In" />
+    <Parameter Name="Itemid" Type="int" Mode="In" />
+    <Parameter Name="Batch" Type="varchar" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_GetCheckedDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CheckerID" Type="int" Mode="In" />
+    <Parameter Name="InvDate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_GetCheckingHoldCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustCode" Type="varchar" Mode="In" />
+    <Parameter Name="InvoiceDate" Type="date" Mode="In" />
+    <Parameter Name="block" Type="varchar" Mode="In" />
+    <Parameter Name="InvNum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_GetCheckList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustCode" Type="varchar" Mode="In" />
+    <Parameter Name="InvoiceDate" Type="varchar" Mode="In" />
+    <Parameter Name="block" Type="varchar" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_GetCustomerInvoiceSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="custcode" Type="varchar" Mode="In" />
+    <Parameter Name="Invdt" Type="varchar" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_GetEdpStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="custcode" Type="varchar" Mode="In" />
+    <Parameter Name="Invdt" Type="varchar" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+    <Parameter Name="EsStatus" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="App_Checking_New_GetInvoiceNumbers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="custcode" Type="varchar" Mode="In" />
+    <Parameter Name="Invdt" Type="varchar" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_GetInvoiceNuminAppInvoiceChanges" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustCode" Type="varchar" Mode="In" />
+    <Parameter Name="InvoiceDate" Type="date" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_GetInvoiceStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="custcode" Type="varchar" Mode="In" />
+    <Parameter Name="Invdt" Type="varchar" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_GetUserMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_InsertAppInvoiceChanges" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Invdate" Type="date" Mode="In" />
+    <Parameter Name="Invnum" Type="int" Mode="In" />
+    <Parameter Name="custid" Type="int" Mode="In" />
+    <Parameter Name="custcode" Type="varchar" Mode="In" />
+    <Parameter Name="customername" Type="varchar" Mode="In" />
+    <Parameter Name="itemid" Type="int" Mode="In" />
+    <Parameter Name="itemcode" Type="varchar" Mode="In" />
+    <Parameter Name="itemname" Type="varchar" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="oldqty" Type="varchar" Mode="In" />
+    <Parameter Name="newqty" Type="varchar" Mode="In" />
+    <Parameter Name="oldbatch" Type="varchar" Mode="In" />
+    <Parameter Name="newbatch" Type="varchar" Mode="In" />
+    <Parameter Name="Checkername" Type="nvarchar" Mode="In" />
+    <Parameter Name="changedatetime" Type="date" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="IsDelete" Type="varchar" Mode="In" />
+    <Parameter Name="IsStatus" Type="int" Mode="In" />
+    <Parameter Name="NewPsrlno" Type="int" Mode="In" />
+    <Parameter Name="invType" Type="varchar" Mode="In" />
+    <Parameter Name="RouteName" Type="varchar" Mode="In" />
+    <Parameter Name="OldPsrlno" Type="int" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="FQty" Type="decimal" Mode="In" />
+    <Parameter Name="NewFQty" Type="int" Mode="In" />
+    <Parameter Name="MRP" Type="decimal" Mode="In" />
+    <Parameter Name="Rate" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_InsertInvoiceChangesToSaleAutomode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustCode" Type="varchar" Mode="In" />
+    <Parameter Name="InvoiceDate" Type="date" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_InsertInvoiceSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Invdate" Type="date" Mode="In" />
+    <Parameter Name="Checkername" Type="nvarchar" Mode="In" />
+    <Parameter Name="routename" Type="nvarchar" Mode="In" />
+    <Parameter Name="custcode" Type="varchar" Mode="In" />
+    <Parameter Name="customername" Type="varchar" Mode="In" />
+    <Parameter Name="Totalines" Type="int" Mode="In" />
+    <Parameter Name="pickedlines" Type="int" Mode="In" />
+    <Parameter Name="checkedlines" Type="int" Mode="In" />
+    <Parameter Name="pendinglines" Type="int" Mode="In" />
+    <Parameter Name="Noofbatchchanges" Type="int" Mode="In" />
+    <Parameter Name="Noofqtychangelines" Type="int" Mode="In" />
+    <Parameter Name="Noofnillines" Type="int" Mode="In" />
+    <Parameter Name="Noofboxes" Type="int" Mode="In" />
+    <Parameter Name="Noofpackets" Type="int" Mode="In" />
+    <Parameter Name="InvType" Type="varchar" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_InsertUnPickedItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustomerName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Invdt" Type="smalldatetime" Mode="In" />
+    <Parameter Name="Qty" Type="decimal" Mode="In" />
+    <Parameter Name="CustId" Type="int" Mode="In" />
+    <Parameter Name="Itemname" Type="varchar" Mode="In" />
+    <Parameter Name="Pack" Type="nvarchar" Mode="In" />
+    <Parameter Name="Location" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+    <Parameter Name="NewQty" Type="decimal" Mode="In" />
+    <Parameter Name="Invnum" Type="nvarchar" Mode="In" />
+    <Parameter Name="Itemid" Type="int" Mode="In" />
+    <Parameter Name="Batchid" Type="int" Mode="In" />
+    <Parameter Name="Batch" Type="nvarchar" Mode="In" />
+    <Parameter Name="expiry" Type="nvarchar" Mode="In" />
+    <Parameter Name="mrp" Type="decimal" Mode="In" />
+    <Parameter Name="itemcode" Type="varchar" Mode="In" />
+    <Parameter Name="routeid" Type="int" Mode="In" />
+    <Parameter Name="route" Type="nvarchar" Mode="In" />
+    <Parameter Name="Block" Type="varchar" Mode="In" />
+    <Parameter Name="checkername" Type="nvarchar" Mode="In" />
+    <Parameter Name="CheckerId" Type="varchar" Mode="In" />
+    <Parameter Name="Phoneid" Type="varchar" Mode="In" />
+    <Parameter Name="PickerName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_UpdateCheckerEndTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pickDate" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="block" Type="varchar" Mode="In" />
+    <Parameter Name="EndTime" Type="time" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_UpdateCheckerStartTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pickDate" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="block" Type="varchar" Mode="In" />
+    <Parameter Name="StartTime" Type="time" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_UpdateCheckList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Invdt" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="itemId" Type="varchar" Mode="In" />
+    <Parameter Name="Batchid" Type="varchar" Mode="In" />
+    <Parameter Name="NewQuenty" Type="decimal" Mode="In" />
+    <Parameter Name="Chicked" Type="varchar" Mode="In" />
+    <Parameter Name="InvNo" Type="varchar" Mode="In" />
+    <Parameter Name="Time" Type="time" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="NewFQty" Type="int" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_UpdateChickingDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pickDate" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="block" Type="varchar" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_UpdateItemBatchStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Invdt" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="itemId" Type="varchar" Mode="In" />
+    <Parameter Name="Batchid" Type="varchar" Mode="In" />
+    <Parameter Name="NewQuenty" Type="decimal" Mode="In" />
+    <Parameter Name="InvNum" Type="varchar" Mode="In" />
+    <Parameter Name="Time" Type="time" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="NewBatchid" Type="varchar" Mode="In" />
+    <Parameter Name="NewBatch" Type="varchar" Mode="In" />
+    <Parameter Name="BatchQty" Type="varchar" Mode="In" />
+    <Parameter Name="ManualBatch" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_UpdateItemDeleteStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Invdt" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="itemId" Type="varchar" Mode="In" />
+    <Parameter Name="Batchid" Type="varchar" Mode="In" />
+    <Parameter Name="NewQuenty" Type="decimal" Mode="In" />
+    <Parameter Name="InvNum" Type="varchar" Mode="In" />
+    <Parameter Name="Time" Type="time" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_UpdateItemQty" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Invdt" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="itemId" Type="varchar" Mode="In" />
+    <Parameter Name="Batchid" Type="varchar" Mode="In" />
+    <Parameter Name="NewQuenty" Type="decimal" Mode="In" />
+    <Parameter Name="InvNum" Type="varchar" Mode="In" />
+    <Parameter Name="Time" Type="time" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="NewFQty" Type="int" Mode="In" />
+  </Function>
+  <Function Name="App_Checking_New_UpdateUnpick" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Invdt" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="itemId" Type="varchar" Mode="In" />
+    <Parameter Name="Batchid" Type="varchar" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="Esdata_SMPPLModelStoreContainer" />
+</Schema>

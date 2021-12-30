@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             xmlns:conv1="clr-namespace:Checking.View.Converters"
+             xmlns:Lart="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             BackgroundImage="background.png" 
+             x:Class="Checking.View.InvoiceSummary"
+            NavigationPage.HasNavigationBar="False">
+    <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout  x:Name="stkinvno" IsVisible="False" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" >
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                <Label Text="InvoiceNO:" TextColor="Black" FontAttributes="Bold" FontSize="35"/>
+                <Label x:Name="lblinvno" TextColor="Black" FontAttributes="Bold" FontSize="35"/>
+            </StackLayout>
+            <Button Text="Logout"  HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="0,0,0,30" x:Name="btnlogout" BackgroundColor="Green" Clicked="Btnlogout_Clicked" TextColor="White" WidthRequest="150" HeightRequest="40"/>
+        </StackLayout>
+        <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+            <Frame VerticalOptions="Center" BackgroundColor="White" BorderColor="Red" CornerRadius="10" WidthRequest="150" HeightRequest="40" HorizontalOptions="Center">
+                <Label x:Name="lblLoadingText" TextColor="Green" FontSize="Small" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" Text="Please Wait..."/>
+            </Frame>
+        </ContentView>
+        <ContentView x:Name="LoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="False" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+            <Frame VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="White" WidthRequest="500" HeightRequest="290" CornerRadius="10" Padding="0" BorderColor="Red">
+                <StackLayout Margin="10,10,10,10">
+                    <StackLayout Margin="10,20,0,0" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <StackLayout Margin="0,0,0,0" Orientation="Horizontal" >
+                            <Label Text="Cust Code           :" WidthRequest="190" HorizontalTextAlignment="Start"  TextColor="Black" FontSize="Medium"/>
+                            <Label x:Name="lblcustcode1" Text="" HorizontalTextAlignment="Start" TextColor="Black" FontSize="Medium"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Customer Name       :   " WidthRequest="190" HorizontalTextAlignment="Start" TextColor="Black" FontSize="Medium"/>
+                            <Label x:Name="lblcustname1" Text="" HorizontalTextAlignment="Start" TextColor="Black" FontSize="Medium"/>
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,0" Orientation="Horizontal" >
+                            <Label Text="Number of Boxes     :"  WidthRequest="190" HorizontalTextAlignment="Start"  TextColor="Black" FontSize="Medium"/>
+                            <Entry Text="" x:Name="Numberofboxes"  HorizontalTextAlignment="Start" BackgroundColor="WhiteSmoke" Keyboard="Numeric"  HeightRequest="40" WidthRequest="170" TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
+                            <Label Text="Number of Packets   :" WidthRequest="190" HorizontalTextAlignment="Start"  TextColor="Black" FontSize="Medium"/>
+                            <Entry Text="" x:Name="NumberofPacks" HorizontalTextAlignment="Start" BackgroundColor="WhiteSmoke" Keyboard="Numeric" HeightRequest="40"  WidthRequest="170" TextColor="Black"/>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,25,0,10" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" >
+                            <Button  x:Name="finished" Text="Submit" Clicked="Finished_Clicked" HorizontalOptions="Center" VerticalOptions="Center"  BackgroundColor="#17a2b8" FontSize="Medium" WidthRequest="130" Margin="10,0,0,0" TextColor="White"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>

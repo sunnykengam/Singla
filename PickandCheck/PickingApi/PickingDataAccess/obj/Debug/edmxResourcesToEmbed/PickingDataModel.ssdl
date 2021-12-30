@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Esdata_SMPPLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="App_Picking_CheckingAssign" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Invdt" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="Block" Type="varchar" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+    <Parameter Name="CheckerId" Type="int" Mode="In" />
+    <Parameter Name="CheckerName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Picking_New_CheckerInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="invdt" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Picking_New_GetPhoneInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Phoneid" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Picking_New_GetPickingDetailList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PhoneCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Picking_New_GetPickList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pickDate" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="PhoneCode" Type="varchar" Mode="In" />
+    <Parameter Name="Block" Type="varchar" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Picking_New_GetUnPickingList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Phoneid" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="App_Picking_New_UpdateBasketNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pickDate" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="block" Type="varchar" Mode="In" />
+    <Parameter Name="basketNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Picking_New_UpdatePhoneInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Phoneid" Type="varchar" Mode="In" />
+    <Parameter Name="LoginStatus" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Picking_New_UpdatePickerEndTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pickDate" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="block" Type="varchar" Mode="In" />
+    <Parameter Name="EndTime" Type="time" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Picking_New_UpdatePickerStartTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pickDate" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="block" Type="varchar" Mode="In" />
+    <Parameter Name="StartTime" Type="time" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Picking_New_UpdatePickingDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pickDate" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="block" Type="varchar" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Picking_New_UpdatePickList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Invdt" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="itemId" Type="varchar" Mode="In" />
+    <Parameter Name="Picked" Type="varchar" Mode="In" />
+    <Parameter Name="BasketNo" Type="varchar" Mode="In" />
+    <Parameter Name="PickedTime" Type="time" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="App_Picking_New_UpdatePickRackStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pickDate" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="block" Type="varchar" Mode="In" />
+    <Parameter Name="Racks" Type="varchar" Mode="In" />
+    <Parameter Name="SlipNum" Type="int" Mode="In" />
+  </Function>
+  <Function Name="App_Picking_New_UpdateUnPickList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Invdt" Type="varchar" Mode="In" />
+    <Parameter Name="custCode" Type="varchar" Mode="In" />
+    <Parameter Name="itemId" Type="varchar" Mode="In" />
+    <Parameter Name="Batchid" Type="varchar" Mode="In" />
+    <Parameter Name="Invnum" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="Esdata_SMPPLModelStoreContainer" />
+</Schema>

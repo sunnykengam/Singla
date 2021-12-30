@@ -1,0 +1,84 @@
+@string/appbar_scrolling_view_behavior;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\rootlayout.xml
+adaptive-icon;obj\Debug\100\res\mipmap-anydpi-v26\icon.xml
+adaptive-icon;obj\Debug\100\res\mipmap-anydpi-v26\icon_round.xml
+alpha;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\anim\enterfromleft.xml
+alpha;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\anim\exittoleft.xml
+androidx.appcompat.widget.Toolbar;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\fallbacktoolbardonotuse.xml
+androidx.appcompat.widget.Toolbar;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\rootlayout.xml
+androidx.appcompat.widget.Toolbar;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\shellcontent.xml
+androidx.appcompat.widget.Toolbar;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\toolbar.xml
+androidx.appcompat.widget.Toolbar;obj\Debug\100\res\layout\toolbar.xml
+androidx.coordinatorlayout.widget.CoordinatorLayout;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\rootlayout.xml
+androidx.coordinatorlayout.widget.CoordinatorLayout;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\shellcontent.xml
+androidx.viewpager.widget.ViewPager;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\calendar_pager.xml
+attr;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\values\attrs.xml
+background;obj\Debug\100\res\mipmap-anydpi-v26\icon.xml
+background;obj\Debug\100\res\mipmap-anydpi-v26\icon_round.xml
+cache-path;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\48\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+color;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\drawable\calendar_bg_selector.xml
+color;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\values\colors.xml
+color;obj\Debug\100\res\values\colors.xml
+com.google.android.material.appbar.AppBarLayout;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\flyoutcontent.xml
+com.google.android.material.appbar.AppBarLayout;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\rootlayout.xml
+com.google.android.material.appbar.AppBarLayout;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\shellcontent.xml
+com.google.android.material.bottomnavigation.BottomNavigationView;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\bottomtablayout.xml
+com.google.android.material.tabs.TabLayout;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\fallbacktabbardonotuse.xml
+com.google.android.material.tabs.TabLayout;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\rootlayout.xml
+com.google.android.material.tabs.TabLayout;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\tabbar.xml
+com.google.android.material.tabs.TabLayout;obj\Debug\100\res\layout\tabbar.xml
+declare-styleable;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\values\attrs.xml
+dimen;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\values\dimens.xml
+external-cache-path;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\48\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-path;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\48\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+foreground;obj\Debug\100\res\mipmap-anydpi-v26\icon.xml
+foreground;obj\Debug\100\res\mipmap-anydpi-v26\icon_round.xml
+FrameLayout;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\bottomtablayout.xml
+include;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\month.xml
+item;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\values\styles.xml
+item;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\drawable\calendar_bg_selector.xml
+item;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\values\styles.xml
+item;obj\Debug\100\res\values\styles.xml
+LinearLayout;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\bottomtablayout.xml
+LinearLayout;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\calendar_pager.xml
+paths;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\48\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+RelativeLayout;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\calendar_pager_layout.xml
+RelativeLayout;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\calendar_picker.xml
+resources;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\values\attrs.xml
+resources;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\values\strings.xml
+resources;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\values\styles.xml
+resources;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\values\attrs.xml
+resources;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\values\colors.xml
+resources;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\values\dimens.xml
+resources;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\values\strings.xml
+resources;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\values\styles.xml
+resources;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\54\jl\res\values\strings.xml
+resources;obj\Debug\100\res\values\colors.xml
+resources;obj\Debug\100\res\values\styles.xml
+selector;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\drawable\calendar_bg_selector.xml
+set;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\anim\enterfromleft.xml
+set;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\anim\enterfromright.xml
+set;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\anim\exittoleft.xml
+set;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\anim\exittoright.xml
+string;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\values\strings.xml
+string;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\values\strings.xml
+string;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\54\jl\res\values\strings.xml
+style;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\values\styles.xml
+style;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\values\styles.xml
+style;obj\Debug\100\res\values\styles.xml
+TextView;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\calendar_pager_layout.xml
+TextView;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\month.xml
+translate;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\anim\enterfromleft.xml
+translate;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\anim\enterfromright.xml
+translate;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\anim\exittoleft.xml
+translate;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\anim\exittoright.xml
+xamarin.forms.platform.android.appcompat.FormsViewPager;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\rootlayout.xml
+xamarin.forms.platform.android.ShellFlyoutLayout;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\49\jl\res\layout\flyoutcontent.xml
+XLabs.Forms.Controls.MonoDroid.TimesSquare.CalendarArrowView;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\calendar_pager_layout.xml
+XLabs.Forms.Controls.MonoDroid.TimesSquare.CalendarArrowView;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\calendar_picker.xml
+XLabs.Forms.Controls.MonoDroid.TimesSquare.CalendarCellView;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\week.xml
+XLabs.Forms.Controls.MonoDroid.TimesSquare.CalendarGridView;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\month.xml
+XLabs.Forms.Controls.MonoDroid.TimesSquare.CalendarPickerView;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\calendar_picker.xml
+XLabs.Forms.Controls.MonoDroid.TimesSquare.CalendarPickerView;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\dialog.xml
+XLabs.Forms.Controls.MonoDroid.TimesSquare.CalendarRowView;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\month.xml
+XLabs.Forms.Controls.MonoDroid.TimesSquare.CalendarRowView;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\week.xml
+XLabs.Forms.Controls.MonoDroid.TimesSquare.MonthView;D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\PickList\PickList\PickList.Android\obj\Debug\100\lp\53\jl\res\layout\month.xml

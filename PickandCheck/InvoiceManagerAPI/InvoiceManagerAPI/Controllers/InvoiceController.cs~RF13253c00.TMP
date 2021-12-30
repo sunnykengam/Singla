@@ -1,0 +1,547 @@
+﻿using CheckingAppDataAccess;
+using InvoiceManagerAPI.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web.Http;
+
+namespace InvoiceManagerAPI.Controllers
+{
+    public class InvoiceController : ApiController
+    {
+
+        public HttpResponseMessage GetInvoiceDetails(int id, DateTime InvDt, string Block)
+        {
+            HttpResponseMessage response = null;
+           
+            EsDataEntities context = new EsDataEntities();
+            List<InvoiceDetail> InvoiceDetails = new List<InvoiceDetail>();
+            Config.Log("Getting Invoice Details From Local Server Initiated for phone code :" + id + " --GetInvoiceDetails()");
+            try
+            {
+                var invoices = context.App_Checking_CheckingDetails(id.ToString(), Convert.ToDateTime(InvDt.ToString("yyyy-MM-dd")), Block);
+                int i = 1;
+                foreach (App_Checking_CheckingDetails_Result obj in invoices)
+                {
+                    InvoiceDetail detail = new InvoiceDetail();
+
+                    detail.sno = i.ToString();
+                    i++;
+                    detail.Id = obj.Id;
+                    detail.CustCode = obj.CustCode;
+                    detail.CustomerName = obj.CustomerName;
+                    detail.Invdt = Convert.ToDateTime(obj.Invdt);
+                    DateTime Fromdate = detail.Invdt.AddMonths(-3);
+                    detail.Qty = Convert.ToInt32(obj.Qty);
+                    detail.CustId = Convert.ToInt32(obj.CustId);
+                    detail.Itemname = obj.Itemname;
+                    detail.Pack = obj.Pack;
+                    detail.Location = obj.Location;
+                    detail.Status = obj.Status;
+                    detail.NewQty = Convert.ToInt32(obj.NewQty);
+                    detail.Picked = obj.Picked;
+                    detail.Invnum = obj.Invnum;
+                    detail.Itemid = Convert.ToInt32(obj.Itemid);
+                    detail.Batchid = Convert.ToInt32(obj.Batchid);
+                    detail.Batch = obj.Batch;
+                    detail.expiry = obj.expiry;
+                    detail.isbatch = obj.isbatch;
+                    detail.isqty = obj.isqty;
+                    detail.isdelete = obj.isdelete;
+                    detail.isUnpick = obj.isUnpick;
+                    detail.route = obj.route;
+                    detail.InvType = obj.InvType;
+                    detail.mrp = Convert.ToInt32(obj.mrp);
+                    if (obj.Chicked == "y")
+                        detail.Chicked = true;
+                    else
+                        detail.Chicked = false;
+                    detail.BasketNo = obj.BasketNo;
+                    detail.itemcode = obj.itemcode;
+                    var Batchids = context.App_Checking_GetBatchListByItemId(obj.Itemid, Fromdate, detail.Invdt, Convert.ToDouble(obj.rate)).ToList();
+                    int d = Batchids.Count();
+                    var batids = Batchids;
+                    detail.BatchList = new List<PickerList>();
+                    foreach (var item in Batchids.ToList())
+                    {
+                        PickerList newlist = new PickerList();
+                        var isAdded = detail.BatchList.Where(j => j.batch == item.batch).FirstOrDefault();
+                        if (isAdded == null)
+                        {
+                            var mulbatch = batids.Where(k => k.batch == item.batch).ToList();
+                            if (mulbatch.Count == 1)
+                            {
+                                newlist.PickerDisply = "Batch: " + item.batch + "   Qty: " + (int)item.qty + "   MRP: " + (int)item.MRP;
+                                newlist.batch = item.batch;
+                                newlist.batchid = item.batchid;
+                                detail.BatchList.Add(newlist);
+                            }
+                            else
+                            {
+                                foreach (App_Checking_GetBatchListByItemId_Result item1 in mulbatch)
+                                {
+                                    item.qty = item.qty + item1.qty;
+                                }
+                                newlist.PickerDisply = "Batch: " + item.batch + "   Qty: " + (int)item.qty + "   MRP: " + (int)item.MRP;
+                                newlist.batch = item.batch;
+                                newlist.batchid = item.batchid;
+                                detail.BatchList.Add(newlist);
+                            }
+                        }
+                    }
+                    if (detail.BatchList.Count() == 1)
+                        detail.IsEnabled = false;
+                    InvoiceDetails.Add(detail);
+                }
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to read data of itemId : " + id + " from App_CheckingDetails--GetInvoiceDetails()");
+            }
+            response = Request.CreateResponse(HttpStatusCode.OK, InvoiceDetails, "application/json");
+            Config.Log("Getting Invoice Details From Local Server Finished for itemId : " + id + " --GetInvoiceDetails()");
+            return response;
+        }
+
+        public HttpResponseMessage GetBetchIdDetails(int id, DateTime todate, DateTime fromdate, double rate)
+        {
+            int itemId = id;
+            HttpResponseMessage response = null;
+            EsDataEntities context = new EsDataEntities();
+
+            try
+            {
+                Config.Log("Getting Batch Id Details From Local Server Initiated for itemId :" + id + " --GetBetchIdDetails()");
+                var Batchids = context.App_Checking_GetBatchListByItemId(itemId, todate, fromdate, rate);
+                response = Request.CreateResponse(HttpStatusCode.OK, Batchids, "application/json");
+                Config.Log("Getting Batch Id Details From Local Server Finished for itemId : " + id + " --GetBetchIdDetails()");
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to read data of itemId : " + id + " from App_GetBatchIdsByItemId--GetBetchIdDetails()");
+            }
+            return response;
+        }
+
+        public HttpResponseMessage GetInvoiceStatus(string id, string invdate)
+        {
+            string itemId = id;
+            HttpResponseMessage response = null;
+            EsDataEntities context = new EsDataEntities();
+            try
+            {
+                Config.Log("Getting Invoice status From Local Server Initiated for itemId :" + id + " and invdate: " + invdate + " --GetInvoiceStatus()");
+
+                var Batchids = context.App_Checking_InvoiceStatus(itemId, invdate);
+
+                response = Request.CreateResponse(HttpStatusCode.OK, Batchids, "application/json");
+
+                Config.Log("Getting Invoice status From Local Server Finished for itemId : " + id + " and invdate: " + invdate + " --GetInvoiceStatus()");
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to read data of itemId : " + id + " and invdate: " + invdate + " from App_InvoiceStatus--GetInvoiceStatus()");
+            }
+            return response;
+        }
+
+        public HttpResponseMessage GetCustomerInvoiceSummary(int id, string invdate)
+        {
+            string itemId = id.ToString();
+            HttpResponseMessage response = null;
+            EsDataEntities context = new EsDataEntities();
+
+            try
+            {
+                Config.Log("Getting Customer Invoice Summary status From Local Server Initiated for itemId :" + id + " and invdate: " + invdate + " --GetCustomerInvoiceSummary()");
+                var InvoiceSummary = context.App_Checking_GetCustomerInvoiceSummary(itemId, invdate);
+                response = Request.CreateResponse(HttpStatusCode.OK, InvoiceSummary, "application/json");
+                Config.Log("Getting Customer Invoice Summary From Local Server Finished for itemId : " + id + " and invdate: " + invdate + " --GetCustomerInvoiceSummary()");
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to read data of itemId : " + id + " and invdate: " + invdate + " from App_GetCustomerInvoiceSummary--GetCustomerInvoiceSummary()");
+            }
+            return response;
+        }
+
+        public HttpResponseMessage GetPickedDetails(int id, DateTime InvDate)
+        {
+            int CheckerID = id;
+            HttpResponseMessage response = null;
+            EsDataEntities context = new EsDataEntities();
+            try
+            {
+                Config.Log("Getting Picked Details From Local Server Initiated for itemId :" + id + " and invdate: " + InvDate.ToString() + " --GetPickedDetails()");
+
+                var PickedDetails = context.App_Checking_GetPickedDetails(CheckerID, InvDate);
+                int i = 1;
+                List<PickedDetail> GetPickedDetails = new List<PickedDetail>();
+                foreach (App_Checking_GetPickedDetails_Result obj in PickedDetails)
+                {
+                    PickedDetail objPicked = new PickedDetail();
+                    objPicked.sno = i.ToString();
+                    i++;
+                    objPicked.checkerid = Convert.ToInt32(obj.checkerid);
+                    objPicked.checkername = obj.checkername;
+                    objPicked.custid = Convert.ToInt32(obj.custid);
+                    objPicked.custcode = obj.custcode;
+                    objPicked.custname = obj.custname;
+                    objPicked.routeid = obj.routeid;
+                    objPicked.pickername = obj.pickername;
+                    objPicked.basketNo = obj.basketNo;
+                    objPicked.phone = obj.phone;
+                    objPicked.route = obj.route;
+                    objPicked.Block = obj.Block.Trim();
+                    if (!string.IsNullOrEmpty(obj.Picked))
+                        objPicked.Picked = obj.Picked.Trim();
+                    if (!string.IsNullOrEmpty(obj.Checked))
+                        objPicked.Checked = obj.Checked.Trim();
+
+                    if (objPicked.Picked == "y" && objPicked.Checked == "y")
+                        objPicked.IsDisable = false;
+                    else
+                        objPicked.IsDisable = true;
+
+                    GetPickedDetails.Add(objPicked);
+                }
+
+                response = Request.CreateResponse(HttpStatusCode.OK, GetPickedDetails, "application/json");
+                Config.Log("Getting Picked Details From Local Server Finished for itemId : " + id + " and invdate: " + InvDate.ToString() + " --GetPickedDetails()");
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to read data of itemId : " + id + " and invdate: " + InvDate.ToString() + " from App_GetPickedDetails--GetPickedDetails()");
+            }
+            return response;
+        }
+
+        public HttpResponseMessage GetUserDetail(string id)
+        {
+            HttpResponseMessage response = null;
+            EsDataEntities context = new EsDataEntities();
+
+            try
+            {
+                Config.Log("Getting User Detail From Local Server Initiated for itemId : " + id + " --GetUserDetail");
+                var User = context.App_Checking_GetUserMaster(id);
+                response = Request.CreateResponse(HttpStatusCode.OK, User, "application/json");
+                Config.Log("Getting User Detail From Local Server Finished for itemId : " + id + " --GetUserDetail()");
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to read user data of itemId : " + id + " from App_GetUserMaster--GetUserDetail()");
+            }
+            return response;
+        }
+        [HttpPost]
+        public void InsertInvoiceSummary(InvoiceSummary objDetail)
+        {
+            string invdate = string.Empty;
+            try
+            {
+                Config.Log("Inserting invoice summary to Local Server Initiated for Cust Code : " + objDetail.custcode + " --InsertInvoiceSummary()");
+                EsDataEntities context = new EsDataEntities();
+                invdate = Convert.ToDateTime(objDetail.Invdate).ToString("yyyy-MM-dd");
+                context.App_Checking_InsertInvoiceSummary(Convert.ToDateTime(invdate), objDetail.checkername, objDetail.routename, objDetail.custcode, objDetail.custname, objDetail.Totalines, objDetail.pickedlines, objDetail.checkedlines, objDetail.pendinglines, objDetail.batchchanges, objDetail.qtychangelines, objDetail.nillines, objDetail.Noofboxes, objDetail.Noofpackets);
+                Config.Log("Inserting invoice summary to Local Server Finished for Cust Code : " + objDetail.custcode + " --InsertInvoiceSummary()");
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to Insert invoice summary of Cust Code : " + objDetail.custcode + " and invdate: " + invdate + " from App_InsertInvoiceSummary--InsertInvoiceSummary()");
+
+            }
+        }
+        [HttpPost]
+        public void InsertCheckerChanges(CheckingDetail objDetail)
+        {
+            string invdate = string.Empty;
+            try
+            {
+                Config.Log("Inserting Checker Changes to Local Server Initiated for Cust Code : " + objDetail.CustCode + " --InsertCheckerChanges()");
+                EsDataEntities context = new EsDataEntities();
+                invdate = Convert.ToDateTime(objDetail.Invdt).ToString("yyyy-MM-dd");
+                string Chakerdate = Convert.ToDateTime(objDetail.ChickedDate).ToString("yyyy-MM-dd");
+                context.App_Checking_InsertCheckerChanges(Convert.ToDateTime(invdate), objDetail.Invnum, objDetail.CustId, objDetail.CustCode, objDetail.CustomerName, objDetail.Itemid, objDetail.Itemcode, objDetail.Itemname, objDetail.Remarks, objDetail.Qty, objDetail.NewQty, objDetail.Batch, objDetail.NewBatch, objDetail.CheckerName, Convert.ToDateTime(Chakerdate), objDetail.Description, objDetail.Isdelete, objDetail.IsStatus, objDetail.NewPsrlno, objDetail.InvType, objDetail.Routename);
+                Config.Log("Inserting Checker Changes to Local Server Finished for Cust Code : " + objDetail.CustCode + " --InsertInvoiceSummary()");
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to Insert Checker Changes of Cust Code : " + objDetail.CustCode + " and invdate: " + invdate + " from App_InsertCheckerChanges--InsertCheckerChanges()");
+
+            }
+        }
+        [HttpPost]
+        public void InsertsaleAutoMod(UpdatePickedDetail detail)
+        {
+            DateTime invdate;
+            try
+            {
+                Config.Log("Inserting Checker Changes to Local Server Initiated for Cust Code : " + detail.custCode + " --InsertCheckerChanges()");
+                EsDataEntities context = new EsDataEntities();
+                EsDataEntities escontext = new EsDataEntities();
+                invdate = Convert.ToDateTime(detail.InvDt.ToString("yyyy-MM-dd"));
+
+                var InvChangeList = context.App_Checking_GetInvoiceChanges(detail.custCode, invdate);
+                foreach (App_Checking_GetInvoiceChanges_Result objDetail in InvChangeList)
+                {
+                    string Chakerdate = Convert.ToDateTime(objDetail.changedatetime).ToString("yyyy-MM-dd");
+                    escontext.App_Checking_InsertSaleAutoMod(Convert.ToDateTime(invdate), objDetail.Invnum, objDetail.custid, objDetail.custcode, objDetail.customername, objDetail.itemid, objDetail.itemcode, objDetail.itemname, objDetail.Remarks, objDetail.oldqty, objDetail.newqty, objDetail.oldbatch, objDetail.newbatch, objDetail.Checkername, Convert.ToDateTime(Chakerdate), objDetail.Description, objDetail.IsStatus, objDetail.NewPsrlno, objDetail.InvType, objDetail.routename);
+                }
+                Config.Log("Inserting Checker Changes to Local Server Finished for Cust Code : " + detail.custCode + " --InsertInvoiceSummary()");
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to Insert Checker Changes of Cust Code : " + detail.custCode + " and invdate: " + detail.InvDt.ToString() + " from App_InsertCheckerChanges--InsertCheckerChanges()");
+
+            }
+        }
+        [HttpPost]
+        public void InsertUnpickedChanges(UnpickedDetail objDetail)
+        {
+            string invdate = string.Empty;
+            try
+            {
+                Config.Log("Inserting Unpicked Changes to Local Server Initiated for Cust Code : " + objDetail.CustCode + " --InsertUnpickedChanges()");
+                EsDataEntities context = new EsDataEntities();
+                invdate = Convert.ToDateTime(objDetail.Invdt).ToString("yyyy-MM-dd");
+                context.App_Checking_InsertUnPickedItems(objDetail.CustCode, objDetail.CustomerName, Convert.ToDateTime(invdate), objDetail.Qty, objDetail.CustId, objDetail.Itemname, objDetail.Pack, objDetail.Location, objDetail.Status, objDetail.NewQty, objDetail.Invnum, objDetail.Itemid, objDetail.Batchid, objDetail.Batch, objDetail.expiry, Convert.ToDecimal(objDetail.mrp), objDetail.itemcode, objDetail.routeid, objDetail.route, objDetail.Block, objDetail.checkername, objDetail.CheckerId, objDetail.Phoneid, objDetail.PickerName);
+                Config.Log("Inserting Unpicked Changes to Local Server Finished for Cust Code : " + objDetail.CustCode + " and invdate: " + invdate + " --InsertInvoiceSummary()");
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to Insert UnPicked Changes of Cust Code : " + objDetail.CustCode + " and invdate: " + invdate + " from App_InsertUnPickedItems--InsertUnpickedChanges()");
+
+            }
+        }
+        [HttpPost]
+        public void UpdatePickingDetail(List<CheckingDetail> objDetails)
+        {
+            try
+            {
+                EsDataEntities context = new EsDataEntities();
+
+                foreach (CheckingDetail objDetail in objDetails)
+                {
+                    string invdate = string.Empty;
+                    try
+                    {
+                        invdate = Convert.ToDateTime(objDetail.Invdt).ToString("yyyy-MM-dd");
+                        Config.Log("Updating Picked Detail list To Local Server Initiated for Cust Code :" + objDetail.CustCode.ToString() + " and invdate: " + invdate + " --UpdatePickingDetail()");
+                        context.App_Checking_UpdatePickList(invdate, objDetail.CustCode.ToString(), objDetail.Itemid.ToString(), objDetail.Batchid.ToString(), Convert.ToDecimal(objDetail.NewQty), objDetail.CheckerName, objDetail.CheckerId, objDetail.Checked, objDetail.Invnum.ToString(), objDetail.id);
+                        Config.Log("Updating Picked Detail list To Local Server Finished for Cust Code :" + objDetail.CustCode.ToString() + " --UpdatePickingDetail()");
+                    }
+                    catch (Exception ex)
+                    {
+                        Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                        Exceptions.HandleContentException(ex, "Unable to update data for Cust Code : " + objDetail.CustCode.ToString() + " and invoice date: " + invdate + " from App_UpdatePickList--UpdatePickingDetail()");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        [HttpPost]
+        public void UpdateChickingDetail(UpdatePickedDetail detail)
+        {
+            string pickDate = string.Empty;
+            try
+            {
+                Config.Log("Updating Checking Detail To Local Server Initiated for customer code :" + detail.custCode.ToString() + " --UpdateChickingDetail()");
+                EsDataEntities context = new EsDataEntities();
+                pickDate = Convert.ToDateTime(detail.InvDt).ToString("yyyy-MM-dd");
+                context.App_Checking_UpdateChickingDetail(pickDate, detail.custCode.ToString(), detail.block.ToString());
+                Config.Log("Updating Checking Detail To Local Server Finished for Cust Code :" + detail.custCode.ToString() + " --UpdateChickingDetail()");
+
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to update data of Customer Code : " + detail.custCode.ToString() + " and invoice date: " + pickDate + " from App_UpdateChickingDetail--UpdateChickingDetail()");
+
+            }
+        }
+        [HttpPost]
+        public void UpdateQty(UpdateQty detail)
+        {
+            string pickDate = string.Empty;
+            try
+            {
+                Config.Log("Updating Qty To Local Server Initiated for Item :" + detail.itemId + " --UpdateQty()");
+                EsDataEntities context = new EsDataEntities();
+
+                pickDate = Convert.ToDateTime(detail.Invdt).ToString("yyyy-MM-dd");
+                context.App_Checking_UpdateItemQty(pickDate, detail.custCode.ToString(), detail.itemId, detail.Batchid.ToString(), detail.NewQuenty, detail.Invnum);
+                Config.Log("Updating Qty To Local Server Finished for Cust Code : " + detail.custCode.ToString() + " App_UpdateItemQty --UpdateChickingDetail()");
+
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to Update Qty of Item Id : " + detail.itemId + " and invoice date: " + pickDate + " from App_UpdateItemQty--UpdateQty()");
+
+            }
+        }
+        [HttpPost]
+        public void UpdateBatchStatus(UpdateQty detail)
+        {
+            string pickDate = string.Empty;
+            try
+            {
+                Config.Log("Updating Batch Status to Local Server Initiated for Item Id :" + detail.itemId + " --UpdateBatchStatus()");
+                EsDataEntities context = new EsDataEntities();
+                pickDate = Convert.ToDateTime(detail.Invdt).ToString("yyyy-MM-dd");
+                context.App_Checking_UpdateItemBatchStatus(pickDate, detail.custCode.ToString(), detail.itemId, detail.Batchid.ToString(), detail.NewQuenty, detail.Invnum);
+                Config.Log("Updating Batch status To Local Server Finished for Cust Code : " + detail.custCode.ToString() + " App_UpdateItemBatchStatus --UpdateBatchStatus()");
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to update Batch of Item Id : " + detail.itemId + " and invoice date: " + pickDate + " from App_UpdateItemBatchStatus--UpdateBatchStatus()");
+            }
+        }
+        [HttpPost]
+        public void UpdateDeleteStatus(UpdateQty detail)
+        {
+            string pickDate = string.Empty;
+            try
+            {
+                Config.Log("Updating Delete Status to Local Server Initiated for Item Id :" + detail.itemId + " --UpdateDeleteStatus()");
+                EsDataEntities context = new EsDataEntities();
+                pickDate = Convert.ToDateTime(detail.Invdt).ToString("yyyy-MM-dd");
+                context.App_Checking_UpdateItemDeleteStatus(pickDate, detail.custCode.ToString(), detail.itemId, detail.Batchid.ToString(), detail.NewQuenty, detail.Invnum);
+                Config.Log("Updating Delete status To Local Server Finished for Item Id : " + detail.itemId + " App_UpdateItemDeleteStatus --UpdateDeleteStatus()");
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to update delete status of Item Id : " + detail.itemId + " and invoice date: " + pickDate + " from App_UpdateItemDeleteStatus--UpdateDeleteStatus()");
+            }
+
+        }
+        public void UpdateNewBatchStatus(UpdateBatchStatus detail)
+        {
+            string pickDate = string.Empty;
+            EsDataEntities context = new EsDataEntities();
+            try
+            {
+                Config.Log("Updating Batch Status to Local Server Initiated for Item Id :" + detail.itemId + " --UpdateBatchStatus()");
+                pickDate = Convert.ToDateTime(detail.Invdt).ToString("yyyy-MM-dd");
+                var deta = context.App_Checking_GetBatchDetailByItemId(detail.itemId, detail.NewBatch).FirstOrDefault();
+                context.App_Checking_UpdateNewBatchDetail(detail.NewBatch, detail.OldBatch, detail.Invnum, pickDate, detail.Custid, detail.itemId, detail.Batchid, deta.expiry, deta.MRP);
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to update Batch of Item Id : " + detail.itemId + " and invoice date: " + pickDate + " from App_UpdateItemBatchStatus--UpdateBatchStatus()");
+            }
+        }
+
+
+        public int GetCheckingHoldCount(int id, DateTime InvDt, string Block)
+        {
+            int count = 0;
+            HttpResponseMessage response = null;
+            EsDataEntities context = new EsDataEntities();
+            List<InvoiceDetail> InvoiceDetails = new List<InvoiceDetail>();
+            Config.Log("Getting Invoice Details From Local Server Initiated for phone code :" + id + " --GetInvoiceDetails()");
+            try
+            {
+                var invoices = context.App_Checking_GetCheckingHoldCount(id.ToString(), InvDt, Block);
+                string ddd = invoices.FirstOrDefault().ToString();
+                count = Convert.ToInt32(ddd);
+            }
+            catch (Exception ex)
+            {
+                count = 0;
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to read data of itemId : " + id + " from App_CheckingDetails--GetInvoiceDetails()");
+            }
+            response = Request.CreateResponse(HttpStatusCode.OK, InvoiceDetails, "application/json");
+            Config.Log("Getting Invoice Details From Local Server Finished for itemId : " + id + " --GetInvoiceDetails()");
+            return count;
+        }
+
+        [HttpPost]
+        public void UpdateStartTime(UpdateTime detail)
+        {
+            string pickDate = string.Empty;
+            try
+            {
+                Config.Log("Updating StartTime To Local Server Initiated for custcode :" + detail.custCode + " UpdateStartTime()");
+                EsDataEntities context = new EsDataEntities();
+
+                pickDate = Convert.ToDateTime(detail.InvDt).ToString("yyyy-MM-dd");
+                TimeSpan time = Convert.ToDateTime(detail.time).TimeOfDay;
+                context.App_Checking_UpdateCheckerStartTime(pickDate, detail.custCode, detail.block, time);
+                Config.Log("Updating StartTime To Local Server Finished for Cust Code : " + detail.custCode + " App_UpdateCheckerStartTime()");
+
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to Update StartTime of custcode : " + detail.custCode + " and invoice date: " + pickDate + " from App_UpdateCheckerStartTime()");
+
+            }
+        }
+
+        [HttpPost]
+        public void UpdateEndTime(UpdateTime detail)
+        {
+            string pickDate = string.Empty;
+            try
+            {
+                Config.Log("Updating Qty To Local Server Initiated for Item :" + detail.custCode + " --UpdateEndTime()");
+                EsDataEntities context = new EsDataEntities();
+
+                pickDate = Convert.ToDateTime(detail.InvDt).ToString("yyyy-MM-dd");
+                TimeSpan time = Convert.ToDateTime(detail.time).TimeOfDay;
+                context.App_Checking_UpdateCheckerEndTime(pickDate, detail.custCode.ToString(), detail.block, time);
+                Config.Log("Updating EndTime To Local Server Finished for Cust Code : " + detail.custCode.ToString() + "App_UpdateCheckerEndTime()");
+
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to Update EndTime of custcode : " + detail.custCode + " and invoice date: " + pickDate + " from App_UpdateCheckerEndTime()");
+
+            }
+        }
+        [HttpPost]
+        public void UpdateUnpick(UpdateQty detail)
+        {
+            string pickDate = string.Empty;
+            try
+            {
+                Config.Log("Updating Unpick To Local Server Initiated for Item :" + detail.itemId + " --UpdateUnpick()");
+                EsDataEntities context = new EsDataEntities();
+
+                pickDate = Convert.ToDateTime(detail.Invdt).ToString("yyyy-MM-dd");
+                context.App_Checking_UpdateUnpick(pickDate, detail.custCode.ToString(), detail.itemId, detail.Batchid.ToString(), detail.NewQuenty, detail.Invnum);
+                Config.Log("Updating Qty To Local Server Finished for Cust Code : " + detail.custCode.ToString() + " App_UpdateUnpick --UpdateChickingDetail()");
+
+            }
+            catch (Exception ex)
+            {
+                Exceptions.SetLogCategory(Config.Category.InvoiceManagerApiError);
+                Exceptions.HandleContentException(ex, "Unable to Update Unpick of Item Id : " + detail.itemId + " and invoice date: " + pickDate + " from App_UpdateItemQty--UpdateUnpick()");
+
+            }
+        }
+    }
+}

@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Esdata_SMPPLModelStoreContainer" CdmEntityContainer="SinglaEntities">
+    <FunctionImportMapping FunctionImportName="App_Checking_New_GetBatchListByItemId" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_GetBatchListByItemId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Esdata_SMPPLModel.App_Checking_New_GetBatchListByItemId_Result">
+          <ScalarProperty Name="itemid" ColumnName="itemid" />
+          <ScalarProperty Name="itemcode" ColumnName="itemcode" />
+          <ScalarProperty Name="itemname" ColumnName="itemname" />
+          <ScalarProperty Name="pack" ColumnName="pack" />
+          <ScalarProperty Name="batch" ColumnName="batch" />
+          <ScalarProperty Name="expiry" ColumnName="expiry" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="MRP" ColumnName="MRP" />
+          <ScalarProperty Name="batchid" ColumnName="batchid" />
+          <ScalarProperty Name="Scheme" ColumnName="Scheme" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="App_Checking_New_GetBatchWiseItem" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_GetBatchWiseItem">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Esdata_SMPPLModel.App_Checking_New_GetBatchWiseItem_Result">
+          <ScalarProperty Name="CustCode" ColumnName="CustCode" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Invdt" ColumnName="Invdt" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="CustId" ColumnName="CustId" />
+          <ScalarProperty Name="Itemname" ColumnName="Itemname" />
+          <ScalarProperty Name="Pack" ColumnName="Pack" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="NewQty" ColumnName="NewQty" />
+          <ScalarProperty Name="Picked" ColumnName="Picked" />
+          <ScalarProperty Name="Invnum" ColumnName="Invnum" />
+          <ScalarProperty Name="Itemid" ColumnName="Itemid" />
+          <ScalarProperty Name="Batchid" ColumnName="Batchid" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="expiry" ColumnName="expiry" />
+          <ScalarProperty Name="mrp" ColumnName="mrp" />
+          <ScalarProperty Name="Chicked" ColumnName="Chicked" />
+          <ScalarProperty Name="itemcode" ColumnName="itemcode" />
+          <ScalarProperty Name="routeid" ColumnName="routeid" />
+          <ScalarProperty Name="route" ColumnName="route" />
+          <ScalarProperty Name="Block" ColumnName="Block" />
+          <ScalarProperty Name="isqty" ColumnName="isqty" />
+          <ScalarProperty Name="isbatch" ColumnName="isbatch" />
+          <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+          <ScalarProperty Name="checkername" ColumnName="checkername" />
+          <ScalarProperty Name="ChickerId" ColumnName="ChickerId" />
+          <ScalarProperty Name="Phoneid" ColumnName="Phoneid" />
+          <ScalarProperty Name="ItemStatus" ColumnName="ItemStatus" />
+          <ScalarProperty Name="BasketNo" ColumnName="BasketNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="isUnpick" ColumnName="isUnpick" />
+          <ScalarProperty Name="ITEMCATEGORY" ColumnName="ITEMCATEGORY" />
+          <ScalarProperty Name="ISADMINUNPICK" ColumnName="ISADMINUNPICK" />
+          <ScalarProperty Name="CREATIONDATE" ColumnName="CREATIONDATE" />
+          <ScalarProperty Name="InvType" ColumnName="InvType" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="pickedtime" ColumnName="pickedtime" />
+          <ScalarProperty Name="checkedtime" ColumnName="checkedtime" />
+          <ScalarProperty Name="Finalised" ColumnName="Finalised" />
+          <ScalarProperty Name="AssignById" ColumnName="AssignById" />
+          <ScalarProperty Name="AssignBy" ColumnName="AssignBy" />
+          <ScalarProperty Name="PicklistType" ColumnName="PicklistType" />
+          <ScalarProperty Name="RackNumber" ColumnName="RackNumber" />
+          <ScalarProperty Name="PickListNum" ColumnName="PickListNum" />
+          <ScalarProperty Name="SlipNum" ColumnName="SlipNum" />
+          <ScalarProperty Name="FQty" ColumnName="FQty" />
+          <ScalarProperty Name="NewFqty" ColumnName="NewFqty" />
+          <ScalarProperty Name="Newbatchid" ColumnName="Newbatchid" />
+          <ScalarProperty Name="NewBatch" ColumnName="NewBatch" />
+          <ScalarProperty Name="chlntype" ColumnName="chlntype" />
+          <ScalarProperty Name="chlnnum" ColumnName="chlnnum" />
+          <ScalarProperty Name="chlndate" ColumnName="chlndate" />
+          <ScalarProperty Name="ManualBatch" ColumnName="ManualBatch" />
+          <ScalarProperty Name="BatchQty" ColumnName="BatchQty" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="App_Checking_New_GetCheckedDetails" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_GetCheckedDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Esdata_SMPPLModel.App_Checking_New_GetCheckedDetails_Result">
+          <ScalarProperty Name="ChickerId" ColumnName="ChickerId" />
+          <ScalarProperty Name="checkername" ColumnName="checkername" />
+          <ScalarProperty Name="custid" ColumnName="custid" />
+          <ScalarProperty Name="custcode" ColumnName="custcode" />
+          <ScalarProperty Name="custname" ColumnName="custname" />
+          <ScalarProperty Name="Invnum" ColumnName="Invnum" />
+          <ScalarProperty Name="routeid" ColumnName="routeid" />
+          <ScalarProperty Name="route" ColumnName="route" />
+          <ScalarProperty Name="Block" ColumnName="Block" />
+          <ScalarProperty Name="Picked" ColumnName="Picked" />
+          <ScalarProperty Name="Checked" ColumnName="Checked" />
+          <ScalarProperty Name="pickerid" ColumnName="pickerid" />
+          <ScalarProperty Name="pickername" ColumnName="pickername" />
+          <ScalarProperty Name="basketNo" ColumnName="basketNo" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="App_Checking_New_GetCheckingHoldCount" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_GetCheckingHoldCount" />
+    <FunctionImportMapping FunctionImportName="App_Checking_New_GetCheckList" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_GetCheckList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Esdata_SMPPLModel.App_Checking_New_GetCheckList_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustId" ColumnName="CustId" />
+          <ScalarProperty Name="CustCode" ColumnName="CustCode" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Invdt" ColumnName="Invdt" />
+          <ScalarProperty Name="Itemname" ColumnName="Itemname" />
+          <ScalarProperty Name="Pack" ColumnName="Pack" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="NewQty" ColumnName="NewQty" />
+          <ScalarProperty Name="Picked" ColumnName="Picked" />
+          <ScalarProperty Name="Invnum" ColumnName="Invnum" />
+          <ScalarProperty Name="Itemid" ColumnName="Itemid" />
+          <ScalarProperty Name="itemcode" ColumnName="itemcode" />
+          <ScalarProperty Name="Batchid" ColumnName="Batchid" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="expiry" ColumnName="expiry" />
+          <ScalarProperty Name="isbatch" ColumnName="isbatch" />
+          <ScalarProperty Name="isqty" ColumnName="isqty" />
+          <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+          <ScalarProperty Name="isUnpick" ColumnName="isUnpick" />
+          <ScalarProperty Name="route" ColumnName="route" />
+          <ScalarProperty Name="InvType" ColumnName="InvType" />
+          <ScalarProperty Name="Phoneid" ColumnName="Phoneid" />
+          <ScalarProperty Name="FQty" ColumnName="FQty" />
+          <ScalarProperty Name="mrp" ColumnName="mrp" />
+          <ScalarProperty Name="Chicked" ColumnName="Chicked" />
+          <ScalarProperty Name="BasketNo" ColumnName="BasketNo" />
+          <ScalarProperty Name="checkedtime" ColumnName="checkedtime" />
+          <ScalarProperty Name="SlipNum" ColumnName="SlipNum" />
+          <ScalarProperty Name="Scheme" ColumnName="Scheme" />
+          <ScalarProperty Name="NewBatch" ColumnName="NewBatch" />
+          <ScalarProperty Name="Newbatchid" ColumnName="Newbatchid" />
+          <ScalarProperty Name="NewFqty" ColumnName="NewFqty" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="BatchQty" ColumnName="BatchQty" />
+          <ScalarProperty Name="ManualBatch" ColumnName="ManualBatch" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="App_Checking_New_GetCustomerInvoiceSummary" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_GetCustomerInvoiceSummary">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Esdata_SMPPLModel.App_Checking_New_GetCustomerInvoiceSummary_Result">
+          <ScalarProperty Name="Invdate" ColumnName="Invdate" />
+          <ScalarProperty Name="checkername" ColumnName="checkername" />
+          <ScalarProperty Name="routename" ColumnName="routename" />
+          <ScalarProperty Name="custcode" ColumnName="custcode" />
+          <ScalarProperty Name="custname" ColumnName="custname" />
+          <ScalarProperty Name="Totalines" ColumnName="Totalines" />
+          <ScalarProperty Name="Invnum" ColumnName="Invnum" />
+          <ScalarProperty Name="Invtype" ColumnName="Invtype" />
+          <ScalarProperty Name="pickedlines" ColumnName="pickedlines" />
+          <ScalarProperty Name="checkedlines" ColumnName="checkedlines" />
+          <ScalarProperty Name="pendinglines" ColumnName="pendinglines" />
+          <ScalarProperty Name="batchchanges" ColumnName="batchchanges" />
+          <ScalarProperty Name="qtychangelines" ColumnName="qtychangelines" />
+          <ScalarProperty Name="nillines" ColumnName="nillines" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="App_Checking_New_GetEdpStatus" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_GetEdpStatus" />
+    <FunctionImportMapping FunctionImportName="App_Checking_New_GetInvoiceNumbers" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_GetInvoiceNumbers" />
+    <FunctionImportMapping FunctionImportName="App_Checking_New_GetInvoiceNuminAppInvoiceChanges" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_GetInvoiceNuminAppInvoiceChanges" />
+    <FunctionImportMapping FunctionImportName="App_Checking_New_GetInvoiceStatus" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_GetInvoiceStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Esdata_SMPPLModel.App_Checking_New_GetInvoiceStatus_Result">
+          <ScalarProperty Name="TotalBlocks" ColumnName="TotalBlocks" />
+          <ScalarProperty Name="pickedlines" ColumnName="pickedlines" />
+          <ScalarProperty Name="checkedlines" ColumnName="checkedlines" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="App_Checking_New_GetUserMaster" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_GetUserMaster">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Esdata_SMPPLModel.App_Checking_New_GetUserMaster_Result">
+          <ScalarProperty Name="checkercode" ColumnName="checkercode" />
+          <ScalarProperty Name="checkername" ColumnName="checkername" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="App_Checking_New_InsertAppInvoiceChanges" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_InsertAppInvoiceChanges" />
+    <FunctionImportMapping FunctionImportName="App_Checking_New_InsertInvoiceChangesToSaleAutomode" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_InsertInvoiceChangesToSaleAutomode" />
+    <FunctionImportMapping FunctionImportName="App_Checking_New_InsertInvoiceSummary" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_InsertInvoiceSummary" />
+    <FunctionImportMapping FunctionImportName="App_Checking_New_InsertUnPickedItems" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_InsertUnPickedItems" />
+    <FunctionImportMapping FunctionImportName="App_Checking_New_UpdateCheckerEndTime" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_UpdateCheckerEndTime" />
+    <FunctionImportMapping FunctionImportName="App_Checking_New_UpdateCheckerStartTime" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_UpdateCheckerStartTime" />
+    <FunctionImportMapping FunctionImportName="App_Checking_New_UpdateCheckList" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_UpdateCheckList" />
+    <FunctionImportMapping FunctionImportName="App_Checking_New_UpdateChickingDetail" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_UpdateChickingDetail" />
+    <FunctionImportMapping FunctionImportName="App_Checking_New_UpdateItemBatchStatus" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_UpdateItemBatchStatus" />
+    <FunctionImportMapping FunctionImportName="App_Checking_New_UpdateItemDeleteStatus" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_UpdateItemDeleteStatus" />
+    <FunctionImportMapping FunctionImportName="App_Checking_New_UpdateItemQty" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_UpdateItemQty" />
+    <FunctionImportMapping FunctionImportName="App_Checking_New_UpdateUnpick" FunctionName="Esdata_SMPPLModel.Store.App_Checking_New_UpdateUnpick" />
+  </EntityContainerMapping>
+</Mapping>

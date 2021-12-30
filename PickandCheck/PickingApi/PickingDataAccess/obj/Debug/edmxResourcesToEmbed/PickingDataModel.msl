@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Esdata_SMPPLModelStoreContainer" CdmEntityContainer="Esdata_SMPPLEntities">
+    <FunctionImportMapping FunctionImportName="App_Picking_CheckingAssign" FunctionName="Esdata_SMPPLModel.Store.App_Picking_CheckingAssign" />
+    <FunctionImportMapping FunctionImportName="App_Picking_New_CheckerInfo" FunctionName="Esdata_SMPPLModel.Store.App_Picking_New_CheckerInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Esdata_SMPPLModel.App_Picking_New_CheckerInfo_Result">
+          <ScalarProperty Name="CheckerId" ColumnName="CheckerId" />
+          <ScalarProperty Name="CheckerName" ColumnName="CheckerName" />
+          <ScalarProperty Name="TotalBlocks" ColumnName="TotalBlocks" />
+          <ScalarProperty Name="CompleatedBlocks" ColumnName="CompleatedBlocks" />
+          <ScalarProperty Name="PendingBlocks" ColumnName="PendingBlocks" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="App_Picking_New_GetPhoneInfo" FunctionName="Esdata_SMPPLModel.Store.App_Picking_New_GetPhoneInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Esdata_SMPPLModel.App_Picking_New_GetPhoneInfo_Result">
+          <ScalarProperty Name="PHONEID" ColumnName="PHONEID" />
+          <ScalarProperty Name="PHONENAME" ColumnName="PHONENAME" />
+          <ScalarProperty Name="BLOCKID" ColumnName="BLOCKID" />
+          <ScalarProperty Name="BLOCKNAME" ColumnName="BLOCKNAME" />
+          <ScalarProperty Name="LoginStatus" ColumnName="LoginStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="App_Picking_New_GetPickingDetailList" FunctionName="Esdata_SMPPLModel.Store.App_Picking_New_GetPickingDetailList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Esdata_SMPPLModel.App_Picking_New_GetPickingDetailList_Result">
+          <ScalarProperty Name="routeid" ColumnName="routeid" />
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="route" ColumnName="route" />
+          <ScalarProperty Name="custcode" ColumnName="custcode" />
+          <ScalarProperty Name="custname" ColumnName="custname" />
+          <ScalarProperty Name="invdt" ColumnName="invdt" />
+          <ScalarProperty Name="NoofInvoices" ColumnName="NoofInvoices" />
+          <ScalarProperty Name="NoofLines" ColumnName="NoofLines" />
+          <ScalarProperty Name="pickername" ColumnName="pickername" />
+          <ScalarProperty Name="checkername" ColumnName="checkername" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="Block" ColumnName="Block" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="custid" ColumnName="custid" />
+          <ScalarProperty Name="ChickerId" ColumnName="ChickerId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="App_Picking_New_GetPickList" FunctionName="Esdata_SMPPLModel.Store.App_Picking_New_GetPickList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Esdata_SMPPLModel.App_Picking_New_GetPickList_Result">
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Itemname" ColumnName="Itemname" />
+          <ScalarProperty Name="Pack" ColumnName="Pack" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Picked" ColumnName="Picked" />
+          <ScalarProperty Name="Itemid" ColumnName="Itemid" />
+          <ScalarProperty Name="Invnum" ColumnName="Invnum" />
+          <ScalarProperty Name="itemcode" ColumnName="itemcode" />
+          <ScalarProperty Name="ITEMCATEGORY" ColumnName="ITEMCATEGORY" />
+          <ScalarProperty Name="Invdt" ColumnName="Invdt" />
+          <ScalarProperty Name="CustCode" ColumnName="CustCode" />
+          <ScalarProperty Name="BasketNo" ColumnName="BasketNo" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Block" ColumnName="Block" />
+          <ScalarProperty Name="checkername" ColumnName="checkername" />
+          <ScalarProperty Name="ChickerId" ColumnName="ChickerId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="App_Picking_New_GetUnPickingList" FunctionName="Esdata_SMPPLModel.Store.App_Picking_New_GetUnPickingList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Esdata_SMPPLModel.App_Picking_New_GetUnPickingList_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="custcode" ColumnName="custcode" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Invdt" ColumnName="Invdt" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="CustId" ColumnName="CustId" />
+          <ScalarProperty Name="Itemname" ColumnName="Itemname" />
+          <ScalarProperty Name="Pack" ColumnName="Pack" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Invnum" ColumnName="Invnum" />
+          <ScalarProperty Name="Itemid" ColumnName="Itemid" />
+          <ScalarProperty Name="Batchid" ColumnName="Batchid" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="expiry" ColumnName="expiry" />
+          <ScalarProperty Name="mrp" ColumnName="mrp" />
+          <ScalarProperty Name="itemcode" ColumnName="itemcode" />
+          <ScalarProperty Name="routeid" ColumnName="routeid" />
+          <ScalarProperty Name="route" ColumnName="route" />
+          <ScalarProperty Name="Block" ColumnName="Block" />
+          <ScalarProperty Name="checkername" ColumnName="checkername" />
+          <ScalarProperty Name="CheckerId" ColumnName="CheckerId" />
+          <ScalarProperty Name="Phoneid" ColumnName="Phoneid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="App_Picking_New_UpdateBasketNo" FunctionName="Esdata_SMPPLModel.Store.App_Picking_New_UpdateBasketNo" />
+    <FunctionImportMapping FunctionImportName="App_Picking_New_UpdatePhoneInfo" FunctionName="Esdata_SMPPLModel.Store.App_Picking_New_UpdatePhoneInfo" />
+    <FunctionImportMapping FunctionImportName="App_Picking_New_UpdatePickerEndTime" FunctionName="Esdata_SMPPLModel.Store.App_Picking_New_UpdatePickerEndTime" />
+    <FunctionImportMapping FunctionImportName="App_Picking_New_UpdatePickerStartTime" FunctionName="Esdata_SMPPLModel.Store.App_Picking_New_UpdatePickerStartTime" />
+    <FunctionImportMapping FunctionImportName="App_Picking_New_UpdatePickingDetail" FunctionName="Esdata_SMPPLModel.Store.App_Picking_New_UpdatePickingDetail" />
+    <FunctionImportMapping FunctionImportName="App_Picking_New_UpdatePickList" FunctionName="Esdata_SMPPLModel.Store.App_Picking_New_UpdatePickList" />
+    <FunctionImportMapping FunctionImportName="App_Picking_New_UpdatePickRackStatus" FunctionName="Esdata_SMPPLModel.Store.App_Picking_New_UpdatePickRackStatus" />
+    <FunctionImportMapping FunctionImportName="App_Picking_New_UpdateUnPickList" FunctionName="Esdata_SMPPLModel.Store.App_Picking_New_UpdateUnPickList" />
+  </EntityContainerMapping>
+</Mapping>

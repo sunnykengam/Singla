@@ -1,0 +1,12 @@
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\InvoiceManagerAPI\CheckingDataAccess\bin\Debug\CheckingDataAccess.dll.config
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\InvoiceManagerAPI\CheckingDataAccess\bin\Debug\CheckingDataAccess.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\InvoiceManagerAPI\CheckingDataAccess\bin\Debug\CheckingDataAccess.pdb
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\InvoiceManagerAPI\CheckingDataAccess\bin\Debug\EntityFramework.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\InvoiceManagerAPI\CheckingDataAccess\bin\Debug\EntityFramework.SqlServer.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\InvoiceManagerAPI\CheckingDataAccess\bin\Debug\EntityFramework.xml
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\InvoiceManagerAPI\CheckingDataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\InvoiceManagerAPI\CheckingDataAccess\obj\Debug\CheckingDataAccess.csproj.AssemblyReference.cache
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\InvoiceManagerAPI\CheckingDataAccess\obj\Debug\CheckingDataAccess.csproj.CoreCompileInputs.cache
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\InvoiceManagerAPI\CheckingDataAccess\obj\Debug\CheckingDataAccess.csproj.CopyComplete
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\InvoiceManagerAPI\CheckingDataAccess\obj\Debug\CheckingDataAccess.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\PickandCheck\InvoiceManagerAPI\CheckingDataAccess\obj\Debug\CheckingDataAccess.pdb
