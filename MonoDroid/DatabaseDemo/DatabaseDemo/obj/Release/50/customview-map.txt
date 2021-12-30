@@ -1,0 +1,11 @@
+Button;obj\Release\50\res\layout\addnote.xml
+Button;obj\Release\50\res\layout\notelist.xml
+EditText;obj\Release\50\res\layout\addnote.xml
+LinearLayout;obj\Release\50\res\layout\addnote.xml
+LinearLayout;obj\Release\50\res\layout\notelist.xml
+LinearLayout;obj\Release\50\res\layout\notelistitem.xml
+LinearLayout;obj\Release\50\res\layout\viewnote.xml
+ListView;obj\Release\50\res\layout\notelist.xml
+TextView;obj\Release\50\res\layout\addnote.xml
+TextView;obj\Release\50\res\layout\notelistitem.xml
+TextView;obj\Release\50\res\layout\viewnote.xml

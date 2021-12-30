@@ -1,0 +1,3 @@
+Button;obj\Release\50\res\layout\main.xml
+com.admob.android.ads.AdView;obj\Release\50\res\layout\main.xml
+LinearLayout;obj\Release\50\res\layout\main.xml

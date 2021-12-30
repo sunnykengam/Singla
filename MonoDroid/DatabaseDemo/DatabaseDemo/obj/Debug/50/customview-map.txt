@@ -1,0 +1,11 @@
+Button;obj\Debug\50\res\layout\addnote.xml
+Button;obj\Debug\50\res\layout\notelist.xml
+EditText;obj\Debug\50\res\layout\addnote.xml
+LinearLayout;obj\Debug\50\res\layout\addnote.xml
+LinearLayout;obj\Debug\50\res\layout\notelist.xml
+LinearLayout;obj\Debug\50\res\layout\notelistitem.xml
+LinearLayout;obj\Debug\50\res\layout\viewnote.xml
+ListView;obj\Debug\50\res\layout\notelist.xml
+TextView;obj\Debug\50\res\layout\addnote.xml
+TextView;obj\Debug\50\res\layout\notelistitem.xml
+TextView;obj\Debug\50\res\layout\viewnote.xml
