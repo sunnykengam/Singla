@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SinglaMedicos.View.Reports.SalesSummary" 
+             xmlns:controls="clr-namespace:SinglaMedicos.Renders"
+             xmlns:Lart="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             Title="Sales Summary Report"
+            NavigationPage.HasNavigationBar="True"
+             BackgroundColor="WhiteSmoke">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="search.png" x:Name="search"  Clicked="search_Tapped" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" >
+                <StackLayout x:Name="searchbar" Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="False" Padding="1"  BackgroundColor="#FFFFE0" >
+                    <controls:FontAwesome x:Name="searchbarbackbutton" FontSize="25" FontAttributes="None"  Margin="15,0,0,0" TextColor="Gray"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAArrowLeft}" >
+                        <controls:FontAwesome.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="searchbarbackbutton_Tapped"  NumberOfTapsRequired="1"/>
+                        </controls:FontAwesome.GestureRecognizers>
+                    </controls:FontAwesome>
+                    <SearchBar Margin="-15,0,0,0" x:Name="searchbar1"  TextColor="#FFA449" HorizontalOptions="FillAndExpand" Placeholder="Enter Name (or) Code" VerticalOptions="FillAndExpand"   TextChanged="Searchbar_TextChanged"/>
+                </StackLayout>
+                <StackLayout x:Name="invstk"  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Frame BackgroundColor="#FFA449" CornerRadius="10" Padding="1" WidthRequest="110" HeightRequest="50" >
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="From Date" TextColor="#0000FF" FontSize="14" />
+                            <controls:DatePickerCtrl MaximumDate="{Binding ExpenseDate}" FontSize="14"    Format="dd-MM-yyyy" DateSelected="StartDatePicker_DateSelected"    WidthRequest="95" x:Name="startDatePicker"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame BackgroundColor="#FFA449" CornerRadius="10" Padding="2" WidthRequest="110" HeightRequest="50" >
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="To Date" TextColor="#0000FF" FontSize="14" />
+                            <controls:DatePickerCtrl MaximumDate="{Binding ExpenseDate}" FontSize="14"   Format="dd-MM-yyyy" DateSelected="EndDatePicker_DateSelected"    WidthRequest="95" x:Name="endDatePicker"/>
+                        </StackLayout>
+                    </Frame>
+                    <Button x:Name="getdate" Text="Ok" CornerRadius="5" TextColor="White" FontSize="Small" BackgroundColor="#6F63E1" Clicked="Getdate_Clicked" WidthRequest="60" HeightRequest="45"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,-5,0,0" BackgroundColor="#FFE4E1" HeightRequest="40">
+                    <Label x:Name="lblsalesman"  Margin="15,0,15,0" VerticalOptions="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" TextColor="Black"  Font="Bold"/>
+                    <Label Text="Target:"  VerticalOptions="Center" HorizontalOptions="EndAndExpand" TextColor="Black"  />
+                    <Label  x:Name="lbltarget"  Margin="0,0,10,0" VerticalOptions="Center"  TextColor="Black"  Font="Bold"/>
+                </StackLayout>
+                <StackLayout>
+                    <ListView x:Name="salessummary_List"   HasUnevenRows="True" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell >
+                                    <Frame Margin="8,5,8,5" BackgroundColor="#FFFFE0" CornerRadius="8" Padding="1">
+                                        <StackLayout Margin="10,5,10,5">
+                                            <StackLayout  Orientation="Horizontal" >
+                                                <Label Text="{Binding customername}" WidthRequest="140" TextColor="Black" FontSize="Small" FontAttributes="Bold"/>
+                                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                                    <Label Text="Total Bills" TextColor="Black"   FontSize="Small"/>
+                                                </StackLayout>
+                                                <Label Text="Amount" TextColor="Black" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" FontSize="Small"/>
+                                            </StackLayout>
+                                            <StackLayout  Orientation="Horizontal">
+                                                <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                                    <Label Text="Sales" TextColor="Black" FontSize="Small"/>
+                                                    <Label Text="Sales Return" TextColor="Black" FontSize="Small"/>
+                                                </StackLayout>
+                                                <StackLayout  Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                                    <Label Text="{Binding TotalBills}" HorizontalTextAlignment="Center" TextColor="Black" FontSize="Small"/>
+                                                    <Label Text="0" HorizontalTextAlignment="Center" TextColor="Black" FontSize="Small"/>
+                                                </StackLayout>
+                                                <StackLayout  Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                                        <Label Text="Rs:₹"/>
+                                                        <Label Text="{Binding Amount}" HorizontalTextAlignment="End" TextColor="Black" FontSize="Small"/>
+                                                    </StackLayout>
+                                                    <Label Text="Rs:₹ 0" HorizontalTextAlignment="End" TextColor="Black" FontSize="Small"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <BoxView HeightRequest="1" Color="Gray"/>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                                <Label Text="Rs:₹"/>
+                                                <Label Text="{Binding Amount}" TextColor="Black" HorizontalTextAlignment="End" FontSize="Small" FontAttributes="Bold"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Margin="0,10,20,10">
+                    <Label Text="Grand Total :" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                    <Label x:Name="lblgrandtotal" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                </StackLayout>
+            </StackLayout>
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="1" WidthRequest="250" HeightRequest="85" >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" >
+                            <ActivityIndicator x:Name="progessbar"  VerticalOptions="Center" HorizontalOptions="Center" Color="#FFA500"/>
+                            <Label x:Name="lblLoadingText" TextColor="Green" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Please Wait Loading Sales Summary Report..."/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+            
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SinglaApp.Renders"
+             x:Class="SinglaApp.View.CustomerList"
+             Title="Customer List"
+             BackgroundColor="White"
+                  >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="search.png" x:Name="search" Clicked="search_Tapped" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout x:Name="searchbar" Orientation="Horizontal" HeightRequest="60"  HorizontalOptions="FillAndExpand" IsVisible="False" Padding="1"  BackgroundColor="#FFFFE0" >
+                    <controls:FontAwesome x:Name="searchbarbackbutton" FontSize="25" FontAttributes="None"  Margin="15,0,0,0" TextColor="Gray"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAArrowLeft}" >
+                        <controls:FontAwesome.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="searchbarbackbutton_Tapped"  NumberOfTapsRequired="1"/>
+                        </controls:FontAwesome.GestureRecognizers>
+                    </controls:FontAwesome>
+                    <SearchBar Margin="-15,0,0,0" x:Name="searchbar1"  TextColor="#FFA449" HorizontalOptions="FillAndExpand" Placeholder="Enter Name (or) Code" VerticalOptions="FillAndExpand"   TextChanged="Searchbar_TextChanged"/>
+                </StackLayout>
+                <StackLayout x:Name="stcklist1" IsVisible="True">
+                    <StackLayout Orientation="Horizontal"  BackgroundColor="#9CF2E6" HeightRequest="40" >
+                        <Label Text="Code" Margin="15,0,0,0" VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="Black"  Font="Bold"/>
+                        <Label Text="Customer Name" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="Black"  Font="Bold"/>
+                        <!--<Label Text="Amount" Margin="10,0,10,0" VerticalOptions="Center" HorizontalOptions="EndAndExpand" TextColor="Black"  Font="Bold"/>-->
+                    </StackLayout>
+                    <ListView   x:Name="custlist" HasUnevenRows="True"  ItemSelected="Custlist_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Padding="3" Margin="6,1,6,1" BackgroundColor="WhiteSmoke" >
+                                        <StackLayout Orientation="Horizontal" Margin="5,0,5,0"  Padding="3" >
+                                            <Label Text="{Binding customercode}" WidthRequest="55" FontSize="Small"   TextColor="Black"  Font="Bold"/>
+                                            <Label Text="{Binding customername}"     FontSize="Small"  TextColor="Black"  Font="Bold"/>
+                                            <!--<Label Text="Rs:" HorizontalOptions="EndAndExpand"  HorizontalTextAlignment="Start"   FontSize="Small"  TextColor="Black"  Font="Bold"/>
+                                            <Label Text="{Binding totalamount}"  HorizontalTextAlignment="Start"   FontSize="Small"  TextColor="Black"  Font="Bold"/>-->
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackLayout  BackgroundColor="#9CF2E6" HeightRequest="40">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label Text="Total:"   FontSize="Small"  TextColor="Black"  />
+                            <Label Text="" x:Name="lblcount"  FontSize="Small"  TextColor="Black"  Font="Bold"/>
+                            <Label Text="Customers" FontSize="Small"  TextColor="Black" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" IsVisible="False" Margin="5,0,5,0" x:Name="stcklist2" >
+                    <StackLayout  HeightRequest="50"  BackgroundColor="#F0E68C" >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Tapped="onStackCitizenReporterTapped" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Margin="5,0,5,0">
+                            <Label x:Name="lblcustomercode"  WidthRequest="55" FontSize="Small"   TextColor="Black"  Font="Bold"/>
+                            <Label x:Name="lblcustomername"  FontSize="Small"  TextColor="Black"  Font="Bold"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Margin="20,10,20,0">
+                        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal"  Spacing="10">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="MyProfile_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                            <controls:FontAwesome x:Name="Font_MyProfile" FontSize="35" WidthRequest="50"  TextColor="#21CE99"  VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAUser}" />
+                            <Button x:Name="MyProfile" Clicked="MyProfile_Clicked" Text="View Profile" BackgroundColor="Transparent" FontSize="Small" VerticalOptions="CenterAndExpand" TextColor="Black" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal"  Spacing="10">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ViewPendingBills_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                            <controls:FontAwesome x:Name="Font_ViewPendingBills" FontSize="35"  WidthRequest="50"   TextColor="#21CE99"  VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAinvoicedollar}" />
+                            <Button x:Name="ViewPendingBills" Clicked="ViewPendingBills_Clicked" BackgroundColor="Transparent"  Text="View Pending Bills" FontSize="Small" VerticalOptions="CenterAndExpand" TextColor="Black" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal"  Spacing="10">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ViewAllOrders_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                            <controls:FontAwesome x:Name="Font_viewAllOrders" FontSize="35"  WidthRequest="50"  TextColor="#21CE99"  VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAOpencart}" />
+                            <Button x:Name="viewAllOrders"  BackgroundColor="Transparent" Text="View All Orders" FontSize="Small" VerticalOptions="Center" TextColor="Black" Clicked="ViewAllOrders_Clicked" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal"  Spacing="10">
+                            <controls:FontAwesome x:Name="Font_Viewsalesreturns" FontSize="35" WidthRequest="50"  TextColor="#21CE99" VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAFileText}" />
+                            <Button x:Name="Viewsalesreturns"  BackgroundColor="Transparent" Text="View Sales Returns" FontSize="Small" VerticalOptions="Center" TextColor="Black" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="1" WidthRequest="250" HeightRequest="85" >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" >
+                            <ActivityIndicator x:Name="progessbar"  VerticalOptions="Center" HorizontalOptions="Center" Color="#FFA500"/>
+                            <Label x:Name="lblLoadingText" TextColor="Green" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

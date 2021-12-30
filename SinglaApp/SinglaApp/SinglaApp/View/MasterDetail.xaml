@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:controls="clr-namespace:SinglaApp.Renders"
+                  x:Class="SinglaApp.View.MasterDetail"
+                  NavigationPage.HasNavigationBar="False" 
+                  BackgroundColor="WhiteSmoke">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu">
+            <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <StackLayout BackgroundColor="##FDF5E6" >
+                        <StackLayout  HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image  Source="ProfileImage.png" WidthRequest="65" Margin="0,20,0,0" HeightRequest="65" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label Text="" x:Name="lbname" TextColor="Black" FontAttributes="Bold" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                            <Label Text="" x:Name="lbemail" TextColor="Black" FontAttributes="Bold" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <Label Text="Version :" TextColor="Black" FontAttributes="Bold" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                <Label Text="" x:Name="lblversion" TextColor="Black" FontAttributes="Bold" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                    <Frame Margin="20,8,20,3" BackgroundColor="White" Grid.Row="1" HasShadow="True">
+                        <ScrollView>
+                            <StackLayout Orientation="Vertical" >
+                                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal"  Spacing="10">
+                                    <controls:FontAwesome x:Name="imgProfile" FontSize="35" WidthRequest="35"  VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAUser}" TextColor="Black">
+                                        <controls:FontAwesome.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="MyProfile_Clicked"  NumberOfTapsRequired="1"/>
+                                        </controls:FontAwesome.GestureRecognizers>
+                                    </controls:FontAwesome>
+                                    <Button x:Name="MyProfile" Text="My Profile"  BackgroundColor="Transparent" Clicked="MyProfile_Clicked" FontSize="Small" VerticalOptions="CenterAndExpand" TextColor="Black" />
+                                </StackLayout>
+                                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Spacing="10">
+                                    <controls:FontAwesome x:Name="imgChangepassword" FontSize="35" WidthRequest="35" VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FACog}" TextColor="Black" IsVisible="False">
+                                        <controls:FontAwesome.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="ChangePassword_Clicked"  NumberOfTapsRequired="1"/>
+                                        </controls:FontAwesome.GestureRecognizers>
+                                    </controls:FontAwesome>
+                                    <Button x:Name="ChangePassword"  Clicked="ChangePassword_Clicked"  BackgroundColor="Transparent" Text="Change Password" FontSize="Small" VerticalOptions="CenterAndExpand" TextColor="Black" IsVisible="False" />
+                                </StackLayout>
+                                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Spacing="10">
+                                    <controls:FontAwesome x:Name="imgLastorders" FontSize="35" WidthRequest="35" VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAOpencart}" TextColor="Black">
+                                        <controls:FontAwesome.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Last10Orders_Clicked"  NumberOfTapsRequired="1"/>
+                                        </controls:FontAwesome.GestureRecognizers>
+                                    </controls:FontAwesome>
+                                    <Button x:Name="Last10Orders"  Clicked="Last10Orders_Clicked" BackgroundColor="Transparent" Text="Last 10 Orders" FontSize="Small" VerticalOptions="CenterAndExpand" TextColor="Black" />
+                                </StackLayout>
+                                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal"  Spacing="10">
+                                    <controls:FontAwesome x:Name="imgmessage" FontSize="35"  WidthRequest="35" VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAEnvelope}" TextColor="Black" IsVisible="False">
+                                        <controls:FontAwesome.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Messages_Clicked"  NumberOfTapsRequired="1"/>
+                                        </controls:FontAwesome.GestureRecognizers>
+                                    </controls:FontAwesome>
+                                    <Button x:Name="Messages"  BackgroundColor="Transparent" Clicked="Messages_Clicked" Text="Messages" FontSize="Small" VerticalOptions="CenterAndExpand" TextColor="Black"   IsVisible="False"/>
+                                </StackLayout>
+                                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal"  Spacing="10">
+                                    <controls:FontAwesome x:Name="imglocation" FontSize="35" WidthRequest="35" VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAMapMarker}" TextColor="Black" IsVisible="false">
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Location_Clicked"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                    </controls:FontAwesome>
+                                    <Button x:Name="location"  BackgroundColor="Transparent" Clicked="Location_Clicked" Text="Show My Location" FontSize="Small" VerticalOptions="CenterAndExpand" TextColor="Black" IsVisible="false" />
+                                </StackLayout>
+                                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal"  Spacing="10">
+                                    <controls:FontAwesome x:Name="imgPendingOrders" FontSize="35" WidthRequest="35" VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAOpencart}" TextColor="Black">
+                                        <controls:FontAwesome.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="PendingOrders_Clicked"  NumberOfTapsRequired="1"/>
+                                        </controls:FontAwesome.GestureRecognizers>
+                                    </controls:FontAwesome>
+                                    <Button x:Name="PendingOrders"  BackgroundColor="Transparent" Clicked="PendingOrders_Clicked" Text="Pending Orders" FontSize="Small" VerticalOptions="CenterAndExpand" TextColor="Black" />
+                                </StackLayout>
+                                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal"  Spacing="10">
+                                    <controls:FontAwesome x:Name="imgLogout" FontSize="35" WidthRequest="35" VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FASignOut}" TextColor="Black">
+                                        <controls:FontAwesome.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Logout_Clicked"  NumberOfTapsRequired="1"/>
+                                        </controls:FontAwesome.GestureRecognizers>
+                                    </controls:FontAwesome>
+                                    <Button x:Name="Logout"  Clicked="Logout_Clicked" BackgroundColor="Transparent" Text="Log Out" FontSize="Small" VerticalOptions="CenterAndExpand" TextColor="Black" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+                    </Frame>
+                </StackLayout>
+            </AbsoluteLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage></NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

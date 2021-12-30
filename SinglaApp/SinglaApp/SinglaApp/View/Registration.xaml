@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SinglaApp.View.Registration" 
+             Title="Registration"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout Margin="20,30,20,0">
+            <ScrollView >
+                <StackLayout  Orientation="Vertical">
+                    <Label x:Name="lblShopchemistname" Text="Shop Chemist Name" IsVisible="False" FontSize="Small" TextColor="Gray"/>
+                    <Entry Placeholder="Shop Chemist Name" TextChanged="ShopChemistName_TextChanged"  x:Name="ShopChemistName"  Style="{StaticResource entrystyle}"/>
+                    <Label x:Name="lblName" Text="Name" IsVisible="False" FontSize="Small" TextColor="Gray"/>
+                    <Entry Placeholder="Name" x:Name="ContantPerson" TextChanged="ContantPerson_TextChanged"  Style="{StaticResource entrystyle}"/>
+                    <Label x:Name="lblMobileNumber" Text="Mobile Number" IsVisible="False" FontSize="Small" TextColor="Gray"/>
+                    <Entry Placeholder="Mobile Number" x:Name="MobileNumber" TextChanged="MobileNumber_TextChanged"  Style="{StaticResource entrystyle}"/>
+                    <Label x:Name="lblCompanyEmail" Text="Company Email" IsVisible="False" FontSize="Small" TextColor="Gray"/>
+                    <Entry Placeholder="Company Email" x:Name="CompanyEmail" TextChanged="CompanyEmail_TextChanged"  Style="{StaticResource entrystyle}"/>
+                    <Label x:Name="lblAddress" Text="Address" IsVisible="False" FontSize="Small" TextColor="Gray"/>
+                    <Entry Placeholder="Address" x:Name="Address" TextChanged="Address_TextChanged"  Style="{StaticResource entrystyle}"/>
+                    <Label x:Name="lblPinCode" Text="Pin Code" IsVisible="False" FontSize="Small" TextColor="Gray"/>
+                    <Entry Placeholder="Pin Code"  x:Name="PinCode" TextChanged="PinCode_TextChanged"  Style="{StaticResource entrystyle}"/>
+                    <Label x:Name="lblState" Text="State" IsVisible="False" FontSize="Small" TextColor="Gray"/>
+                    <Entry Placeholder="State" x:Name="State" TextChanged="State_TextChanged"  Style="{StaticResource entrystyle}"/>
+                    <Label x:Name="lblCity" Text="City" IsVisible="False" FontSize="Small" TextColor="Gray"/>
+                    <Entry Placeholder="City" x:Name="City"  TextChanged="City_TextChanged" Style="{StaticResource entrystyle}"/>
+                    <Label x:Name="lblDrugLicence" Text="DrugLicence" IsVisible="False" FontSize="Small" TextColor="Gray"/>
+                    <Entry Placeholder="DrugLicence" x:Name="DrugLicence" TextChanged="DrugLicence_TextChanged"  Style="{StaticResource entrystyle}"/>
+                    <Label x:Name="lblGst" Text="Gst" IsVisible="False" FontSize="Small" TextColor="Gray"/>
+                    <Entry Placeholder="Gst"  x:Name="Gst"  TextChanged="Gst_TextChanged" Style="{StaticResource entrystyle}"/>
+                    <Label x:Name="lblUserName" Text="User Name" IsVisible="False" FontSize="Small" TextColor="Gray"/>
+                    <Entry Placeholder="User Name"  x:Name="UserName" TextChanged="UserName_TextChanged"  Style="{StaticResource entrystyle}"/>
+                    <Label x:Name="lblPassword" Text="Password" IsVisible="False" FontSize="Small" TextColor="Gray"/>
+                    <Entry Placeholder="Password" x:Name="Password" TextChanged="Password_TextChanged"  Style="{StaticResource entrystyle}"/>
+                    <Label x:Name="lblConfirmPassword" Text="Confirm Password" IsVisible="False" FontSize="Small" TextColor="Gray"/>
+                    <Entry Placeholder="Confirm Password" x:Name="ConfirmPassword" TextChanged="ConfirmPassword_TextChanged"  Style="{StaticResource entrystyle}"/>
+                    <Label x:Name="lblRoleType" Text="RoleType" IsVisible="False" FontSize="Small" TextColor="Gray"/>
+                    <Entry Placeholder="RoleType" x:Name="RoleType" TextChanged="RoleType_TextChanged"  Style="{StaticResource entrystyle}"/>
+                    <Label x:Name="lblCreaditLimtExceed" Text="CreaditLimtExceed" IsVisible="False" FontSize="Small" TextColor="Gray"/>
+                    <Entry Placeholder="CreaditLimtExceed" x:Name="CreaditLimtExceed" TextChanged="CreaditLimtExceed_TextChanged"  Style="{StaticResource entrystyle}"/>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Margin="0,30,30,10" Orientation="Horizontal" HorizontalOptions="Center">
+                <Button x:Name="SignUp"  Text="Sign Up" Clicked="SignUp_Clicked" Style="{StaticResource buttonstyle}"/>
+                <Button x:Name="cancel"  Text="Cancel" Clicked="cancel_Clicked" Style="{StaticResource buttonstyle}" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

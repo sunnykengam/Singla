@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SinglaApp.View.Reports.CustomerPendingBill"
+             BackgroundColor="WhiteSmoke"
+             Title="Pending Bills">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout  Orientation="Horizontal"  Margin="0,-5,0,0" BackgroundColor="#FFE4E1" HeightRequest="40" >
+                <Label Text="Invoice No" Margin="15,0,15,0" VerticalOptions="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" TextColor="Black"  Font="Bold"/>
+                <Label Text="Pending Amount" Margin="10,0,10,0" VerticalOptions="Center" HorizontalOptions="EndAndExpand" TextColor="Black"  Font="Bold"/>
+            </StackLayout>
+            <ListView x:Name="custmeroutstandinglst" ItemsSource="{Binding custmeroutstandinglst}" Margin="0,-5,0,0"  HasUnevenRows="True" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="110">
+                            <Frame Padding="6" Margin="15,5,15,5" BackgroundColor="White" BorderColor="#A9A9A9">
+                                <StackLayout Orientation="Vertical"   VerticalOptions="CenterAndExpand" >
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                            <Label Text="Invoice No" TextColor="Black" FontSize="Micro" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding invoicenum}" Margin="0,-4,0,0" FontAttributes="Bold" TextColor="Black" FontSize="Small"  HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                            <Label Text="Invoice Date" TextColor="Black" FontSize="Micro" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding invoicedate}" Margin="0,-4,0,0" FontAttributes="Bold"  TextColor="Black" FontSize="Small" HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                            <Label Text="Days" TextColor="Red" FontSize="Micro" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding Days}" TextColor="Red"  FontSize="Small" Margin="0,-4,0,0" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <BoxView Color="#C0C0C0" HeightRequest="1"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                            <Label Text="Total Amount" TextColor="#FF8C00" FontSize="Micro" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding invtotalamount}" TextColor="#FF8C00" FontSize="Small" Margin="0,-4,0,0" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                            <Label Text="Discount Amount" TextColor="Black" FontSize="Micro" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding totaldiscount}" Margin="0,-4,0,0" FontAttributes="Bold" TextColor="Black" FontSize="Small"  HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                            <Label Text="Due Amount" TextColor="Black" FontSize="Micro" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding invbalanceamount}" TextColor="#6F63E1" FontSize="Small" Margin="0,-4,0,0" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal"  BackgroundColor="#FFE4E1" HeightRequest="40" >
+                <Label Text="Total:" Margin="15,0,5,0" VerticalOptions="Center" HorizontalOptions="Center"   TextColor="Black"  Font="Bold"/>
+                <Label x:Name="lblorders"  Margin="-2,0,0,0" VerticalOptions="Center" TextColor="Black"  Font="Bold"/>
+                <Label x:Name="lbltotalamount" Margin="0,0,20,0" HorizontalOptions="EndAndExpand" VerticalOptions="Center" TextColor="Black"  Font="Bold"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

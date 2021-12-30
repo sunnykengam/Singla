@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SinglaMedicos.View.CompleteOrders"
+             x:Name="currentPage"
+             xmlns:controls="clr-namespace:SinglaMedicos.Renders"
+             xmlns:Lart="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="WhiteSmoke">
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" >
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal" Style="{x:StaticResource navigationcolorstyle}" HeightRequest="60" >
+                    <controls:FontAwesome x:Name="backbutton" FontSize="25" FontAttributes="None"  Margin="15,0,0,0" TextColor="White"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAArrowLeft}" >
+                        <controls:FontAwesome.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Backbutton_Tapped"  NumberOfTapsRequired="1"/>
+                        </controls:FontAwesome.GestureRecognizers>
+                    </controls:FontAwesome>
+                    <StackLayout x:Name="searchbar" Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="False" Padding="1"  BackgroundColor="#FFFFE0" >
+                        <controls:FontAwesome x:Name="searchbarbackbutton" FontSize="25" FontAttributes="None"  Margin="15,0,0,0" TextColor="Gray"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAArrowLeft}" >
+                            <controls:FontAwesome.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="searchbarbackbutton_Tapped"  NumberOfTapsRequired="1"/>
+                            </controls:FontAwesome.GestureRecognizers>
+                        </controls:FontAwesome>
+                        <SearchBar Margin="-15,0,0,0" x:Name="searchbar1"  TextColor="#FFA449" HorizontalOptions="FillAndExpand" Placeholder="Enter Customer Name" VerticalOptions="FillAndExpand"   TextChanged="Searchbar_TextChanged"/>
+                    </StackLayout>
+                    <Label x:Name="lbltitelname" IsVisible="True" Text="" TextColor="White" FontAttributes="Bold" FontSize="20" Margin="13,13,0,0" />
+                    <StackLayout x:Name="ordserch" Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                        <controls:FontAwesome x:Name="search" FontSize="28" FontAttributes="None" HorizontalOptions="EndAndExpand" TextColor="White"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FASearch}" >
+                            <controls:FontAwesome.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="search_Tapped"  NumberOfTapsRequired="1"/>
+                            </controls:FontAwesome.GestureRecognizers>
+                        </controls:FontAwesome>
+                        <controls:FontAwesome x:Name="ordfilter" Margin="0,0,5,0" FontSize="30" FontAttributes="None" HorizontalOptions="EndAndExpand" TextColor="White"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAFilter}" >
+                            <controls:FontAwesome.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ordfilter_Tapped"  NumberOfTapsRequired="1"/>
+                            </controls:FontAwesome.GestureRecognizers>
+                        </controls:FontAwesome>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <StackLayout Orientation="Vertical" Margin="30,0,0,0" HorizontalOptions="StartAndExpand">
+                        <StackLayout Orientation="Horizontal" >
+                            <Label BackgroundColor="#FF8C00" HeightRequest="18" WidthRequest="18"/>
+                            <Label Text="Submitted" TextColor="Black" FontSize="Small"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label BackgroundColor="#FF69B4" HeightRequest="18" WidthRequest="18"/>
+                            <Label Text="Processing" TextColor="Black" FontSize="Small"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" Margin="0,0,30,0">
+                        <StackLayout Orientation="Horizontal">
+                            <Label BackgroundColor="#00FF00" HeightRequest="18" WidthRequest="18"/>
+                            <Label Text="Completed" TextColor="Black" FontSize="Small"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label BackgroundColor="#FF1606" HeightRequest="18" WidthRequest="18"/>
+                            <Label Text="Cancelled" TextColor="Black" FontSize="Small"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <ListView ItemsSource="{Binding completelist}" IsPullToRefreshEnabled="True"  x:Name="comptlist"  HasUnevenRows="True"  IsGroupingEnabled="True" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="90">
+                                <Frame Padding="5" Margin="40,1,10,1" BackgroundColor="White" BorderColor="#A9A9A9" CornerRadius="3">
+                                    <StackLayout Orientation="Horizontal" >
+                                        <StackLayout Orientation="Vertical" Margin="10,0,10,0">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="{Binding itemname}" FontSize="Small"  TextColor="#A41919" VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Pack :" HorizontalTextAlignment="Start" TextColor="Black"/>
+                                                        <Label Text="{Binding packsize}" TextColor="Green" FontSize="Small"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Scheme:" HorizontalTextAlignment="Start" TextColor="Black"/>
+                                                        <Label  Text="{Binding Scheme}" TextColor="Green" FontSize="Small"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="PTR:" HorizontalTextAlignment="Start" TextColor="Black" FontSize="Small" />
+                                                        <Label Text="{Binding ptr }"  TextColor="Green" FontSize="Small" />
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Box:" HorizontalTextAlignment="Start" TextColor="Black"/>
+                                                        <Label  Text="{Binding boxsize}" TextColor="Green" FontSize="Small"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                                <StackLayout HorizontalOptions="End"  Orientation="Vertical">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="MRP:" HorizontalTextAlignment="Start" TextColor="Black" FontSize="Small" />
+                                                        <Label Text="{Binding mrp}" TextColor="Green" FontSize="Small" />
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Qty:" HorizontalTextAlignment="Start" TextColor="Black" FontSize="Small"/>
+                                                        <Label Text="{Binding qty}" TextColor="Green"  FontSize="Small" />
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <ViewCell >
+                                <Frame Padding="5" Margin="10,5,10,5" BackgroundColor="#E2F5F9" BorderColor="#A9A9A9" CornerRadius="5">
+                                    <RelativeLayout  Padding="5" >
+                                        <StackLayout  Orientation="Horizontal" Margin="30,0,10,0">
+                                            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical">
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                    <Label Text="{Binding compname}" FontSize="Small" TextColor="#A41919"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Vertical">
+                                                    <StackLayout Orientation="Horizontal" >
+                                                        <StackLayout Orientation="Horizontal" WidthRequest="270">
+                                                            <StackLayout Orientation="Horizontal">
+                                                                <Label Text="Order ID :" FontSize="Small"  TextColor="Black" />
+                                                                <Label Text="{Binding order_id}"  FontSize="Small" TextColor="Green"/>
+                                                            </StackLayout>
+                                                            <StackLayout Orientation="Horizontal">
+                                                                <Label Text="Items:" HorizontalTextAlignment="Start"  FontSize="Small" TextColor="Black"/>
+                                                                <Label Text="{Binding NoOfItems}"  FontSize="Small" Font="Bold" TextColor="Green"/>
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                        <Frame Padding="2" HeightRequest="15" WidthRequest="15" HorizontalOptions="End" 
+                                                           BackgroundColor="{Binding order_status}"  CornerRadius="2"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <StackLayout Orientation="Horizontal">
+                                                            <Label Text="Date:" FontSize="Small"  TextColor="Black"/>
+                                                            <Label Text="{Binding order_date,StringFormat=' {0:dd/MM/yyyy}'}"  FontSize="Small" TextColor="Green"/>
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                                            <Label Text="Amount : ₹"  HorizontalTextAlignment="Start" FontSize="Small"  TextColor="Black" />
+                                                            <Label Text="{Binding totalamount}" FontSize="Small" Font="Bold" TextColor="Green"/>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <StackLayout Orientation="Horizontal">
+                                                            <Label Text="Taketime:" FontSize="Small"  TextColor="Black"/>
+                                                            <Label Text="{Binding ordtaketime}"  FontSize="Small" TextColor="Green"/>
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                                            <Label Text="UploadTime:"  HorizontalTextAlignment="Start" FontSize="Small"  TextColor="Black" />
+                                                            <Label Text="{Binding ordupldtime}" FontSize="Small"  TextColor="Green"/>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <Image x:Name="StateImage" PropertyChanged="StateImage_PropertyChanged"
+                                       Source="{Binding StateIcon}" 
+                                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, 
+                                       Property=Width,  Factor=0.01}"
+                                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, 
+                                       Property=Width, Factor=0.06}"/>
+                                        <RelativeLayout.GestureRecognizers>
+                                            <TapGestureRecognizer   Command="{Binding Source={x:Reference currentPage}, Path=BindingContext.HeaderClickCommand}"   NumberOfTapsRequired="1" CommandParameter="{Binding .}"/>
+                                        </RelativeLayout.GestureRecognizers>
+                                    </RelativeLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.GroupHeaderTemplate>
+                </ListView>
+            </StackLayout>
+            <ContentView x:Name="orderfiltering" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="StartAndExpand" Margin="0,60,0,0" HorizontalOptions="EndAndExpand">
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="1" WidthRequest="240" HeightRequest="260" >
+                        <StackLayout Orientation="Vertical" Margin="15,15,15,15" >
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="StartAndExpand">
+                                <Label Text="Start Date:" TextColor="Black" FontSize="Small" />
+                              <controls:DatePickerCtrl MaximumDate="{Binding ExpenseDate}" Format="dd-MM-yyyy" DateSelected="StartDatePicker_DateSelected"    WidthRequest="180" x:Name="startDatePicker"/>
+                                <Label Text="End Date:" TextColor="Black" FontSize="Small"/>
+                              <controls:DatePickerCtrl MaximumDate="{Binding ExpenseDate}" DateSelected="EndDatePicker_DateSelected"  Format="dd-MM-yyyy"  WidthRequest="150" x:Name="endDatePicker"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <CheckBox  CheckedChanged="CheckBox_CheckedChanged" />
+                                <Label Text="Show Pending Orders" Margin="0,5,0,0" TextColor="Black" FontSize="Small"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <CheckBox  CheckedChanged="CheckBox_CheckedChanged_1"  />
+                                <Label Text="Show Complete Orders" Margin="0,5,0,0" TextColor="Black" FontSize="Small"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <Button x:Name="btnclear" Clicked="Btnclear_Clicked" CornerRadius="5" Text="Clear" BorderRadius="5"
+                                    BackgroundColor="#6F63E1" TextColor="White" WidthRequest="100"  HeightRequest="35"/>
+                                <Button x:Name="btnfilter" Clicked="Btnfilter_Clicked" CornerRadius="5"  Text="Filter" BorderRadius="5"
+                                    BackgroundColor="#6F63E1" TextColor="White" WidthRequest="100"  HeightRequest="35"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="1" WidthRequest="250" HeightRequest="85" >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" >
+                            <ActivityIndicator x:Name="progessbar"  VerticalOptions="Center" HorizontalOptions="Center" Color="#FFA500"/>
+                            <Label x:Name="lblLoadingText" TextColor="Green" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Loading..."/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SinglaApp.Renders"
+             x:Class="SinglaApp.View.Reports.Report"
+             Title="Reports"
+             BackgroundColor="White"
+      NavigationPage.HasNavigationBar="True">
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="Stmainlayout"  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Spacing="30">
+                    <StackLayout x:Name="stbtn1"  Orientation="Horizontal"  Margin="10,0,10,0">
+                        <StackLayout x:Name="Collection" HorizontalOptions="StartAndExpand" WidthRequest="150" Spacing="-5">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Collection_Clicked"  NumberOfTapsRequired="1"/>
+                            </StackLayout.GestureRecognizers>
+                            <controls:FontAwesome x:Name="Font_Neworder"  FontSize="45"  TextColor="#21CE99"  HorizontalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAPhoneSquare}"/>
+                            <Label Text="Collection Report" FontAttributes="Bold"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="Black"  />
+                        </StackLayout>
+                        <StackLayout x:Name="Delivery" HorizontalOptions="EndAndExpand" WidthRequest="150" Spacing="-5">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Delivery_Clicked"  NumberOfTapsRequired="1"/>
+                            </StackLayout.GestureRecognizers>
+                            <controls:FontAwesome x:Name="Font_Delivery"  FontSize="45"  TextColor="#21CE99"  HorizontalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FATruck}"/>
+                            <Label Text="Delivery Report" FontAttributes="Bold" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="stbtn2"  Orientation="Horizontal"  Margin="10,0,10,0">
+                        <StackLayout x:Name="SummaryOrder"  HorizontalOptions="StartAndExpand" WidthRequest="150" Spacing="-5">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SummaryOrder_Clicked"  NumberOfTapsRequired="1"/>
+                            </StackLayout.GestureRecognizers>
+                            <controls:FontAwesome x:Name="Font_Inventory" FontSize="45"  TextColor="#21CE99"  HorizontalOptions="CenterAndExpand"  Text="{x:Static controls:Icon.FAInventory}"/>
+                            <Label Text="Summary Order"  FontAttributes="Bold" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                        </StackLayout>
+                        <StackLayout x:Name="PendingBill" HorizontalOptions="EndAndExpand" WidthRequest="150" Spacing="-5">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="PendingBill_Clicked"  NumberOfTapsRequired="1"/>
+                            </StackLayout.GestureRecognizers>
+                            <controls:FontAwesome  x:Name="Font_PendingBill" FontSize="45"  TextColor="#21CE99"  HorizontalOptions="CenterAndExpand"  Text="{x:Static controls:Icon.FAinvoicedollar}" />
+                            <Label  Text="Sales Summary Report" FontAttributes="Bold"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+                <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="1" WidthRequest="250" HeightRequest="85" >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" >
+                            <ActivityIndicator x:Name="progessbar"  VerticalOptions="Center" HorizontalOptions="Center" Color="#FFA500"/>
+                            <Label x:Name="lblLoadingText" TextColor="Green" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Please Wait..."/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

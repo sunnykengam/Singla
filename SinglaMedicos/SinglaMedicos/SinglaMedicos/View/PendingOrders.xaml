@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Lart="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:controls="clr-namespace:SinglaMedicos.Renders"
+             x:Class="SinglaMedicos.View.PendingOrders"
+             Title="Pending Orders"
+             BackgroundColor="White">
+    
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <ListView x:Name="pndlist" ItemsSource="{Binding pendingList}" IsPullToRefreshEnabled="True" HasUnevenRows="True" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="0" CornerRadius="10" HasShadow="True" HeightRequest="75" Margin="3,3,3,1" BorderColor="#A9A9A9" BackgroundColor="WhiteSmoke" >
+                                    <StackLayout Orientation="Horizontal">
+                                        <CheckBox  Margin="10,0,0,0" IsChecked="{Binding IsChecked}" CheckedChanged="CheckBox_CheckedChanged"/>
+                                        <StackLayout  Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer  Tapped="onStackPndlistTapped" NumberOfTapsRequired="1" />
+                                            </StackLayout.GestureRecognizers>
+                                            <Frame Padding="0" CornerRadius="13" BackgroundColor="{Binding bgmcolor}" HasShadow="False"  WidthRequest="220">
+                                                <Picker x:Name="pickcustomer" HorizontalOptions="FillAndExpand" FontSize="Small" FontAttributes="Bold"  ItemsSource="{Binding pickcustomer}" Title="{Binding customername}" BackgroundColor="Transparent"  IsEnabled="{Binding isenable}" 
+                                                          TextColor="Black"  Unfocused="Pickcustomer_Unfocused"  ItemDisplayBinding="{Binding customername, Mode=TwoWay}"/>
+                                            </Frame>
+                                            <StackLayout Orientation="Horizontal" >
+                                                <Label x:Name="pndcart" Text="Items:" FontSize="Small" TextColor="Black"/>
+                                                <Frame BackgroundColor="{Binding frmitemcolor}" Padding="0" HeightRequest="20"  CornerRadius="3">
+                                                    <Label Margin="5,0,5,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="{Binding NoOfItems}" FontAttributes="Bold" FontSize="Small" TextColor="Black" />
+                                                </Frame>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                            <Button Text="Edit" Margin="0,0,10,0" WidthRequest="58" TextColor="#1E90FF" IsVisible="{Binding editisvisible}" IsEnabled="{Binding editisenable}" BackgroundColor="Transparent" Clicked="custedit_Clicked"  HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                            <Button Text="Save" Margin="0,0,10,0" WidthRequest="60" TextColor="#1E90FF" IsVisible="{Binding saveisvisible}" IsEnabled="{Binding Saveisenable}" BackgroundColor="Transparent" Clicked="custSave_Clicked"  HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <StackLayout Orientation="Horizontal" VerticalOptions="End" Margin="0,0,0,10" HorizontalOptions="Center">
+                    <Button x:Name="btnremovie" WidthRequest="100" HeightRequest="40" BackgroundColor="#0EB1F8" Text="Remove" TextColor="White" Clicked="Btnremovie_Clicked"/>
+                    <Button x:Name="btnconform" WidthRequest="100" HeightRequest="40" BackgroundColor="#0EB1F8" Text="Confirm" IsEnabled="True" TextColor="White" Clicked="Btnconform_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="1" WidthRequest="250" HeightRequest="85" >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" >
+                            <ActivityIndicator x:Name="progessbar"  VerticalOptions="Center" HorizontalOptions="Center" Color="#FFA500"/>
+                            <Label x:Name="lblLoadingText" TextColor="Green" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Loading..."/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

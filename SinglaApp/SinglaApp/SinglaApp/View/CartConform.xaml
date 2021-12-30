@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:CD="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             x:Class="SinglaApp.View.CartConform"
+             BackgroundColor="WhiteSmoke"
+             Title="Confirm Orders">
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <ListView x:Name="conformList" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="3" CornerRadius="10" HeightRequest="88" Margin="6,5,6,5" BorderColor="#A9A9A9" BackgroundColor="#E2F5F9">
+                                    <StackLayout Margin="6,5,6,5" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                            <Label Text="{Binding customername}" TextColor="Black"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                            <StackLayout Orientation="Horizontal" >
+                                                <Label x:Name="lblitems" Text="Items:" TextColor="Black"/>
+                                                <Label Text="{Binding NoOfItems}" TextColor="Green" />
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Amount :₹"  FontSize="Small"  TextColor="Black"/>
+                                                <Label Text="{Binding totalamount}"   FontSize="Small" TextColor="Green"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Challan" FontSize="Medium" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Blue" HorizontalOptions="EndAndExpand"/>
+                                            <RadioButton  CheckedChanged="CHALLAN_Clicked"  IsChecked="{Binding ChallanaChecked }" />
+                                            <Label Text="Invoice" FontSize="Medium"  HorizontalTextAlignment="Center"   FontAttributes="Bold" TextColor="Blue" HorizontalOptions="StartAndExpand"/>
+                                            <RadioButton  CheckedChanged="INVOICE_Clicked" IsChecked="{Binding InvoiceChecked }"  />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <StackLayout x:Name="stckgrandtotal" Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="End" Margin="0,0,40,0">
+                    <Label Text="Grand Total : ₹" TextColor="#ff3c00" Font="Bold" FontSize="Medium"/>
+                    <Label x:Name="lbgrandtotal" TextColor="#ff3c00" Font="Bold" FontSize="Medium"/>
+                </StackLayout>
+                <StackLayout x:Name="stckbutton" VerticalOptions="End"  HorizontalOptions="CenterAndExpand" Margin="20,0,20,20"  Orientation="Horizontal">
+                    <Button x:Name="btncancel" Text="Cancel" Style="{StaticResource buttonstyle}" WidthRequest="150"  Clicked="Btncancel_Clicked"/>
+                    <Button x:Name="btnconfirm" Text="Confirm" Style="{StaticResource buttonstyle}" WidthRequest="150" Clicked="Btnconfirm_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="1" WidthRequest="250" HeightRequest="85" >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" >
+                            <ActivityIndicator x:Name="progessbar"  VerticalOptions="Center" HorizontalOptions="Center" Color="#FFA500"/>
+                            <Label x:Name="lblLoadingText" TextColor="Green" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Loading..."/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

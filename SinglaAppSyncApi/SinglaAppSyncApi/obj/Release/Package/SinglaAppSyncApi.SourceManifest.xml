@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaAppSyncApi\SinglaAppSyncApi\obj\Release\Package\PackageTmp" />
+  <setAcl path="D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaAppSyncApi\SinglaAppSyncApi\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaAppSyncApi\SinglaAppSyncApi\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>

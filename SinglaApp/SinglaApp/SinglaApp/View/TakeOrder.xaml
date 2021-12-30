@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customContentView="clr-namespace:SinglaApp.View"
+             xmlns:Lart="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             x:Class="SinglaApp.View.TakeOrder"
+             xmlns:controls="clr-namespace:SinglaApp.Renders"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="WhiteSmoke">
+   
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="Stmainlayout" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" >
+                <StackLayout x:Name="stack" Style="{x:StaticResource navigationcolorstyle}" HeightRequest="65" >
+                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand"   >
+                        <Image x:Name="backbutton" Source="back.jpg" Margin="5,0,0,0" WidthRequest="50" HeightRequest="40" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer  Tapped="Backbutton_Tapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <StackLayout  Orientation="Horizontal" VerticalOptions="CenterAndExpand" Margin="5,5,0,0" >
+                            <Label x:Name="lbcustomername" FontSize="Medium"  TextColor="White"  Font="Bold"/>
+                        </StackLayout>
+                        <StackLayout  VerticalOptions="CenterAndExpand" Spacing="0.5"  HorizontalOptions="EndAndExpand">
+                            <StackLayout  Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                <controls:FontAwesome x:Name="search" FontSize="25" FontAttributes="None" HorizontalOptions="EndAndExpand" TextColor="White"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FASearch}" >
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="search_Tapped"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <ContentView HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="0,0,5,0">
+                                    <RelativeLayout x:Name="relabox">
+                                        <Image Source="CartIcon" HeightRequest="25" WidthRequest="25" x:Name="yellowBoxView">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="BtnCartIcon_Clicked" NumberOfTapsRequired="1"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Frame BackgroundColor="#0EB1F8" WidthRequest="28"  HeightRequest="19" CornerRadius="6" Padding="0" 
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,Property=Y,
+                                   ElementName=yellowBoxView,Factor=3,Constant=-12}"
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,Property=X,
+                                   ElementName=yellowBoxView,Factor=1,Constant=17}">
+                                            <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  FontSize="Small"
+                               TextColor="White"  x:Name="labelText" />
+                                        </Frame>
+                                        <RelativeLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="BtnCartIcon_Clicked" NumberOfTapsRequired="1"/>
+                                        </RelativeLayout.GestureRecognizers>
+                                    </RelativeLayout>
+                                </ContentView>
+                            </StackLayout>
+                            <Label x:Name="lbltotal" Margin="0,0,5,0" HorizontalOptions="CenterAndExpand" TextColor="White" FontAttributes="Bold" FontSize="12">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="BtnCartIcon_Clicked" NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout x:Name="searchbar"   IsVisible="False" Padding="1"   >
+                    <StackLayout Orientation="Horizontal" HeightRequest="50" BackgroundColor="#FFFFE0" HorizontalOptions="FillAndExpand">
+                        <controls:FontAwesome x:Name="searchbarbackbutton" FontSize="25" FontAttributes="None"  Margin="15,0,0,0" TextColor="Gray"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAArrowLeft}" >
+                            <controls:FontAwesome.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="searchbarbackbutton_Tapped"  NumberOfTapsRequired="1"/>
+                            </controls:FontAwesome.GestureRecognizers>
+                        </controls:FontAwesome>
+                        <SearchBar Margin="-15,0,0,0" x:Name="searchbar1"  TextColor="#FFA449" HorizontalOptions="FillAndExpand" Placeholder="Enter Product Name" VerticalOptions="FillAndExpand"   TextChanged="Searchbar1_TextChanged"/>
+                    </StackLayout>
+                    <StackLayout x:Name="historysearch"  BackgroundColor="#B9E8E8" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <controls:FontAwesome x:Name="searchhistory"  FontSize="25" FontAttributes="None"  TextColor="Black"  Text="{x:Static controls:Icon.FAHistory}" />
+                            <Label Text="Search History"   FontAttributes="Bold" TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="searchhistory_Tapped"  NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout x:Name="stacksearch"  Orientation="Horizontal" HorizontalOptions="CenterAndExpand" IsVisible="False">
+                    <StackLayout x:Name="SearchByItemName" Spacing="2" BackgroundColor="#FCD120" Orientation="Horizontal">
+                        <controls:FontAwesome Margin="15,0,0,0" FontSize="18" FontAttributes="None" HorizontalOptions="StartAndExpand"  TextColor="Black"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FASearch}" />
+                        <Button  Margin="0,0,15,0" Text="Product" Clicked="SearchByItemName_Clicked"    
+                        TextColor="Black"  BackgroundColor="#FCD120" FontSize="Small" FontAttributes="Bold" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SearchByItemName_Clicked" NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <StackLayout x:Name="SearchBySubstitute" Spacing="2" BackgroundColor="#FCD120" Orientation="Horizontal">
+                        <controls:FontAwesome Margin="15,0,0,0"  FontSize="18" FontAttributes="None" HorizontalOptions="StartAndExpand"  TextColor="Black"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FASearch}" />
+                        <Button Text="Molecule"  FontSize="Small" TextColor="Black"  Clicked="SearchBySubstitute_Clicked"  
+                         Margin="0,0,15,0" BackgroundColor="#FCD120" FontAttributes="Bold"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SearchBySubstitute_Clicked" NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </StackLayout>
+
+                <ListView x:Name="itemlst" IsVisible="False" HasUnevenRows="True" ItemSelected="Itemlst_ItemSelected">
+                    <ListView.Header>
+                        <StackLayout Orientation="Horizontal" Margin="8,1,8,1" BackgroundColor="Transparent">
+                            <Label Text="In Stock" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="Small" TextColor="Green"/>
+                            <Label Text="Low Stock" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Small" TextColor="Blue"/>
+                            <Label Text="No Stock" HorizontalOptions="EndAndExpand" FontAttributes="Bold" FontSize="Small" TextColor="Red"/>
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="5" HeightRequest="88" Margin="6,4,6,4" BorderColor="#A9A9A9" BackgroundColor="White" >
+                                    <StackLayout  Padding="5" Orientation="Vertical">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label  Text="{Binding itemname}" FontSize="Small"  VerticalOptions="FillAndExpand"  TextColor="{Binding frmstockcolor }"/>
+                                            <Label TextColor="White" Text="{Binding stock}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" BackgroundColor="{Binding frmstockcolor }" WidthRequest="40" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" >
+                                            <Label Text="{Binding packsize}" HorizontalOptions="Start"  FontSize="Small" TextColor="Black"  />
+                                            <Label Text="{Binding manufacturer}" HorizontalOptions="EndAndExpand"  FontSize="Small" TextColor="Black"  />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Spacing="2" >
+                                            <Label Text="{Binding Scheme}" HorizontalOptions="Start"  FontSize="Small" TextColor="Black"  />
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="15" >
+                                                <StackLayout Orientation="Horizontal"  >
+                                                    <Label Text="MRP:" TextColor="Black" HorizontalTextAlignment="Center" FontSize="Small"/>
+                                                    <Label  Text="{Binding mrp}" HorizontalTextAlignment="Center" FontSize="Small"    TextColor="Black" />
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal"  >
+                                                    <Label Text="PTR :" TextColor="Black" HorizontalTextAlignment="Center" FontSize="Small" />
+                                                    <Label Text="{Binding ptr}"  HorizontalTextAlignment="Center"  TextColor="Black"   FontSize="Small" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <StackLayout x:Name="stcksublst" Margin="6,5,6,5" VerticalOptions="FillAndExpand" IsVisible="False">
+                    <Frame Padding="3"  Margin="6,5,6,5"  BackgroundColor="White" >
+                        <StackLayout Padding="3" Margin="10,0,10,0" Orientation="Vertical"  >
+                            <StackLayout Orientation="Horizontal" >
+                                <Label x:Name="lblitemname" HorizontalOptions="FillAndExpand"  FontSize="Small" TextColor="#A41919"  />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" >
+                                <Label Text="Mfg:"  TextColor="Black" FontSize="Small"/>
+                                <Label x:Name="lblmanufacturer"  HorizontalOptions="FillAndExpand"  FontSize="Small" TextColor="Black"  />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Pack :" TextColor="Black"/>
+                                            <Label x:Name="lblpacksize"  TextColor="Green" FontSize="Small"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Scm:" TextColor="Black"/>
+                                            <Label x:Name="lblScheme"  TextColor="Green" FontSize="Small"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical">
+                                        <StackLayout Orientation="Horizontal"  >
+                                            <Label Text="MRP:" TextColor="Black" FontSize="Small"/>
+                                            <Label x:Name="lblmrp" Text="{Binding mrp}" FontSize="Small" TextColor="Green"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Box:" TextColor="Black"/>
+                                            <Label x:Name="lblboxsize"  TextColor="Green" FontSize="Small"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" Margin="0,0,0,5" >
+                                        <StackLayout Orientation="Horizontal" WidthRequest="95" HeightRequest="20" HorizontalOptions="EndAndExpand" >
+                                            <Label Text="Stock:"  TextColor="Black" FontSize="Small"/>
+                                            <Frame x:Name="lblfrmstockcolor"  Padding="0" HeightRequest="20"  CornerRadius="3">
+                                                <Label x:Name="lblstock1" Margin="5,0,5,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  TextColor="White" FontSize="Small"/>
+                                            </Frame>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal"  >
+                                            <Label Text="PTR:" TextColor="Black"  FontSize="Small" />
+                                            <Label x:Name="lblptr"  TextColor="Green"  FontSize="Small" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Button  Text="-" TextColor="White" BackgroundColor="#0EB1F8" Clicked="MinusButton_Clicked" HeightRequest="35"  WidthRequest="35" FontSize="14" FontAttributes="Bold" />
+                                <Entry x:Name="lstentry"  MaxLength="4"  Margin="-5,-8,0,0" WidthRequest="45" HeightRequest="35" TextColor="Blue"
+                                                 Keyboard="Numeric" ReturnType="Done"   Completed="ItemEntry_Completed"  FontSize="Medium"  HorizontalTextAlignment="Center" TextChanged="Lstentry_TextChanged"      BackgroundColor="White" />
+                                <Button  Text="+" BackgroundColor="#0EB1F8" TextColor="White" Clicked="PlusButton_Clicked" HeightRequest="35" WidthRequest="35"  FontSize="14" FontAttributes="Bold" />
+                                <Button x:Name="addtocart" FontAttributes="Bold" BackgroundColor="#0EB1F8" HorizontalOptions="EndAndExpand" TextColor="White" FontSize="12" Text="ADD TO CART" HeightRequest="35" WidthRequest="150"  Clicked="AddTocart_Clicked"  />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout >
+                    <ListView x:Name="lst2" IsVisible="False" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Padding="5" HeightRequest="88" Margin="6,4,6,4" BorderColor="#A9A9A9" BackgroundColor="White" >
+                                        <StackLayout  Padding="5" Orientation="Vertical">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="{Binding itemname}" FontSize="Small" TextColor="#A41919" VerticalOptions="FillAndExpand" ></Label>
+                                                <ImageButton Source="Remove.png" CommandParameter="{Binding itemid}" HorizontalOptions="EndAndExpand"  BackgroundColor="Transparent" WidthRequest="20" HeightRequest="20" Clicked="Remove_Clicked"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Pack :" TextColor="Black"/>
+                                                        <Label Text="{Binding packsize}" TextColor="Green" FontSize="Small"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Scheme:" TextColor="Black"/>
+                                                        <Label  Text="{Binding Scheme}" TextColor="Green" FontSize="Small"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="PTR:" TextColor="Black" FontSize="Small" />
+                                                        <Label Text="{Binding ptr } "  TextColor="Green" FontSize="Small" />
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Box:" TextColor="Black"/>
+                                                        <Label  Text="{Binding boxsize}" TextColor="Green" FontSize="Small"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                                <StackLayout HorizontalOptions="EndAndExpand"  Orientation="Vertical">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="MRP:" TextColor="Black" FontSize="Small" />
+                                                        <Label Text="{Binding mrp}" TextColor="Green" FontSize="Small" />
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Qty:"  TextColor="Black" FontSize="Small"/>
+                                                        <Entry Placeholder="Qty" Text="{Binding qty}"  Margin="-5,-6,0,0" WidthRequest="45" HeightRequest="35" PlaceholderColor="#A41919" TextColor="Blue"
+                                                       Keyboard="Numeric" FontSize="Small"  HorizontalTextAlignment="Center" TextChanged="Entry_TextChanged"  BackgroundColor="White" />
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <StackLayout x:Name="stckgrandtotal" Orientation="Horizontal" VerticalOptions="End"  HorizontalOptions="End" IsVisible="False" Margin="0,0,40,0">
+                    <Label Text="Grand Total : ₹" TextColor="#ff3c00" Font="Bold" FontSize="Medium"/>
+                    <Label x:Name="lbgrandtotal" TextColor="#ff3c00" Font="Bold" FontSize="Medium"/>
+                </StackLayout>
+                <StackLayout x:Name="stckbutton" IsVisible="False" VerticalOptions="End"  HorizontalOptions="CenterAndExpand" Margin="20,0,20,20"  Orientation="Horizontal">
+                    <Button x:Name="btncancel" Text="Cancel" Style="{StaticResource buttonstyle}" WidthRequest="150"  Clicked="Btncancel_Clicked"/>
+                    <Button x:Name="btnconfirm" Text="Confirm" Style="{StaticResource buttonstyle}" WidthRequest="150" Clicked="Btnconfirm_Clicked"/>
+                </StackLayout>
+                <StackLayout x:Name="stkgotocart" VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,10">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" >
+                        <Button x:Name="btndraft" Text="Draft" WidthRequest="150" Style="{StaticResource buttonstyle}"  Clicked="Btndraft_Clicked"/>
+                        <Button x:Name="btngotocart" Text="Go To Cart" WidthRequest="150"  Style="{StaticResource buttonstyle}"  Clicked="Btngotocart_Clicked"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="1" WidthRequest="250" HeightRequest="85" >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" >
+                            <ActivityIndicator x:Name="progessbar"  VerticalOptions="Center" HorizontalOptions="Center" Color="#FFA500"/>
+                            <Label x:Name="lblLoadingText" TextColor="Green" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Loading..."/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

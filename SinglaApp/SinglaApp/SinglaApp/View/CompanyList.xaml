@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SinglaApp.Renders"
+             x:Class="SinglaApp.View.CompanyList"
+              x:Name="currentPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" >
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Horizontal" Style="{x:StaticResource navigationcolorstyle}" HeightRequest="60" >
+                    <controls:FontAwesome x:Name="backbutton" FontSize="25" FontAttributes="None"  Margin="15,0,0,0" TextColor="White"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAArrowLeft}" >
+                        <controls:FontAwesome.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Backbutton_Tapped"  NumberOfTapsRequired="1"/>
+                        </controls:FontAwesome.GestureRecognizers>
+                    </controls:FontAwesome>
+                    <Label x:Name="lblneworder" Text="Company List" IsVisible="True" FontAttributes="Bold" FontSize="20" TextColor="White" Margin="13,13,0,0" />
+                    <controls:FontAwesome x:Name="search" FontSize="28" FontAttributes="None" HorizontalOptions="EndAndExpand" Margin="0,0,10,0" TextColor="White"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FASearch}" >
+                        <controls:FontAwesome.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="search_Tapped"  NumberOfTapsRequired="1"/>
+                        </controls:FontAwesome.GestureRecognizers>
+                    </controls:FontAwesome>
+                </StackLayout>
+                <StackLayout x:Name="searchbar" Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="False" Padding="1"  BackgroundColor="#FFFFE0" >
+                    <controls:FontAwesome x:Name="searchbarbackbutton" FontSize="25" FontAttributes="None"  Margin="15,0,0,0" TextColor="Gray"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAArrowLeft}" >
+                        <controls:FontAwesome.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="searchbarbackbutton_Tapped"  NumberOfTapsRequired="1"/>
+                        </controls:FontAwesome.GestureRecognizers>
+                    </controls:FontAwesome>
+                    <SearchBar Margin="-15,0,0,0" x:Name="searchbar1"  TextColor="#FFA449" HorizontalOptions="FillAndExpand" Placeholder="Enter Product Name" VerticalOptions="FillAndExpand"   TextChanged="Searchbar1_TextChanged"/>
+                </StackLayout>
+                <StackLayout x:Name="stacksearch"  Orientation="Horizontal" HorizontalOptions="CenterAndExpand" IsVisible="False">
+                    <StackLayout x:Name="SearchByCompany" Spacing="2" BackgroundColor="#FCD120" Orientation="Horizontal">
+                        <controls:FontAwesome Margin="15,0,0,0"  FontSize="18" FontAttributes="None" HorizontalOptions="StartAndExpand"  TextColor="Black"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FASearch}" />
+                        <Button Text="Company" Margin="0,0,15,0" Clicked="SearchByCompany_Clicked" TextColor="Black"  BackgroundColor="#FCD120" FontSize="Small" FontAttributes="Bold" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SearchByCompany_Clicked" NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <StackLayout x:Name="SearchByItemName" Spacing="2" BackgroundColor="#FCD120" Orientation="Horizontal">
+                        <controls:FontAwesome Margin="15,0,0,0" FontSize="18" FontAttributes="None" HorizontalOptions="StartAndExpand"  TextColor="Black"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FASearch}" />
+                        <Button  Margin="0,0,15,0" Text="Product" Clicked="SearchByItemName_Clicked" TextColor="Black"  BackgroundColor="#FCD120" FontSize="Small" FontAttributes="Bold" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SearchByItemName_Clicked" NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout x:Name="Stmainlayout" >
+                    <ListView  ItemsSource="{Binding completelist}"   x:Name="comptlist"  IsGroupingEnabled="True" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Padding="5" Margin="45,1,10,1" BackgroundColor="White" BorderColor="#A9A9A9" CornerRadius="3">
+                                        <StackLayout Orientation="Horizontal" >
+                                            <StackLayout Orientation="Vertical" Margin="15,0,10,0">
+                                                    <Label Text="{Binding itemname}" FontSize="Small"  TextColor="Black" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.GroupHeaderTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Padding="5" Margin="8,2,8,2" BackgroundColor="White" BorderColor="#A9A9A9"  >
+                                        <RelativeLayout  Padding="5" >
+                                            <StackLayout  Orientation="Horizontal" Margin="40,0,10,0">
+                                                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Label Text="{Binding manufacturer}" FontSize="Small" TextColor="Black" FontAttributes="Bold"/>
+                                                    </StackLayout>
+                                            </StackLayout>
+                                            <Image x:Name="StateImage" PropertyChanged="StateImage_PropertyChanged"
+                                       Source="{Binding StateIcon}" 
+                                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, 
+                                       Property=Width,  Factor=0.02}"
+                                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, 
+                                       Property=Width, Factor=0.005}"/>
+                                            <RelativeLayout.GestureRecognizers>
+                                                <TapGestureRecognizer   Command="{Binding Source={x:Reference currentPage}, Path=BindingContext.HeaderClickCommand}"   NumberOfTapsRequired="1" CommandParameter="{Binding .}"/>
+                                            </RelativeLayout.GestureRecognizers>
+                                        </RelativeLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.GroupHeaderTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="1" WidthRequest="250" HeightRequest="85" >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" >
+                            <ActivityIndicator x:Name="progessbar"  VerticalOptions="Center" HorizontalOptions="Center" Color="#FFA500"/>
+                            <Label x:Name="lblLoadingText" TextColor="Green" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

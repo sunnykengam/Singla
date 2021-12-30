@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SinglaApp"
+             xmlns:controls="clr-namespace:SinglaApp.Renders"
+             x:Class="SinglaApp.View.MainPage"
+             NavigationPage.HasNavigationBar="False"
+           >
+    <!--<ContentPage.Resources>
+        <StyleSheet Source="/Stylesheets/vahplstyles.css"/>
+    </ContentPage.Resources>-->
+    <!--<ContentPage.BackgroundColor>
+        <OnPlatform x:TypeArguments="Color"
+                    iOS="Navy"
+                    Android="Yellow"
+                    />
+    </ContentPage.BackgroundColor>-->
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Image x:Name="loginimage" Margin="0,50,0,0"  Source="Logo.png"  HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="200" WidthRequest="300"/>
+                <StackLayout  Orientation="Horizontal"   HorizontalOptions="CenterAndExpand" Margin="15,30,15,20" Spacing="-8"  >
+                    <Image x:Name="SalesmanLogin" Source="Saleslogo.png" HeightRequest="180" WidthRequest="150" BackgroundColor="Transparent">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="saleslogin_Clicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image x:Name="CustomerLogin"  Source="CustLogo.png" HeightRequest="180" WidthRequest="150" BackgroundColor="Transparent"  >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="customerLogin_Clicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+            </StackLayout>
+
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="1" WidthRequest="250" HeightRequest="85" >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" >
+                            <ActivityIndicator x:Name="progessbar"  VerticalOptions="Center" HorizontalOptions="Center" Color="#FFA500"/>
+                            <Label x:Name="lblLoadingText" TextColor="Green" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Loading..."/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

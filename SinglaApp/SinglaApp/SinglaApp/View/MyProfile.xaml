@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SinglaApp.Renders"
+             x:Class="SinglaApp.View.MyProfile"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="WhiteSmoke">
+            <StackLayout Style="{x:StaticResource navigationcolorstyle}"  >
+                <Image  Source="ProfileImage.png" WidthRequest="100" HeightRequest="100"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                <Label Text="" x:Name="lbname" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
+            </StackLayout>
+            <ScrollView>
+                <StackLayout Margin="20,10,20,40" x:Name="mainstack" BackgroundColor="WhiteSmoke" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                    <StackLayout HorizontalOptions="Start"  Spacing="10" Orientation="Horizontal">
+                        <controls:FontAwesome x:Name="Font_Customer" WidthRequest="50" FontSize="35"  TextColor="#21CE99" VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAUser}" />
+                        <StackLayout  Orientation="Vertical">
+                            <Label x:Name="lblsalesname" Text="Customer Name:" TextColor="Black" FontSize="Small"/>
+                            <Label Text="" x:Name="Lbcustname" TextColor="Black" FontSize="Small" FontAttributes="Bold" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout  HorizontalOptions="Start" Spacing="10" Orientation="Horizontal">
+                        <controls:FontAwesome x:Name="Font_custcode" WidthRequest="50" FontSize="35"  TextColor="#21CE99" VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FACodepen}" />
+                        <StackLayout  Orientation="Vertical">
+                            <Label x:Name="lblsalescode" Text="Customer code:" TextColor="Black" FontSize="Small"/>
+                            <Label Text="" x:Name="Lbcustcode" TextColor="Black" FontSize="Small" FontAttributes="Bold" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout   HorizontalOptions="Start" Spacing="10" Orientation="Horizontal">
+                        <controls:FontAwesome x:Name="Font_Address" WidthRequest="50" FontSize="35"  TextColor="#21CE99" VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FASitemap}" />
+                        <StackLayout   Orientation="Vertical">
+                            <Label Text="Address:" TextColor="Black" FontSize="Small"/>
+                            <Label Text="" x:Name="Lbaddress" WidthRequest="250" TextColor="Black" FontSize="Small" FontAttributes="Bold" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="Start" Spacing="10" Orientation="Horizontal">
+                        <controls:FontAwesome x:Name="Font_Email" WidthRequest="50" FontSize="35"  TextColor="#21CE99" VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAEnvelope}" />
+                        <StackLayout   Orientation="Vertical">
+                            <Label Text="Email Address:" TextColor="Black" FontSize="Small"/>
+                            <Label Text="" x:Name="LbEmail" TextColor="Black" FontSize="Small" FontAttributes="Bold" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="Start" Spacing="10" Orientation="Horizontal">
+                        <controls:FontAwesome x:Name="Font_Phone" WidthRequest="50" FontSize="35"  TextColor="#21CE99" VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAPhoneSquare}" />
+                        <StackLayout   Orientation="Vertical">
+                            <Label Text="Phone number:" TextColor="Black" FontSize="Small"/>
+                            <Label Text="" x:Name="LbPhonenumber" TextColor="Black" FontSize="Small" FontAttributes="Bold" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" x:Name="stkcustdetail" IsVisible="False">
+                        <StackLayout HorizontalOptions="Start" Spacing="10" Orientation="Horizontal">
+                            <controls:FontAwesome x:Name="Font_dlnumber" WidthRequest="50" FontSize="35"  TextColor="#21CE99" VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAQrcode}" />
+                            <StackLayout   Orientation="Vertical">
+                                <Label Text="DL Number:" TextColor="Black" FontSize="Small"/>
+                                <Label Text="" x:Name="lbldlnumber" TextColor="Black" FontSize="Small" FontAttributes="Bold" />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Start" Spacing="10" Orientation="Horizontal">
+                            <controls:FontAwesome x:Name="Font_GST" WidthRequest="50" FontSize="35"  TextColor="#21CE99" VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FASortNumericAsc}" />
+                            <StackLayout   Orientation="Vertical">
+                                <Label Text="GST Number:" TextColor="Black" FontSize="Small"/>
+                                <Label Text="" x:Name="lblgstnumber" TextColor="Black" FontSize="Small" FontAttributes="Bold" />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Start" Spacing="10" Orientation="Horizontal">
+                            <controls:FontAwesome x:Name="Font_DLexp" WidthRequest="50" FontSize="35"  TextColor="#21CE99" VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FACalendar}" />
+                            <StackLayout   Orientation="Vertical">
+                                <Label Text="DL Expiry date:" TextColor="Black" FontSize="Small"/>
+                                <Label Text="" x:Name="lbldlexpirydate" TextColor="Black" FontSize="Small" FontAttributes="Bold" />
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

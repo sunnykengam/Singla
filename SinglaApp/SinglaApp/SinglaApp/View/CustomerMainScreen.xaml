@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SinglaApp.View.CustomerMainScreen" 
+             xmlns:controls="clr-namespace:SinglaApp.Renders"
+             Title="Singla Medicos"
+             BackgroundColor="White"
+           >
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="Stmainlayout" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Label  x:Name="lblstoklist" Text="" BackgroundColor="Transparent" Margin="0,30,0,30" FontAttributes="Bold" FontSize="Small" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <ScrollView>
+                    <Grid  RowSpacing="15" HorizontalOptions="CenterAndExpand"   VerticalOptions="CenterAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="5*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100*"/>
+                            <ColumnDefinition Width="100*"/>
+                        </Grid.ColumnDefinitions>
+                        <Frame Grid.Row="0" Grid.Column="0" CornerRadius="10"  BackgroundColor="#21CE99">
+                            <StackLayout  x:Name="neworders" Spacing="-5">
+                                <controls:FontAwesome x:Name="Font_Neworder"  Style="{x:StaticResource fontcolorstyle}" FontSize="40"   HorizontalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAPhoneSquare}">
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="neworders_Clicked"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Button Text="New Orders"  FontSize="12"  FontAttributes="Bold"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="White" Clicked="neworders_Clicked" />
+                            </StackLayout>
+                        </Frame>
+                        <Frame Grid.Row="0" Grid.Column="1" CornerRadius="10"  BackgroundColor="#4392F9">
+                            <StackLayout  x:Name="Orders" Spacing="-5">
+                                <controls:FontAwesome x:Name="Font_Orders" Style="{x:StaticResource fontcolorstyle}" FontSize="40"   HorizontalOptions="CenterAndExpand"  Text="{x:Static controls:Icon.FAOpencart}" >
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Orders_Clicked"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Button  Text="Orders"  FontSize="12"  FontAttributes="Bold"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="White" Clicked="Orders_Clicked"/>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Grid.Row="1" Grid.Column="0" CornerRadius="10"  BackgroundColor="#FFBF00">
+                            <StackLayout  x:Name="SyncUpdatedata" Spacing="-5">
+                                <controls:FontAwesome x:Name="Font_SyncUpdatedata" Style="{x:StaticResource fontcolorstyle}" FontSize="40"   HorizontalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FARepeat}" >
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="SyncUpdatedata_Clicked"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Button  Text="Sync"  FontSize="12"  FontAttributes="Bold"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="White" Clicked="SyncUpdatedata_Clicked"/>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Grid.Row="1" Grid.Column="1" CornerRadius="10"  BackgroundColor="#CD5C5C">
+                            <StackLayout  x:Name="Inventory" Spacing="-5">
+                                <controls:FontAwesome x:Name="Font_Inventory" Style="{x:StaticResource fontcolorstyle}" FontSize="40"   HorizontalOptions="CenterAndExpand"  Text="{x:Static controls:Icon.FAInventory}">
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Inventory_Clicked"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Button Text="Inventory/Item"  FontSize="12"  FontAttributes="Bold"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="White" Clicked="Inventory_Clicked"/>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Grid.Row="2" Grid.Column="0" CornerRadius="10"  BackgroundColor="#4392F9">
+                            <StackLayout  x:Name="CompanyList" Spacing="-5">
+                                <controls:FontAwesome x:Name="Font_CompanyList" Style="{x:StaticResource fontcolorstyle}" FontSize="40"   HorizontalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAAngellist}" >
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="CompanyList_Clicked"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Button  Text="Company/Item List" FontSize="12"  FontAttributes="Bold" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="White" Clicked="CompanyList_Clicked"/>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Grid.Row="2" Grid.Column="1" CornerRadius="10"  BackgroundColor="#21CE99">
+                            <StackLayout x:Name="PendingOrders" Spacing="-5">
+                                <controls:FontAwesome  x:Name="Font_PendingOrders"  Style="{x:StaticResource fontcolorstyle}" FontSize="40"   HorizontalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAPending}" >
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="PendingOrders_Clicked"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Button Text="Pending Orders"  FontSize="12"  FontAttributes="Bold"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="White" Clicked="PendingOrders_Clicked"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Grid.Row="3" Grid.Column="0" CornerRadius="10"  BackgroundColor="#3BCDE2">
+                            <StackLayout  x:Name="PendingBill" Spacing="-5">
+                                <controls:FontAwesome  x:Name="Font_PendingBill" Style="{x:StaticResource fontcolorstyle}" FontSize="40"   HorizontalOptions="CenterAndExpand"  Text="{x:Static controls:Icon.FAinvoicedollar}" >
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="PendingBill_Clicked"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Button  Text="Pending Bill"  FontSize="12"  FontAttributes="Bold"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="White" Clicked="PendingBill_Clicked"/>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Grid.Row="3" Grid.Column="1" CornerRadius="10"  BackgroundColor="#008080">
+                            <StackLayout x:Name="newproducts" Spacing="-5">
+                                <controls:FontAwesome x:Name="Font_Newproducts" Style="{x:StaticResource fontcolorstyle}" FontSize="40"   HorizontalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAThList}" >
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Newproducts_Clicked"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Button  Text="New Products"  FontSize="12"  FontAttributes="Bold"   BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="White" Clicked="Newproducts_Clicked"/>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Grid.Row="4" Grid.Column="0" CornerRadius="10"  BackgroundColor="#21CE99">
+                            <StackLayout  x:Name="OrderHistory" Spacing="-5">
+                                <controls:FontAwesome x:Name="Font_OrderHistory" Style="{x:StaticResource fontcolorstyle}" FontSize="40"   HorizontalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAFileText}" >
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OrderHistory_Clicked"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Button  Text="Order History"   FontSize="12"  FontAttributes="Bold"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="White" Clicked="OrderHistory_Clicked"/>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Grid.Row="4" Grid.Column="1" CornerRadius="10"  BackgroundColor="#5773FF">
+                            <StackLayout  x:Name="Feedback" Spacing="-5">
+                                <controls:FontAwesome x:Name="Font_Feedback" Style="{x:StaticResource fontcolorstyle}" FontSize="40"   HorizontalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAFeedback}" >
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Feedback_Clicked"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Button  Text="Feed Back" FontSize="12"  FontAttributes="Bold"   BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="White" Clicked="Feedback_Clicked"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <StackLayout  Grid.Row="5" Grid.ColumnSpan="3"  HorizontalOptions="Center" Orientation="Horizontal" Margin="10,20,10,0">
+                            <Label x:Name="lblsyncMessage" Text="Do sync icon for latest updates" BackgroundColor="Transparent" FontAttributes="Bold" FontSize="Medium"/>
+                        </StackLayout>
+                    </Grid>
+                </ScrollView>
+            </StackLayout>
+            <ContentView x:Name="versionupdate" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Frame  Padding="40" BorderColor="Green" CornerRadius="15">
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="New version Available,do you want to update it?" FontSize="Small" WidthRequest="200" TextColor="Black" FontAttributes="Bold"/>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Button x:Name="versupdate"  Clicked="Versupdate_Clicked" Text="Update" TextColor="White" BackgroundColor="Green" FontAttributes="Bold" FontSize="Small"/>
+                                <Button x:Name="verscancel"  Clicked="Verscancel_Clicked" Text="Cancel" TextColor="White" BackgroundColor="Green" FontAttributes="Bold" FontSize="Small"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+            <ContentView x:Name="popupLocation" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Frame BackgroundColor="White"  Padding="1" WidthRequest="280" HeightRequest="280" >
+                        <StackLayout>
+                            <StackLayout BackgroundColor="#EE782D" HeightRequest="35">
+                                <StackLayout HorizontalOptions="Center" Orientation="Horizontal" VerticalOptions="Center">
+                                    <Label Text="Current Location"  TextColor="White" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" FontSize="Small" />
+                                    <Image Source="location.png" HorizontalOptions="EndAndExpand" HeightRequest="25" Margin="50,3,2,2"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center" >
+                                <Label x:Name="lblLocation" TextColor="Green" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                <Button x:Name="btnlocation" TextColor="White" Text="Ok" BackgroundColor="#EE782D" WidthRequest="60" Clicked="Btnlocation_Clicked" HeightRequest="35" FontSize="Micro"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Frame x:Name="frameprogessbar" BackgroundColor="White" CornerRadius="5" Padding="1" WidthRequest="250" HeightRequest="85" >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" >
+                            <ActivityIndicator x:Name="progessbar" Margin="10,0,0,0"  VerticalOptions="Center" HorizontalOptions="Center" Color="#FFA500"/>
+                            <Label x:Name="lblLoadingText" TextColor="Green" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

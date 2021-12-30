@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SinglaApp.Renders"
+             x:Class="SinglaApp.View.Inventory"
+             NavigationPage.HasNavigationBar="True"
+             Title="Inventory"
+             BackgroundColor="#FFF8DC">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="search.png" x:Name="search"  Clicked="search_Tapped" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="searchbar" Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="False" Padding="1"  BackgroundColor="#FFFFE0" >
+                <controls:FontAwesome x:Name="searchbarbackbutton" FontSize="25" FontAttributes="None"  Margin="15,0,0,0" TextColor="Gray"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAArrowLeft}" >
+                    <controls:FontAwesome.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="searchbarbackbutton_Tapped"  NumberOfTapsRequired="1"/>
+                    </controls:FontAwesome.GestureRecognizers>
+                </controls:FontAwesome>
+                <SearchBar Margin="-15,0,0,0" x:Name="searchbar1"  TextColor="#FFA449" HorizontalOptions="FillAndExpand" Placeholder="Enter Itemname" VerticalOptions="FillAndExpand"   TextChanged="Searchbar_TextChanged"/>
+            </StackLayout>
+            <StackLayout x:Name="invstk" IsVisible="False" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Frame BackgroundColor="White" CornerRadius="10" Padding="1" BorderColor="#C90047" WidthRequest="110" HeightRequest="50" >
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <Label Text="From Date" TextColor="#0000FF" FontSize="14" />
+                        <controls:DatePickerCtrl MaximumDate="{Binding ExpenseDate}" FontSize="14"    Format="dd-MM-yyyy" DateSelected="StartDatePicker_DateSelected"    WidthRequest="95" x:Name="startDatePicker"/>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="White" CornerRadius="10" Padding="2" BorderColor="#C90047" WidthRequest="110" HeightRequest="50" >
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <Label Text="To Date" TextColor="#0000FF" FontSize="14" />
+                        <controls:DatePickerCtrl MaximumDate="{Binding ExpenseDate}" FontSize="14"   Format="dd-MM-yyyy" DateSelected="EndDatePicker_DateSelected"    WidthRequest="95" x:Name="endDatePicker"/>
+                    </StackLayout>
+                </Frame>
+                <Button x:Name="getdate" Text="Ok" CornerRadius="5" TextColor="White" FontSize="Small" BackgroundColor="#6F63E1" Clicked="Getdate_Clicked" WidthRequest="60" HeightRequest="45"/>
+            </StackLayout>
+            <ListView x:Name="inventoryList"  HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="3" Margin="6,5,6,5" CornerRadius="5" BorderColor="#A9A9A9" BackgroundColor="White" >
+                                <StackLayout Padding="3" Margin="10,0,10,0" Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical">
+                                        <!--<Frame WidthRequest="150" Padding="0" HasShadow="False" HeightRequest="15" >-->
+                                            <Label Text="{Binding itemname}" HorizontalOptions="FillAndExpand"  FontSize="Small" TextColor="#A41919"  />
+                                        <!--</Frame>-->
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                                <Label Text="Pack:" TextColor="Black"  VerticalTextAlignment="Center" FontSize="Small"/>
+                                                <Label Text="{Binding packsize}" VerticalTextAlignment="Center"  FontSize="Small"  TextColor="#0000FF"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                                <StackLayout Orientation="Horizontal" WidthRequest="80">
+                                                    <Label Text="Scm:" MinimumWidthRequest="40" TextColor="Black" VerticalTextAlignment="Center"  FontSize="Small"/>
+                                                    <Label Text="{Binding Scheme}" FontSize="Small" VerticalTextAlignment="Center"  TextColor="#0000FF"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal"  >
+                                                    <Label Text="Box:" TextColor="Black" VerticalTextAlignment="Center" FontSize="Small"/>
+                                                    <Label  Text="{Binding boxsize}"  VerticalTextAlignment="Center" FontSize="Small" TextColor="#0000FF"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <Label Text="{Binding manufacturer}"  TextColor="Black" FontSize="Small" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" WidthRequest="90" HorizontalOptions="EndAndExpand">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
+                                            <Label Text="Stock:"  TextColor="Black" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" FontSize="Small"/>
+                                            <Frame BackgroundColor="{Binding frmstockcolor}" Padding="0" WidthRequest="40"  CornerRadius="3">
+                                                <Label Margin="5,0,5,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="{Binding stock}" TextColor="White" FontSize="Small"/>
+                                            </Frame>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
+                                            <Label Text="PTR:" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center"  FontSize="Small" />
+                                            <Label Text="{Binding ptr } " VerticalTextAlignment="Center" TextColor="#0000FF"  FontSize="Small" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand"  >
+                                            <Label Text="MRP:" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center"  FontSize="Small" />
+                                            <Label Text="{Binding mrp}" VerticalTextAlignment="Center"  TextColor="#0000FF"  FontSize="Small" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

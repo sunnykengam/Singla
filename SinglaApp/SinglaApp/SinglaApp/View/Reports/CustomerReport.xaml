@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SinglaApp.Renders"
+             x:Class="SinglaApp.View.Reports.CustomerReport" 
+             Title="Reports"
+             BackgroundColor="White"
+             >
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="Stmainlayout" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout x:Name="stbtn1"  Orientation="Horizontal"  Margin="10,0,10,0">
+                    <StackLayout x:Name="Collection" HorizontalOptions="StartAndExpand" WidthRequest="150" Spacing="-5">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Collection_Clicked"  NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                        <controls:FontAwesome x:Name="Font_Neworder"  FontSize="45"  Style="{x:StaticResource fontcolorstyle}"  HorizontalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAPhoneSquare}"/>
+                        <Label Text="Collection Report" FontAttributes="Bold"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="Black"  />
+                    </StackLayout>
+                    <StackLayout x:Name="SummaryOrder"  HorizontalOptions="StartAndExpand" WidthRequest="150" Spacing="-5">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SummaryOrder_Clicked"  NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                        <controls:FontAwesome x:Name="Font_Inventory" FontSize="45"  Style="{x:StaticResource fontcolorstyle}"  HorizontalOptions="CenterAndExpand"  Text="{x:Static controls:Icon.FAInventory}"/>
+                        <Label Text="Summary Order"  FontAttributes="Bold" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                    </StackLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="1" WidthRequest="250" HeightRequest="85" >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" >
+                            <ActivityIndicator x:Name="progessbar"  VerticalOptions="Center" HorizontalOptions="Center" Color="#FFA500"/>
+                            <Label x:Name="lblLoadingText" TextColor="Green" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Please Wait..."/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

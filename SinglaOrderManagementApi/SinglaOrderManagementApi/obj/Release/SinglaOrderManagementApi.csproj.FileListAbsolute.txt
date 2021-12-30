@@ -1,0 +1,94 @@
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\SinglaOrderManagementApi.dll.config
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\SinglaOrderManagementApi.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\SinglaOrderManagementApi.pdb
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\csc.exe
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\csc.exe.config
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\csc.rsp
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\csi.exe
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\csi.rsp
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\System.AppContext.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\System.Collections.Immutable.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\System.IO.FileSystem.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\System.Reflection.Metadata.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\vbc.exe
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\vbc.exe.config
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\vbc.rsp
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\VBCSCompiler.exe
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\VBCSCompiler.exe.config
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\Microsoft.Web.Infrastructure.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\Newtonsoft.Json.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\Swashbuckle.Core.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\System.Net.Http.Formatting.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\System.Web.Http.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\System.Web.Http.WebHost.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\WebActivatorEx.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\Newtonsoft.Json.xml
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\System.Net.Http.Formatting.xml
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\System.Web.Http.xml
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\System.Web.Http.WebHost.xml
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\obj\Release\SinglaOrderManagementApi.csprojAssemblyReference.cache
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\obj\Release\SinglaOrderManagementApi.csproj.CoreCompileInputs.cache
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\obj\Release\SinglaOrderManagementApi.csproj.CopyComplete
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\obj\Release\SinglaOrderManagementApi.dll
+D:\VisualStudio2019\SinglaOrderManagementApi\SinglaOrderManagementApi\obj\Release\SinglaOrderManagementApi.pdb
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\SinglaOrderManagementApi.dll.config
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\SinglaOrderManagementApi.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\SinglaOrderManagementApi.pdb
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\csc.exe
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\csc.exe.config
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\csc.rsp
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\csi.exe
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\csi.rsp
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\System.AppContext.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\System.Collections.Immutable.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\System.IO.FileSystem.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\System.Reflection.Metadata.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\vbc.exe
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\vbc.exe.config
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\vbc.rsp
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\VBCSCompiler.exe
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\roslyn\VBCSCompiler.exe.config
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\Microsoft.Web.Infrastructure.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\Newtonsoft.Json.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\Swashbuckle.Core.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\System.Net.Http.Formatting.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\System.Web.Http.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\System.Web.Http.WebHost.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\WebActivatorEx.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\Newtonsoft.Json.xml
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\System.Net.Http.Formatting.xml
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\System.Web.Http.xml
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\System.Web.Http.WebHost.xml
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\obj\Release\SinglaOrderManagementApi.csprojAssemblyReference.cache
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\obj\Release\SinglaOrderManagementApi.csproj.CoreCompileInputs.cache
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\obj\Release\SinglaOrderManagementApi.csproj.CopyComplete
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\obj\Release\SinglaOrderManagementApi.dll
+D:\Bharath\FinelCode\AppCode\Singla Projects\SinglaOrderManagementApi\SinglaOrderManagementApi\obj\Release\SinglaOrderManagementApi.pdb

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SinglaApp.View.Reports.CustomerMonthSale"
+             Title="Month Wise Sale">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="lblcustcodename" Margin="20,10,0,0" TextColor="Black" FontSize="Small" FontAttributes="Bold"/>
+            <StackLayout BackgroundColor="LightBlue" HeightRequest="45" Orientation="Horizontal">
+                <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Margin="20,0,0,0" Text="Month" TextColor="Black" FontAttributes="Bold" FontSize="Small"/>
+                <Label HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="0,0,20,0" Text="Sale Amount" TextColor="Black" FontAttributes="Bold" FontSize="Small"/>
+            </StackLayout>
+            <ListView x:Name="custsalesList" HasUnevenRows="True"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="3" BorderColor="Gray" Margin="6,4,6,4" BackgroundColor="White" >
+                                <StackLayout Orientation="Horizontal"  Margin="5,0,10,0"  Padding="3" >
+                                    <Label HorizontalOptions="StartAndExpand" Text="{Binding mnth}" TextColor="#A41919" FontSize="Small"/>
+                                    <Label HorizontalOptions="EndAndExpand" Text="{Binding sales}" TextColor="Blue" FontSize="Small"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout x:Name="stckgrandtotal"  Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="End" Margin="0,0,40,10">
+                <Label Text="Grand Total : ₹" TextColor="#ff3c00" Font="Bold" FontSize="Medium"/>
+                <Label x:Name="lblsaletotalamount" TextColor="#ff3c00" Font="Bold" FontSize="Medium"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SinglaMedicos.Renders"
+             x:Class="SinglaMedicos.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#21CE99</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style >
+            <Style x:Key="fontcolorstyle" TargetType="controls:FontAwesome">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            <Style x:Key="navigationcolorstyle" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="#21CE99" />
+            </Style>
+
+            <Style x:Key="mainbuttonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BorderRadius" Value="150" />
+                <Setter Property="IsEnabled" Value="True"/>
+                <Setter Property="ContentLayout" Value="Top"/>
+                <Setter Property="WidthRequest" Value="103" />
+                <Setter Property="HeightRequest" Value="103"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style x:Key="mainbuttonStyle1" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#00FF7F"/>
+                <Setter Property="BorderRadius" Value="100" />
+                <Setter Property="IsEnabled" Value="True"/>
+                <Setter Property="ContentLayout" Value="Top"/>
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="HeightRequest" Value="150"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style x:Key="buttonstyle" TargetType="Button"  >
+                <Setter Property="BackgroundColor" Value="#6F63E1"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="WidthRequest" Value="150"/>
+                <Setter Property="HeightRequest" Value="40"/>
+            </Style>
+            <Style x:Key="reportbuttonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BorderRadius" Value="200" />
+                <Setter Property="IsEnabled" Value="True"/>
+                <Setter Property="ContentLayout" Value="Top"/>
+                <Setter Property="WidthRequest" Value="180" />
+                <Setter Property="HeightRequest" Value="103"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style x:Key="entrystyle" TargetType="Entry">
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="TextColor" Value="#323232"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

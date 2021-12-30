@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SinglaMedicos.View.Otif.Delivery"
+             Title="OTIFLogin">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout  x:Name="Stmainlayout" Margin="10,40,10,0" HorizontalOptions="Center" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <Image Source="keimed.png"  Margin="20,10,0,0" WidthRequest="150" HeightRequest="150"  HorizontalOptions="CenterAndExpand"/>
+                    <StackLayout Margin="0,30,0,0" Orientation="Horizontal">
+                        <Label Text="UserName :" FontSize="Medium"/>
+                        <Editor Text="" x:Name="username" HeightRequest="40" BackgroundColor="Transparent" Keyboard="Numeric" WidthRequest="200"/>
+                    </StackLayout>
+                   
+                    <StackLayout>
+                        <Button x:Name="login" Text="LOGIN"  Clicked="Login_Clicked" Style="{StaticResource buttonstyle}"  />
+                    </StackLayout>
+                </StackLayout>
+                <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                        <StackLayout Orientation="Vertical" BackgroundColor="Transparent">
+                            <ActivityIndicator x:Name="progessbar" Margin="0,50,0,0" VerticalOptions="Center" HorizontalOptions="Center" Color="Red"/>
+                            <Label x:Name="lblLoadingText"  FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" Text="Loading..."/>
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

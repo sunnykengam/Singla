@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SinglaMedicos.View.Otif.Customerdetails"
+             Title="Customer Details">
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Margin="20,20,20,20" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="Stmainlayout" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout BackgroundColor="OrangeRed"  Orientation="Horizontal">
+                    <Label x:Name="customecode" WidthRequest="60" Margin="10,5,0,5" TextColor="White"  FontSize="Small"/>
+                    <Label x:Name="customername" Margin="10,5,0,5" TextColor="White"  FontSize="Small" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center" Margin="20,10,0,0">
+                    <StackLayout Orientation="Horizontal" Margin="0,10,0,0" x:Name="addres" IsVisible="False">
+                        <Label Margin="15,0,0,0" Text="Address : " TextColor="Black" Font="Calibri"  FontSize="Medium"/>
+                        <Label  x:Name="address"  Margin="0,4,0,0" TextColor="Black" WidthRequest="200" Font="Calibri" FontSize="Small"/>
+                    </StackLayout>
+                   
+                    <StackLayout Orientation="Horizontal" Margin="0,10,0,0" x:Name="SLPhone" IsVisible="False">
+                        <Label  Text="Phone NO : " TextColor="Black" Font="Calibri"  FontSize="Medium"/>
+                        <Label  x:Name="telephonenumber" TextColor="Black" Font="Calibri" WidthRequest="150" Margin="0,4,0,0"  FontSize="Small"/>
+                    </StackLayout>
+                    <StackLayout x:Name="SLmobilenumber" Margin="0,10,0,0" IsVisible="False" Orientation="Horizontal">
+                        <Label  Text="Mobile No : " TextColor="Black" Font="Calibri"  FontSize="Medium"/>
+                        <Label  x:Name="Mobilenumber" TextColor="Black" Font="Calibri" WidthRequest="200" Margin="0,4,0,0"  FontSize="Small"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                        <Label  Text="DL No : " TextColor="Black" Font="Calibri" Margin="28,0,0,0"  FontSize="Medium"/>
+                        <Label  x:Name="DruglicenceNo" TextColor="Black" Font="Calibri" WidthRequest="150" Margin="0,4,0,0"  FontSize="Small"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Margin="0,13,0,0" HorizontalOptions="Center" Orientation="Horizontal">
+                    <Button x:Name="cancel"   Text="Cancel"  WidthRequest="150" Style="{StaticResource buttonstyle}" Clicked="cancel_Clicked"/>
+                    <Button x:Name="next" Text="Next"   WidthRequest="150" Style="{StaticResource buttonstyle}" Clicked="next_Clicked"/>
+                </StackLayout>
+                <Label Text="If Have Any Questions or concerns Please Contact Us at : 040-23803201 " WidthRequest="300" TextColor="Black"/>
+            </StackLayout>
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <StackLayout Orientation="Vertical" BackgroundColor="Transparent">
+                        <ActivityIndicator x:Name="progessbar" Margin="0,50,0,0" VerticalOptions="Center" HorizontalOptions="Center" Color="Red"/>
+                        <Label x:Name="lblLoadingText"  FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" Text="Loading..."/>
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

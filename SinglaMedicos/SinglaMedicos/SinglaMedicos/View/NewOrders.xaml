@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SinglaMedicos.Renders"
+             x:Class="SinglaMedicos.View.NewOrders"
+             Title="New Order"
+             BackgroundColor="WhiteSmoke">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="search.png" x:Name="search"  Clicked="search_Tapped" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout x:Name="searchbar" Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="False" Padding="1"  BackgroundColor="#FFFFE0" >
+                    <controls:FontAwesome x:Name="searchbarbackbutton" FontSize="25" FontAttributes="None"  Margin="15,0,0,0" TextColor="Gray"   VerticalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAArrowLeft}" >
+                        <controls:FontAwesome.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="searchbarbackbutton_Tapped"  NumberOfTapsRequired="1"/>
+                        </controls:FontAwesome.GestureRecognizers>
+                    </controls:FontAwesome>
+                    <SearchBar Margin="-15,0,0,0" x:Name="searchbar1"  TextColor="#FFA449" HorizontalOptions="FillAndExpand" Placeholder="Enter Name (or) Code" VerticalOptions="FillAndExpand"   TextChanged="Searchbar_TextChanged"/>
+                </StackLayout>
+                <StackLayout x:Name="Stmainlayout" >
+                    <ListView   x:Name="lst" HasUnevenRows="True"  ItemSelected="lst_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Padding="3" Margin="6,4,6,4" BackgroundColor="White" >
+                                        <StackLayout Orientation="Horizontal"  Margin="5,0,10,0"  Padding="3" >
+                                            <Label Text="{Binding customercode}" WidthRequest="65"  FontSize="Small"   TextColor="Black"  Font="Bold"/>
+                                            <Frame Padding="0" WidthRequest="250" BackgroundColor="Transparent">
+                                                <Label Text="{Binding customername}"  HorizontalTextAlignment="Start" FontSize="Small"  TextColor="Black"  Font="Bold"/>
+                                            </Frame>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackLayout x:Name="stcklst1" IsVisible="False"  BackgroundColor="#6F63E1">
+                        <StackLayout Orientation="Horizontal" Spacing="-10" Margin="0,5,0,5" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand">
+                            <StackLayout x:Name="TakeOrder" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"  Spacing="-15">
+                                <controls:FontAwesome x:Name="Font_TakeOrder"  FontSize="18" TextColor="White"  HorizontalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAPending}" >
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TakeOrder_Clicked"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Button Text="Take Order" FontSize="11" FontAttributes="Bold" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="White" Clicked="TakeOrder_Clicked"/>
+                            </StackLayout>
+                            <StackLayout x:Name="Sale" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"  Spacing="-15">
+                                <controls:FontAwesome x:Name="Font_Sale"  FontSize="18"  HorizontalOptions="CenterAndExpand" TextColor="White" Text="{x:Static controls:Icon.FAFileText}" >
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Sale_Clicked"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Button Text="Sale" FontSize="11" BackgroundColor="Transparent" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="White" Clicked="Sale_Clicked"/>
+                            </StackLayout>
+                            <StackLayout x:Name="collectpayment" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" Spacing="-15">
+                                <controls:FontAwesome x:Name="Font_collectpayment"   FontSize="18"   TextColor="White"  HorizontalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FAinvoicedollar}" >
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="CollectPayment_Clicked"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Button Text="Collect Payment" FontSize="11" FontAttributes="Bold" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" TextColor="White" Clicked="CollectPayment_Clicked"/>
+                            </StackLayout>
+                            <StackLayout x:Name="delivery" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Spacing="-15">
+                                <controls:FontAwesome x:Name="Font_Delivery"  FontSize="18"  TextColor="White"  HorizontalOptions="CenterAndExpand" Text="{x:Static controls:Icon.FATruck}" >
+                                    <controls:FontAwesome.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Delivery_Clicked"  NumberOfTapsRequired="1"/>
+                                    </controls:FontAwesome.GestureRecognizers>
+                                </controls:FontAwesome>
+                                <Button Text="Delivery" FontSize="11" BackgroundColor="Transparent" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="White" Clicked="Delivery_Clicked"/>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="1" WidthRequest="250" HeightRequest="85" >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" >
+                            <ActivityIndicator x:Name="progessbar"  VerticalOptions="Center" HorizontalOptions="Center" Color="#FFA500"/>
+                            <Label x:Name="lblLoadingText" TextColor="Green" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
